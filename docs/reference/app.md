@@ -12,7 +12,7 @@ Gets general information of an App, including the name, description, related Spa
 
 | Name| Type| Required| Description |
 | --- | --- | --- | --- |
-| connection | [Connection](./connection) | yes | The kintone connection module
+| connection | [Connection](./connection) | yes | The connection module of this SDK.
 
 **Sample code**
 

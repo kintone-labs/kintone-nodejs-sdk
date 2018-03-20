@@ -8,7 +8,7 @@ Download and upload file via kintone Rest API
 
 | Name| Type| Required| Description |
 | --- | --- | --- | --- |
-| connection | [Connection](./connection) | yes | The kintone connection module
+| connection | [Connection](./connection) | yes | The connection module of this SDK.
 
 **Sample code**
 

@@ -1,6 +1,6 @@
 # Record
 
-Provide functions of [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete), update the record status & assignees in the kintone app
+Provide manipulate functions on records: get, update, delete, update the record status & assignees in the kintone app
 
 ## Constructor
 
@@ -8,7 +8,7 @@ Provide functions of [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_a
 
 | Name| Type| Required| Description |
 | --- | --- | --- | --- |
-| connection | [Connection](./connection) | yes | The kintone connection module
+| connection | [Connection](./connection) | yes | The connection module of this SDK.
 
 **Sample code**
 

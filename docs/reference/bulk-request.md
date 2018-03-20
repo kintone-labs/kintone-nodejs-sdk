@@ -17,7 +17,7 @@ The Bulk Request API allows multiple API requests to run on multiple kintone app
 
 | Name| Type| Required| Description |
 | --- | --- | --- | --- |
-| connection | [Connection](./connection) | yes | The kintone connection module
+| connection | [Connection](./connection) | yes | The connection module of this SDK.
 
 ### **Sample code**
 
