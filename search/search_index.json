@@ -2,7 +2,7 @@
     "docs": [
         {
             "location": "/", 
-            "text": "Home\n\n\n\n\nkintone-node.js-sdk is the SDK of kintone REST API client on Node.js\n\n\n\n\nVersion\n\n\n0.0.1\n\n\nGetting Started\n\n\n\n\nQuickstart\n\n\n\n\nReference\n\n\n\n\nAuthentication\n\n\nConnection\n\n\nRecord\n\n\nBulkRequest\n\n\nApp\n\n\nFile\n\n\nKintoneAPIException\n\n\n\n\nLicense\n\n\nMIT\n\n\nCopyright\n\n\nCopyright(c) Cybozu, Inc.", 
+            "text": "Home\n\n\n\n\nkintone-node.js-sdk is the SDK of kintone REST API client on Node.js\n\n\n\n\nVersion\n\n\n1.0.0\n\n\nGetting Started\n\n\n\n\nQuickstart\n\n\n\n\nReference\n\n\n\n\nAuthentication\n\n\nConnection\n\n\nRecord\n\n\nBulkRequest\n\n\nApp\n\n\nFile\n\n\nKintoneAPIException\n\n\n\n\nLicense\n\n\nMIT\n\n\nCopyright\n\n\nCopyright(c) Cybozu, Inc.", 
             "title": "Home"
         }, 
         {
@@ -12,7 +12,7 @@
         }, 
         {
             "location": "/#version", 
-            "text": "0.0.1", 
+            "text": "1.0.0", 
             "title": "Version"
         }, 
         {
