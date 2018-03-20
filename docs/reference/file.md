@@ -64,7 +64,7 @@ kintoneFile.upload(fullPathFile);
 
 </details>
 
-### download(kintoneFileInfo, outPutFilePath)
+### download(fileKey, outPutFilePath)
 
 > Download file from kintone app to local evironment
 
