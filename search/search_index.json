@@ -1,0 +1,459 @@
+{
+    "docs": [
+        {
+            "location": "/", 
+            "text": "Home\n\n\n\n\nkintone-node.js-sdk is the SDK of kintone REST API client on Node.js\n\n\n\n\nVersion\n\n\n0.0.1\n\n\nGetting Started\n\n\n\n\nQuickstart\n\n\n\n\nReference\n\n\n\n\nAuthentication\n\n\nConnection\n\n\nRecord\n\n\nBulkRequest\n\n\nApp\n\n\nFile\n\n\nKintoneAPIException\n\n\n\n\nLicense\n\n\nMIT\n\n\nCopyright\n\n\nCopyright(c) Cybozu, Inc.", 
+            "title": "Home"
+        }, 
+        {
+            "location": "/#home", 
+            "text": "kintone-node.js-sdk is the SDK of kintone REST API client on Node.js", 
+            "title": "Home"
+        }, 
+        {
+            "location": "/#version", 
+            "text": "0.0.1", 
+            "title": "Version"
+        }, 
+        {
+            "location": "/#getting-started", 
+            "text": "Quickstart", 
+            "title": "Getting Started"
+        }, 
+        {
+            "location": "/#reference", 
+            "text": "Authentication  Connection  Record  BulkRequest  App  File  KintoneAPIException", 
+            "title": "Reference"
+        }, 
+        {
+            "location": "/#license", 
+            "text": "MIT", 
+            "title": "License"
+        }, 
+        {
+            "location": "/#copyright", 
+            "text": "Copyright(c) Cybozu, Inc.", 
+            "title": "Copyright"
+        }, 
+        {
+            "location": "/getting-started/quickstart/", 
+            "text": "Quickstart\n\n\nRequirement\n\n\n\n\nNode.js\n (Version 9.6.1 or later)\n\n\nkintone-basejs-sdk\n\n\n\n\nHow to use\n\n\ncd your-project\nnpm init\nnpm i --save-dev kintone-nodejs-sdk\n\n\n\n\nCode example\n\n\n\n\nGet record sample\n\n\n Source code \n\n\n\nconst kintone = 'kintone-nodejs-sdk';\n\nlet kintoneAuthWithAPIToken = (new kintone.Auth()).setAPIToken('MY_TOKEN');\nlet kintoneConnection = new kintone.Connection('your.FQDN', kintoneAuthWithAPIToken);\n\nlet kintoneRecord = new kintone.Record(kintoneConnection);\n\nlet appID = {your_app_id};\nlet recordID = {record_id_that_will_be_retrived};\nkintoneRecord.getRecord(appID, recordID)\n    .then((rsp) =\n {\n        console.log(rsp);\n    })\n    .catch((err) =\n {\n        // The promise function always reject with KintoneAPIExeption\n        console.log(err.get());\n    });\n\n\n\n\n Response success\n\n\n{\n    \nrecord\n:{\n        // record data should be here\n    }\n}\n\n\n\n\n Response error\n\n\n{\n    id: '{ID}',\n    code: '{CODE}',\n    message: '{Message string}',\n    errors: '{JSON String}'\n}\n\n\n\n\n\n\n\n\nGet record sample with Async\n\n\n Source code \n\n\n\nconst kintone = 'kintone-nodejs-sdk';\n\nlet kintoneAuthWithAPIToken = (new kintone.Auth()).setAPIToken('MY_TOKEN');\nlet kintoneConnection = new kintone.Connection('your.FQDN', kintoneAuthWithAPIToken);\n\nlet kintoneRecord = new kintone.Record(kintoneConnection);\n\nlet appID = {your_app_id};\nlet recordID = {record_id_that_will_be_retrived};\nlet getRecord = async () =\n {\n     try {\n        let recordResult = await kintoneRecord.getRecord(appID, recordID);\n        console.log(recordResult);\n    } catch (error) {\n        // The promise function always reject with KintoneAPIExeption\n        console.log(error.get());\n    }\n}\ngetRecord();\n\n\n\n\n Response success\n\n\n{\n    \nrecord\n:{\n        // record data should be here\n    }\n}\n\n\n\n\n Response error\n\n\n{ \n    id: '{ID}',\n    code: '{CODE}',\n    message: '{Message string}',\n    errors: '{JSON String}'\n}", 
+            "title": "Quickstart"
+        }, 
+        {
+            "location": "/getting-started/quickstart/#quickstart", 
+            "text": "", 
+            "title": "Quickstart"
+        }, 
+        {
+            "location": "/getting-started/quickstart/#requirement", 
+            "text": "Node.js  (Version 9.6.1 or later)  kintone-basejs-sdk", 
+            "title": "Requirement"
+        }, 
+        {
+            "location": "/getting-started/quickstart/#how-to-use", 
+            "text": "cd your-project\nnpm init\nnpm i --save-dev kintone-nodejs-sdk", 
+            "title": "How to use"
+        }, 
+        {
+            "location": "/getting-started/quickstart/#code-example", 
+            "text": "Get record sample   Source code   \nconst kintone = 'kintone-nodejs-sdk';\n\nlet kintoneAuthWithAPIToken = (new kintone.Auth()).setAPIToken('MY_TOKEN');\nlet kintoneConnection = new kintone.Connection('your.FQDN', kintoneAuthWithAPIToken);\n\nlet kintoneRecord = new kintone.Record(kintoneConnection);\n\nlet appID = {your_app_id};\nlet recordID = {record_id_that_will_be_retrived};\nkintoneRecord.getRecord(appID, recordID)\n    .then((rsp) =  {\n        console.log(rsp);\n    })\n    .catch((err) =  {\n        // The promise function always reject with KintoneAPIExeption\n        console.log(err.get());\n    });   Response success  {\n     record :{\n        // record data should be here\n    }\n}   Response error  {\n    id: '{ID}',\n    code: '{CODE}',\n    message: '{Message string}',\n    errors: '{JSON String}'\n}    Get record sample with Async   Source code   \nconst kintone = 'kintone-nodejs-sdk';\n\nlet kintoneAuthWithAPIToken = (new kintone.Auth()).setAPIToken('MY_TOKEN');\nlet kintoneConnection = new kintone.Connection('your.FQDN', kintoneAuthWithAPIToken);\n\nlet kintoneRecord = new kintone.Record(kintoneConnection);\n\nlet appID = {your_app_id};\nlet recordID = {record_id_that_will_be_retrived};\nlet getRecord = async () =  {\n     try {\n        let recordResult = await kintoneRecord.getRecord(appID, recordID);\n        console.log(recordResult);\n    } catch (error) {\n        // The promise function always reject with KintoneAPIExeption\n        console.log(error.get());\n    }\n}\ngetRecord();   Response success  {\n     record :{\n        // record data should be here\n    }\n}   Response error  { \n    id: '{ID}',\n    code: '{CODE}',\n    message: '{Message string}',\n    errors: '{JSON String}'\n}", 
+            "title": "Code example"
+        }, 
+        {
+            "location": "/reference/authentication/", 
+            "text": "Authentication\n\n\nAuthentication module will be used by \nConnection\n.\nThis module allow we authenticate with kintone app by password authenticator or API token authenticator. This module is also support basic authenticator.\n\n\n\n\nWarning\n\n\n\n\nIf both the Token and Password Authentication are specified, the Token Authentication will be ignored and the Password authentication will be used.\n\n\n\n\n\n\nConstructor\n\n\nParameter\n\n\n(none)\n\n\nSample code\n\n\n\n\nInit authentication module\n\n\n Source code \n\n\n\nconst kintone = 'kintone-nodejs-sdk';\n\nlet kintoneAuth = new kintone.Auth();\n\n\n\n\n\n\nMethods\n\n\nsetPasswordAuth(username, password)\n\n\n\n\nSet password authentication for Authentication module.\n\n\n\n\nParameter\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nRequired\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nusername\n\n\nString\n\n\nyes\n\n\nThe username that is able to authenticate on kintone app\n\n\n\n\n\n\npassword\n\n\nString\n\n\nyes\n\n\nThe password that is able to authenticate on kintone app\n\n\n\n\n\n\n\n\nReturn\n\n\nAuth\n\n\nSample code\n\n\n\n\nSet password authentication\n\n\n Source code \n\n\nlet username = '{your_user_name}';\nlet password = '{your_password}';\nkintoneAuth.setPasswordAuth(username, password);\n\n\n\n\n\n\nsetApiToken(apiTokenString)\n\n\n\n\nSet Api Token for Authentication module.\n\n\n\n\nParameter\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nRequired\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\napiTokenString\n\n\nString\n\n\nyes\n\n\nThe apiToken that is able to authenticate on kintone app\n\n\n\n\n\n\n\n\nReturn\n\n\nAuth\n\n\n\n\nSet APIToken authentication\n\n\n Source code \n\n\nlet apiTokenString = '{your_token}';\nkintoneAuth.setApiToken(apiTokenString);\n\n\n\n\n\n\nsetBasicAuth(username, password)\n\n\n\n\nSet Basic authentication for Authentication module.\n\n\n\n\nParameter\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nRequired\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nusername\n\n\nString\n\n\nyes\n\n\nThe username that is able to authenticate on kintone app\n\n\n\n\n\n\npassword\n\n\nString\n\n\nyes\n\n\nThe password that is able to authenticate on kintone app\n\n\n\n\n\n\n\n\nReturn\n\n\nAuth\n\n\nSample code\n\n\n\n\nSet basic authentication\n\n\n Source code \n\n\nlet username = '{your_user_name}';\nlet password = '{your_password}';\nkintoneAuth.setBasicAuth(username, password);", 
+            "title": "Authentication"
+        }, 
+        {
+            "location": "/reference/authentication/#authentication", 
+            "text": "Authentication module will be used by  Connection .\nThis module allow we authenticate with kintone app by password authenticator or API token authenticator. This module is also support basic authenticator.   Warning   If both the Token and Password Authentication are specified, the Token Authentication will be ignored and the Password authentication will be used.", 
+            "title": "Authentication"
+        }, 
+        {
+            "location": "/reference/authentication/#constructor", 
+            "text": "Parameter  (none)  Sample code   Init authentication module   Source code   \nconst kintone = 'kintone-nodejs-sdk';\n\nlet kintoneAuth = new kintone.Auth();", 
+            "title": "Constructor"
+        }, 
+        {
+            "location": "/reference/authentication/#methods", 
+            "text": "", 
+            "title": "Methods"
+        }, 
+        {
+            "location": "/reference/authentication/#setpasswordauthusername-password", 
+            "text": "Set password authentication for Authentication module.   Parameter     Name  Type  Required  Description      username  String  yes  The username that is able to authenticate on kintone app    password  String  yes  The password that is able to authenticate on kintone app     Return  Auth  Sample code   Set password authentication   Source code   let username = '{your_user_name}';\nlet password = '{your_password}';\nkintoneAuth.setPasswordAuth(username, password);", 
+            "title": "setPasswordAuth(username, password)"
+        }, 
+        {
+            "location": "/reference/authentication/#setapitokenapitokenstring", 
+            "text": "Set Api Token for Authentication module.   Parameter     Name  Type  Required  Description      apiTokenString  String  yes  The apiToken that is able to authenticate on kintone app     Return  Auth   Set APIToken authentication   Source code   let apiTokenString = '{your_token}';\nkintoneAuth.setApiToken(apiTokenString);", 
+            "title": "setApiToken(apiTokenString)"
+        }, 
+        {
+            "location": "/reference/authentication/#setbasicauthusername-password", 
+            "text": "Set Basic authentication for Authentication module.   Parameter     Name  Type  Required  Description      username  String  yes  The username that is able to authenticate on kintone app    password  String  yes  The password that is able to authenticate on kintone app     Return  Auth  Sample code   Set basic authentication   Source code   let username = '{your_user_name}';\nlet password = '{your_password}';\nkintoneAuth.setBasicAuth(username, password);", 
+            "title": "setBasicAuth(username, password)"
+        }, 
+        {
+            "location": "/reference/connection/", 
+            "text": "Connection\n\n\nConnection\n module will used as a connector to connect to kintone Rest API\n\n\n\n\nThis module excute the request process by \nrequest-promise\n npm.\n\n\n\n\nConstructor\n\n\nParameter\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nRequired\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\ndomain\n\n\nString\n\n\nyes\n\n\nThe username that is able to authenticate on kintone app\n\n\n\n\n\n\nauth\n\n\nAuth\n\n\nyes\n\n\nThe authentication object\n\n\n\n\n\n\nguestSpaceID\n\n\nInteger\n\n\n(optional)\n\n\nThe guest space id. Use this parameter to connect to kintone guest space.\n\n\n\n\n\n\n\n\nSample code\n\n\n\n\nInit Connection module\n\n\n Source code \n\n\n\nconst kintone = 'kintone-nodejs-sdk';\n\n// Define Authentication object\nlet kintoneAuth = new kintone.Auth();\nlet username = '{your_user_name}';\nlet password = '{your_password}';\nkintoneAuth.setPasswordAuth(username, password);\n\nlet myDomainName = 'my.domain.dot';\nlet kintoneConnection = new kintone.Connection(myDomainName, kintoneAuth);\n\n// Define connection that included guest space\nlet guestSpaceID = /*{guestSpaceID}*/;\nlet kintoneConnectionWithGuestSpaceDemo =\n    kintone.Connection(myDomainName, kintoneAuth, guestSpaceID);\n\n\n\n\n\n\n\nMethods\n\n\nsetHeader(key, value)\n\n\n\n\nSet new header of the \nConnection\n\n\n\n\nParameter\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nRequired\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nkey\n\n\nString\n\n\nyes\n\n\nThe header's \nkey\n name\n\n\n\n\n\n\nvalue\n\n\nString\n\n\nyes\n\n\nThe header's value of \nkey\n\n\n\n\n\n\n\n\nReturn\n\n\nConnection\n\n\nSample code\n\n\n\n\nSet header of the Connection\n\n\n Source code \n\n\nlet key = '{your_header_key}';\nlet value = '{your_header_value}';\nkintoneConnection.setHeader(key, value);\n\n\n\n\n\n\naddRequestOption(key, value)\n\n\n\n\nAdd option that supported by \nrequest-promise\n option\n\n\n\n\nParameter\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nRequired\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nkey\n\n\nString\n\n\nyes\n\n\nThe option's \nkey\n name\n\n\n\n\n\n\nvalue\n\n\nString\n\n\nyes\n\n\nThe option's value of \nkey\n\n\n\n\n\n\n\n\nReturn\n\n\nConnection\n\n\nSample code\n\n\n\n\nSet header of the Connection\n\n\n Source code \n\n\nlet key = '{your_option_key}';\nlet value = '{your_option_value}';\nkintoneConnection.addRequestOption(key, value);", 
+            "title": "Connection"
+        }, 
+        {
+            "location": "/reference/connection/#connection", 
+            "text": "Connection  module will used as a connector to connect to kintone Rest API   This module excute the request process by  request-promise  npm.", 
+            "title": "Connection"
+        }, 
+        {
+            "location": "/reference/connection/#constructor", 
+            "text": "Parameter     Name  Type  Required  Description      domain  String  yes  The username that is able to authenticate on kintone app    auth  Auth  yes  The authentication object    guestSpaceID  Integer  (optional)  The guest space id. Use this parameter to connect to kintone guest space.     Sample code   Init Connection module   Source code   \nconst kintone = 'kintone-nodejs-sdk';\n\n// Define Authentication object\nlet kintoneAuth = new kintone.Auth();\nlet username = '{your_user_name}';\nlet password = '{your_password}';\nkintoneAuth.setPasswordAuth(username, password);\n\nlet myDomainName = 'my.domain.dot';\nlet kintoneConnection = new kintone.Connection(myDomainName, kintoneAuth);\n\n// Define connection that included guest space\nlet guestSpaceID = /*{guestSpaceID}*/;\nlet kintoneConnectionWithGuestSpaceDemo =\n    kintone.Connection(myDomainName, kintoneAuth, guestSpaceID);", 
+            "title": "Constructor"
+        }, 
+        {
+            "location": "/reference/connection/#methods", 
+            "text": "", 
+            "title": "Methods"
+        }, 
+        {
+            "location": "/reference/connection/#setheaderkey-value", 
+            "text": "Set new header of the  Connection   Parameter     Name  Type  Required  Description      key  String  yes  The header's  key  name    value  String  yes  The header's value of  key     Return  Connection  Sample code   Set header of the Connection   Source code   let key = '{your_header_key}';\nlet value = '{your_header_value}';\nkintoneConnection.setHeader(key, value);", 
+            "title": "setHeader(key, value)"
+        }, 
+        {
+            "location": "/reference/connection/#addrequestoptionkey-value", 
+            "text": "Add option that supported by  request-promise  option   Parameter     Name  Type  Required  Description      key  String  yes  The option's  key  name    value  String  yes  The option's value of  key     Return  Connection  Sample code   Set header of the Connection   Source code   let key = '{your_option_key}';\nlet value = '{your_option_value}';\nkintoneConnection.addRequestOption(key, value);", 
+            "title": "addRequestOption(key, value)"
+        }, 
+        {
+            "location": "/reference/record/", 
+            "text": "Record\n\n\nProvide functions of \nCRUD\n, update the record status \n assignees in the kintone app\n\n\nConstructor\n\n\nParameter\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nRequired\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nconnection\n\n\nConnection\n\n\nyes\n\n\nThe kintone connection module\n\n\n\n\n\n\n\n\nSample code\n\n\n\n\nInit record module\n\n\n Source code \n\n\n\nconst kintone = 'kintone-nodejs-sdk';\n\nlet kintoneRecord = new kintone.Record(connection);\n\n\n\n\n\n\nMethods\n\n\ngetRecord(appID, recordID)\n\n\n\n\nRetrieves details of 1 record from an app.\n\n\n\n\nParameter\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nRequired\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nappID\n\n\nInteger\n\n\nyes\n\n\nThe kintone app ID\n\n\n\n\n\n\nrecordID\n\n\nInteger\n\n\nyes\n\n\nThe record ID in kintone app\n\n\n\n\n\n\n\n\nReturn\n\n\nPromise\n\n\nSample code\n\n\n\n\nGet record\n\n\n Source code \n\n\nlet appID = /*{your_app_id}*/;\nlet recordID = {your_record_id};\nkintoneRecord.getRecord(appID, recordID)\n    .then((rsp) =\n {\n        console.log(rsp);\n    })\n    .catch((err) =\n {\n        // This SDK return err with KintoneAPIExeption\n        console.log(err.get());\n    });\n\n\n\n\n\n\ngetRecords(appID, query, fieldsCode, isShowTotalCount)\n\n\n\n\nRetrieves details of multiple records from an app using a query string.\n\n\n\n\nParameter\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nRequired\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nappID\n\n\nInteger\n\n\nyes\n\n\nThe kintone app ID\n\n\n\n\n\n\nquery\n\n\nString\n\n\n(optional)\n\n\nThe query string\n that will specify what records will be responded.\n\n\n\n\n\n\nfields\n\n\nArray\nString>\n\n\n(optional)\n\n\nList of field codes you want in the response.\n\n\n\n\n\n\ntotalCount\n\n\nBoolean\n\n\n(optional)\n\n\nIf \"true\", the request will retrieve total count of records match with query conditions.\n\n\n\n\n\n\n\n\nReturn\n\n\nPromise\n\n\nSample code\n\n\n\n\nGet records\n\n\n Source code \n\n\nlet appID = /*{your_app_id}*/;\nlet query = '{your_query_string}';\nlet fieldsCode = [\n    '{your_field_code}',\n    // another fieldCode\n]\nlet isShowTotalCount = /*{your_decide_true_or_false}*/;\nkintoneRecord.getRecords(appID, query, fieldsCode, isShowTotalCount)\n    .then((rsp) =\n {\n        console.log(rsp);\n    })\n    .catch((err) =\n {\n        // This SDK return err with KintoneAPIExeption\n        console.log(err.get());\n    });\n\n\n\n\n\n\naddRecord(appID, recordData)\n\n\n\n\nAdds 1 record to an app.\n\n\n\n\nParameter\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nRequired\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nappID\n\n\nInteger\n\n\nyes\n\n\nThe kintone app ID\n\n\n\n\n\n\nrecordData\n\n\nJSONObject\n\n\nyes\n\n\nThe record data to be add to kintone app. About the format, please look the sample below or \nreference\n at the end of this page\n\n\n\n\n\n\n\n\nReturn\n\n\nPromise\n\n\nSample code\n\n\n\n\nAdd record\n\n\n Source code \n\n\nlet appID = /*{your_app_id}*/;\nlet recordData = {\n    YourFieldCode: {\n        value: 'Value Of YourFieldCode'\n    },\n    // Another fieldcode here\n};\nkintoneRecord.addRecord(appID, recordData)\n    .then((rsp) =\n {\n        console.log(rsp);\n    })\n    .catch((err) =\n {\n        // This SDK return err with KintoneAPIExeption\n        console.log(err.get());\n    });\n\n\n\n\n\n\naddRecords(appID, recordsData)\n\n\n\n\nAdds multiple records to an app.\n\n\n\n\nParameter\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nRequired\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nappID\n\n\nInteger\n\n\nyes\n\n\nThe kintone app ID\n\n\n\n\n\n\nrecordsData\n\n\nArray\nJSONObject>\n\n\nyes\n\n\nList of records data to be add to kintone app. About the format, please look the sample below or \nreference\n at the end of this page.\n\n\n\n\n\n\n\n\nReturn\n\n\nPromise\n\n\nSample code\n\n\n\n\nAdd multi records\n\n\n Source code \n\n\nlet appID = /*{your_app_id}*/;\nlet recordData = {\n    YourFieldCode: {\n        value: 'Value Of YourFieldCode'\n    },\n    // Another fieldcode here\n};\nlet recordsData = [\n    recordData,\n    // another recordData\n];\nkintoneRecord.addRecords(appID, recordsData)\n    .then((rsp) =\n {\n        console.log(rsp);\n    })\n    .catch((err) =\n {\n        // This SDK return err with KintoneAPIExeption\n        console.log(err.get());\n    });\n\n\n\n\n\n\nupdateRecordById(appID, recordID, recordData, revision)\n\n\n\n\nUpdates details of 1 record in an app by specifying its record number.\n\n\n\n\nParameter\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nRequired\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nappID\n\n\nInteger\n\n\nyes\n\n\nThe kintone app ID\n\n\n\n\n\n\nrecordID\n\n\nInteger\n\n\nyes\n\n\nThe record ID on kintone app\n\n\n\n\n\n\nrecordData\n\n\nJSONObject\n\n\nyes\n\n\nThe record data to be update in  kintone app. About the format, please look the sample below or \nreference\n at the end of this page.\n\n\n\n\n\n\nrevision\n\n\nInteger\n\n\nyes\n\n\nThe revision number of record\n\n\n\n\n\n\n\n\nReturn\n\n\nPromise\n\n\nSample code\n\n\n\n\nUpdate record by ID\n\n\n Source code \n\n\nlet appID = /*{your_app_id}*/;\nlet recordID = /*{your_record_id}*/;\nlet recordData = {\n    YourFieldCode: {\n        value: 'Value Of YourFieldCode'\n    },\n    // Another fieldcode here\n};\nlet revision = /*{revision_of_record}*/;\nkintoneRecord.updateRecordById(appID, recordID, recordData, revision)\n    .then((rsp) =\n {\n        console.log(rsp);\n    })\n    .catch((err) =\n {\n        // This SDK return err with KintoneAPIExeption\n        console.log(err.get());\n    });\n\n\n\n\n\n\nupdateRecordByUpdateKey(appID, updateKey, recordData, revision)\n\n\nUpdates details of 1 record in an app by unique key.\n\n\nParameter\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nRequired\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nappID\n\n\nInteger\n\n\nyes\n\n\nThe kintone app ID\n\n\n\n\n\n\nupdateKey\n\n\nJSONObject\n\n\nyes\n\n\nThe unique key of the record to be updated. About the format, please look the sample below or \nreference\n at the end of this page.\n\n\n\n\n\n\nrecordData\n\n\nJSONObject\n\n\nyes\n\n\nThe record data will be added to kintone app. About the format, please look the sample below or \nreference\n at the end of this page.\n\n\n\n\n\n\nrevision\n\n\nInteger\n\n\nyes\n\n\nThe revision number of record\n\n\n\n\n\n\n\n\nReturn\n\n\nPromise\n\n\nSample code\n\n\n\n\nUpdate record by UpdateKey\n\n\n Source code \n\n\nlet appID = /*{your_app_id}*/;\nlet updateKey = {\n    field: '{your_fieldcode}',\n    value: '{your_fieldcode_value}'\n};\nlet recordData = {\n    YourFieldCode: {\n        value: 'Value Of YourFieldCode'\n    },\n    // Another fieldcode here\n};\nlet revision = /*{revision_of_record}*/;\nkintoneRecord.updateRecordByUpdateKey(appID, updateKey, recordData, revision)\n    .then((rsp) =\n {\n        console.log(rsp);\n    })\n    .catch((err) =\n {\n        // This SDK return err with KintoneAPIExeption\n        console.log(err.get());\n    });\n\n\n\n\n\n\nupdateRecords(appID, recordsData)\n\n\n\n\nUpdates details of multiple records in an app, by specifying their record number, or a different unique key.\n\n\n\n\nParameter\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nRequired\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nappID\n\n\nInteger\n\n\nyes\n\n\nThe kintone app ID\n\n\n\n\n\n\nrecordsData\n\n\nArray\nJSONObject>\n\n\nyes\n\n\nThe record data will be added to kintone app. About the format, please look the sample below or \nreference\n at the end of this page.\n\n\n\n\n\n\n\n\nReturn\n\n\nPromise\n\n\nSample code\n\n\n\n\nUpdate multi records\n\n\n Source code \n\n\nlet appID = /*{your_app_id}*/;\nlet recordData = {\n    YourFieldCode: {\n        value: 'Value Of YourFieldCode'\n    },\n    // Another fieldcode here\n};\nlet recordDataUpdate = {\n    id: /*{your_record_id}*/, // Optional. Required, if updateKey will not be specified.\n    updateKey: { // Optional. Required, if id will not be specified.\n        field: '{your_field_code}',\n        value: '{your_field_code_value}'\n    },\n    record: recordData,\n    revision: /*{record_revision_number}*/ // Optional\n};\nlet recordsDataUpdate = [\n    recordDataUpdate,\n    // Another recordDataUpdate\n]\nkintoneRecord.updateRecords(appID, recordsDataUpdate)\n    .then((rsp) =\n {\n        console.log(rsp);\n    })\n    .catch((err) =\n {\n        // This SDK return err with KintoneAPIExeption\n        console.log(err.get());\n    });\n\n\n\n\n\n\ndeleteRecords(appID, recordIDs)\n\n\n\n\nDeletes multiple records in an app.\n\n\n\n\nParameter\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nRequired\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nappID\n\n\nInteger\n\n\nyes\n\n\nThe kintone app ID\n\n\n\n\n\n\nrecordIDs\n\n\nArray\nInteger>\n\n\nyes\n\n\nThe list ids of record will be delete.\n\n\n\n\n\n\n\n\nReturn\n\n\nPromise\n\n\nSample code\n\n\n\n\nDelete multi record\n\n\n Source code \n\n\nlet appID = /*{your_app_id}*/;\nlet recordIDs = [/*your_record_id*/]\nkintoneRecord.deleteRecords(appID, recordIDs)\n    .then((rsp) =\n {\n        console.log(rsp);\n    })\n    .catch((err) =\n {\n        // This SDK return err with KintoneAPIExeption\n        console.log(err.get());\n    });\n\n\n\n\n\n\ndeleteRecordsWithRevision(appID, idsWithRevision)\n\n\n\n\nDeletes multiple records in an app with revision.\n\n\n\n\nParameter\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nRequired\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nappID\n\n\nInteger\n\n\nyes\n\n\nThe kintone app ID\n\n\n\n\n\n\nidsWithRevision\n\n\nJSONObject\n\n\nyes\n\n\nJSONObject format by HashTable\nInteger\n, \nInteger\n> (\nkey\n: \nThe Id of record\n, \nvalue\n: \nThe Revision of record.\n)\n\n\n\n\n\n\n\n\nReturn\n\n\nPromise\n\n\nSample code\n\n\n\n\nDelete record with revision\n\n\n Source code \n\n\nlet appID = /*{your_app_id}*/;\nlet idsWithRevision = {\n    /*your_record_id: revision_of_record*/\n}\nkintoneRecord.deleteRecordsWithRevision(appID, idsWithRevision)\n    .then((rsp) =\n {\n        console.log(rsp);\n    })\n    .catch((err) =\n {\n        // This SDK return err with KintoneAPIExeption\n        console.log(err.get());\n    });\n\n\n\n\n\n\nupdateRecordAssignees(appID, recordID, assignees, revision)\n\n\n\n\nUpdate assignees of a record.\n\n\n\n\nParameter\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nRequired\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nappID\n\n\nInteger\n\n\nyes\n\n\nThe kintone app ID\n\n\n\n\n\n\nrecordID\n\n\nInteger\n\n\nyes\n\n\nThe record ID of kintone app\n\n\n\n\n\n\nassignees\n\n\nArray\nString>\n\n\nyes\n\n\nThe user code(s) of the assignee(s)\n\n\n\n\n\n\nrevision\n\n\nInteger\n\n\n(option)\n\n\nThe revision number of record\n\n\n\n\n\n\n\n\nReturn\n\n\nPromise\n\n\nSample code\n\n\n\n\nupdate record Assignees\n\n\n Source code \n\n\nlet appID = /*{your_app_id}*/;\nlet recordID = /*{your_record_id}*/;\nlet assignees = [/*your_assignee(s)*/];\nlet revision = /*{revision_of_record}*/;\n\nkintoneRecord.updateRecordAssignees(appID, recordID, assignees, revision)\n    .then((rsp) =\n {\n        console.log(rsp);\n    })\n    .catch((err) =\n {\n        // This SDK return err with KintoneAPIExeption\n        console.log(err.get());\n    });\n\n\n\n\n\n\nupdateRecordStatus(appID, recordID, actionName, assignee, revision)\n\n\n\n\nUpdates the Status of a record of an app.\n\n\n\n\nParameter\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nRequired\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nappID\n\n\nInteger\n\n\nyes\n\n\nThe kintone app ID.\n\n\n\n\n\n\nrecordID\n\n\nInteger\n\n\nyes\n\n\nThe record ID on kintone app.\n\n\n\n\n\n\nactionName\n\n\nString\n\n\nyes\n\n\nThe Action name will be run.\n\n\n\n\n\n\nassignee\n\n\nString\n\n\n(Conditionally required)\n\n\nThe next Assignee. Specify the Assignee's log in name.\nRequired, if the \"Assignee List\" of the current status is set to \"User chooses one assignee from the list to take action\", and a selectable assignee exists.\n\n\n\n\n\n\nassignee\n\n\nInteger\n\n\n(optional)\n\n\nThe revision of record\n\n\n\n\n\n\n\n\nReturn\n\n\nPromise\n\n\nSample code\n\n\n\n\nUpdate record status\n\n\n Source code \n\n\nlet appID = /*{your_app_id}*/;\nlet recordID = /*{your_record_id}*/;\nlet actionName = /*{your_action_name}*/;\nlet assignee = '/*your_assignee(s)*/';\nlet revision = /*{revision_of_record}*/;\n\nkintoneRecord.updateRecordStatus(appID, recordID, actionName, assignee, revision)\n    .then((rsp) =\n {\n        console.log(rsp);\n    })\n    .catch((err) =\n {\n        // This SDK return err with KintoneAPIExeption\n        console.log(err.get());\n    });\n\n\n\n\n\n\nupdateRecordsStatus(appID, recordsStatusUpdate)\n\n\n\n\nUpdates the Status of multiple records of an app.\n\n\n\n\nParameter\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nRequired\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nappID\n\n\nInteger\n\n\nyes\n\n\nThe kintone app ID\n\n\n\n\n\n\nrecordsStatusUpdate\n\n\nArray\nJSONObject>\n\n\nyes\n\n\nThe recod status data. See belowsample codee or \nreference\n at the end of this page to know format.\n\n\n\n\n\n\n\n\nReturn\n\n\nPromise\n\n\nSample code\n\n\n\n\nUpdate multi record status\n\n\n Source code \n\n\nlet appID = /*{your_app_id}*/;\nlet recordStatusUpdateItem = {\n    id: /*your_record_id*/,\n    action: '/*your_action_name*/',\n    assignee: '/*your_assignee*/',\n    revision: /*your_record_revision*/\n}\nlet recordsStatusUpdate = [\n    recordStatusUpdateItem,\n    /*another data like recordStatusUpdateItem*/\n];\nkintoneRecord.updateRecordsStatus(appID, recordsStatusUpdate)\n    .then((rsp) =\n {\n        console.log(rsp);\n    })\n    .catch((err) =\n {\n        // This SDK return err with KintoneAPIExeption\n        console.log(err.get());\n    });\n\n\n\n\n\n\ngetComments(appID, recordID, order, offset, limit)\n\n\nParameter\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nRequired\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nappID\n\n\nInteger\n\n\nyes\n\n\nThe kintone app ID\n\n\n\n\n\n\nrecordID\n\n\nInteger\n\n\nyes\n\n\nThe kintone app ID\n\n\n\n\n\n\norder\n\n\nString\n\n\n(optional)\n\n\nThe sort order of the Comment ID. Please select \nasc\n or \ndesc\n\n\n\n\n\n\noffset\n\n\nInteger\n\n\n(optional)\n\n\nThe number of first comments will be ignored.\n\n\n\n\n\n\nlimit\n\n\nInteger\n\n\n(optional)\n\n\nThe number of records to retrieve.\n\n\n\n\n\n\n\n\nReturn\n\n\nPromise\n\n\nSample code\n\n\n\n\nGet comments\n\n\n Source code \n\n\nlet appID = /*{your_app_id}*/;\nlet recordID = /*{your_record_id}*/;\nlet order = /*{your_order_type}*/; // asc or desc\nlet offset = /*{your_offset_number}*/;\nlet limit = /*{your_limit number}*/;\nkintoneRecord.getComments(appID, recordID, order, offset, limit)\n    .then((rsp) =\n {\n        console.log(rsp);\n    })\n    .catch((err) =\n {\n        // This SDK return err with KintoneAPIExeption\n        console.log(err.get());\n    });\n\n\n\n\n\n\naddComment(appID, recordID, commentContent)\n\n\nParameter\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nRequired\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nappID\n\n\nInteger\n\n\nyes\n\n\nThe kintone app ID\n\n\n\n\n\n\nrecordID\n\n\nInteger\n\n\nyes\n\n\nThe kintone app ID\n\n\n\n\n\n\ncommentContent\n\n\nJSONObject\n\n\nyes\n\n\nAbout the format, please look the sample below or \nreference\n at the end of this page.\n\n\n\n\n\n\n\n\nReturn\n\n\nPromise\n\n\nSample code\n\n\n\n\nAdd comment\n\n\n Source code \n\n\nlet appID = /*{your_app_id}*/;\nlet recordID = /*{your_record_id}*/;\nlet commentContent = {\n    text: '/*your_comment_content*/',\n    mention: [\n        {\n            code: '/*your_member_code*/',\n            type: '/*your_member_type*/' // either `USER` or `GROUP` or `ORGANIZATION`\n        },\n        // another mention here\n    ]\n};\nkintoneRecord.addComment(appID, recordID, commentContent)\n    .then((rsp) =\n {\n        console.log(rsp);\n    })\n    .catch((err) =\n {\n        // This SDK return err with KintoneAPIExeption\n        console.log(err.get());\n    });\n\n\n\n\n\n\ndeleteComment(appID, recordID, commentID)\n\n\nParameter\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nRequired\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nappID\n\n\nInteger\n\n\nyes\n\n\nThe kintone app ID\n\n\n\n\n\n\nrecordID\n\n\nInteger\n\n\nyes\n\n\nThe record ID on kintone app\n\n\n\n\n\n\ncommentID\n\n\nInteger\n\n\nyes\n\n\nThe comment ID on kintone record\n\n\n\n\n\n\n\n\nReturn\n\n\nPromise\n\n\nSample code\n\n\n\n\nDelete comment\n\n\n Source code \n\n\nlet appID = /*{your_app_id}*/;\nlet recordID = /*{your_record_id}*/;\nlet commentID = /*{your_comment_id}*/;\nkintoneRecord.deleteComment(appID, recordID, commentID)\n    .then((rsp) =\n {\n        console.log(rsp);\n    })\n    .catch((err) =\n {\n        // This SDK return err with KintoneAPIExeption\n        console.log(err.get());\n    });\n\n\n\n\n\n\nReference\n\n\n\n\nGet Record\n \non developer network\n\n\nAdd Record\non developer network\n\n\nUpdate Record\non developer network\n\n\nDelete Record\non developer network\n\n\nGet Comments\non developer network\n\n\nAdd Comment\non developer network\n\n\nDelete Comment\non developer network\n\n\nUpdate Record Status\non developer network\n\n\nUpdate Record Assignees\non developer network", 
+            "title": "Record"
+        }, 
+        {
+            "location": "/reference/record/#record", 
+            "text": "Provide functions of  CRUD , update the record status   assignees in the kintone app", 
+            "title": "Record"
+        }, 
+        {
+            "location": "/reference/record/#constructor", 
+            "text": "Parameter     Name  Type  Required  Description      connection  Connection  yes  The kintone connection module     Sample code   Init record module   Source code   \nconst kintone = 'kintone-nodejs-sdk';\n\nlet kintoneRecord = new kintone.Record(connection);", 
+            "title": "Constructor"
+        }, 
+        {
+            "location": "/reference/record/#methods", 
+            "text": "", 
+            "title": "Methods"
+        }, 
+        {
+            "location": "/reference/record/#getrecordappid-recordid", 
+            "text": "Retrieves details of 1 record from an app.   Parameter     Name  Type  Required  Description      appID  Integer  yes  The kintone app ID    recordID  Integer  yes  The record ID in kintone app     Return  Promise  Sample code   Get record   Source code   let appID = /*{your_app_id}*/;\nlet recordID = {your_record_id};\nkintoneRecord.getRecord(appID, recordID)\n    .then((rsp) =  {\n        console.log(rsp);\n    })\n    .catch((err) =  {\n        // This SDK return err with KintoneAPIExeption\n        console.log(err.get());\n    });", 
+            "title": "getRecord(appID, recordID)"
+        }, 
+        {
+            "location": "/reference/record/#getrecordsappid-query-fieldscode-isshowtotalcount", 
+            "text": "Retrieves details of multiple records from an app using a query string.   Parameter     Name  Type  Required  Description      appID  Integer  yes  The kintone app ID    query  String  (optional)  The query string  that will specify what records will be responded.    fields  Array String>  (optional)  List of field codes you want in the response.    totalCount  Boolean  (optional)  If \"true\", the request will retrieve total count of records match with query conditions.     Return  Promise  Sample code   Get records   Source code   let appID = /*{your_app_id}*/;\nlet query = '{your_query_string}';\nlet fieldsCode = [\n    '{your_field_code}',\n    // another fieldCode\n]\nlet isShowTotalCount = /*{your_decide_true_or_false}*/;\nkintoneRecord.getRecords(appID, query, fieldsCode, isShowTotalCount)\n    .then((rsp) =  {\n        console.log(rsp);\n    })\n    .catch((err) =  {\n        // This SDK return err with KintoneAPIExeption\n        console.log(err.get());\n    });", 
+            "title": "getRecords(appID, query, fieldsCode, isShowTotalCount)"
+        }, 
+        {
+            "location": "/reference/record/#addrecordappid-recorddata", 
+            "text": "Adds 1 record to an app.   Parameter     Name  Type  Required  Description      appID  Integer  yes  The kintone app ID    recordData  JSONObject  yes  The record data to be add to kintone app. About the format, please look the sample below or  reference  at the end of this page     Return  Promise  Sample code   Add record   Source code   let appID = /*{your_app_id}*/;\nlet recordData = {\n    YourFieldCode: {\n        value: 'Value Of YourFieldCode'\n    },\n    // Another fieldcode here\n};\nkintoneRecord.addRecord(appID, recordData)\n    .then((rsp) =  {\n        console.log(rsp);\n    })\n    .catch((err) =  {\n        // This SDK return err with KintoneAPIExeption\n        console.log(err.get());\n    });", 
+            "title": "addRecord(appID, recordData)"
+        }, 
+        {
+            "location": "/reference/record/#addrecordsappid-recordsdata", 
+            "text": "Adds multiple records to an app.   Parameter     Name  Type  Required  Description      appID  Integer  yes  The kintone app ID    recordsData  Array JSONObject>  yes  List of records data to be add to kintone app. About the format, please look the sample below or  reference  at the end of this page.     Return  Promise  Sample code   Add multi records   Source code   let appID = /*{your_app_id}*/;\nlet recordData = {\n    YourFieldCode: {\n        value: 'Value Of YourFieldCode'\n    },\n    // Another fieldcode here\n};\nlet recordsData = [\n    recordData,\n    // another recordData\n];\nkintoneRecord.addRecords(appID, recordsData)\n    .then((rsp) =  {\n        console.log(rsp);\n    })\n    .catch((err) =  {\n        // This SDK return err with KintoneAPIExeption\n        console.log(err.get());\n    });", 
+            "title": "addRecords(appID, recordsData)"
+        }, 
+        {
+            "location": "/reference/record/#updaterecordbyidappid-recordid-recorddata-revision", 
+            "text": "Updates details of 1 record in an app by specifying its record number.   Parameter     Name  Type  Required  Description      appID  Integer  yes  The kintone app ID    recordID  Integer  yes  The record ID on kintone app    recordData  JSONObject  yes  The record data to be update in  kintone app. About the format, please look the sample below or  reference  at the end of this page.    revision  Integer  yes  The revision number of record     Return  Promise  Sample code   Update record by ID   Source code   let appID = /*{your_app_id}*/;\nlet recordID = /*{your_record_id}*/;\nlet recordData = {\n    YourFieldCode: {\n        value: 'Value Of YourFieldCode'\n    },\n    // Another fieldcode here\n};\nlet revision = /*{revision_of_record}*/;\nkintoneRecord.updateRecordById(appID, recordID, recordData, revision)\n    .then((rsp) =  {\n        console.log(rsp);\n    })\n    .catch((err) =  {\n        // This SDK return err with KintoneAPIExeption\n        console.log(err.get());\n    });", 
+            "title": "updateRecordById(appID, recordID, recordData, revision)"
+        }, 
+        {
+            "location": "/reference/record/#updaterecordbyupdatekeyappid-updatekey-recorddata-revision", 
+            "text": "Updates details of 1 record in an app by unique key.  Parameter     Name  Type  Required  Description      appID  Integer  yes  The kintone app ID    updateKey  JSONObject  yes  The unique key of the record to be updated. About the format, please look the sample below or  reference  at the end of this page.    recordData  JSONObject  yes  The record data will be added to kintone app. About the format, please look the sample below or  reference  at the end of this page.    revision  Integer  yes  The revision number of record     Return  Promise  Sample code   Update record by UpdateKey   Source code   let appID = /*{your_app_id}*/;\nlet updateKey = {\n    field: '{your_fieldcode}',\n    value: '{your_fieldcode_value}'\n};\nlet recordData = {\n    YourFieldCode: {\n        value: 'Value Of YourFieldCode'\n    },\n    // Another fieldcode here\n};\nlet revision = /*{revision_of_record}*/;\nkintoneRecord.updateRecordByUpdateKey(appID, updateKey, recordData, revision)\n    .then((rsp) =  {\n        console.log(rsp);\n    })\n    .catch((err) =  {\n        // This SDK return err with KintoneAPIExeption\n        console.log(err.get());\n    });", 
+            "title": "updateRecordByUpdateKey(appID, updateKey, recordData, revision)"
+        }, 
+        {
+            "location": "/reference/record/#updaterecordsappid-recordsdata", 
+            "text": "Updates details of multiple records in an app, by specifying their record number, or a different unique key.   Parameter     Name  Type  Required  Description      appID  Integer  yes  The kintone app ID    recordsData  Array JSONObject>  yes  The record data will be added to kintone app. About the format, please look the sample below or  reference  at the end of this page.     Return  Promise  Sample code   Update multi records   Source code   let appID = /*{your_app_id}*/;\nlet recordData = {\n    YourFieldCode: {\n        value: 'Value Of YourFieldCode'\n    },\n    // Another fieldcode here\n};\nlet recordDataUpdate = {\n    id: /*{your_record_id}*/, // Optional. Required, if updateKey will not be specified.\n    updateKey: { // Optional. Required, if id will not be specified.\n        field: '{your_field_code}',\n        value: '{your_field_code_value}'\n    },\n    record: recordData,\n    revision: /*{record_revision_number}*/ // Optional\n};\nlet recordsDataUpdate = [\n    recordDataUpdate,\n    // Another recordDataUpdate\n]\nkintoneRecord.updateRecords(appID, recordsDataUpdate)\n    .then((rsp) =  {\n        console.log(rsp);\n    })\n    .catch((err) =  {\n        // This SDK return err with KintoneAPIExeption\n        console.log(err.get());\n    });", 
+            "title": "updateRecords(appID, recordsData)"
+        }, 
+        {
+            "location": "/reference/record/#deleterecordsappid-recordids", 
+            "text": "Deletes multiple records in an app.   Parameter     Name  Type  Required  Description      appID  Integer  yes  The kintone app ID    recordIDs  Array Integer>  yes  The list ids of record will be delete.     Return  Promise  Sample code   Delete multi record   Source code   let appID = /*{your_app_id}*/;\nlet recordIDs = [/*your_record_id*/]\nkintoneRecord.deleteRecords(appID, recordIDs)\n    .then((rsp) =  {\n        console.log(rsp);\n    })\n    .catch((err) =  {\n        // This SDK return err with KintoneAPIExeption\n        console.log(err.get());\n    });", 
+            "title": "deleteRecords(appID, recordIDs)"
+        }, 
+        {
+            "location": "/reference/record/#deleterecordswithrevisionappid-idswithrevision", 
+            "text": "Deletes multiple records in an app with revision.   Parameter     Name  Type  Required  Description      appID  Integer  yes  The kintone app ID    idsWithRevision  JSONObject  yes  JSONObject format by HashTable Integer ,  Integer > ( key :  The Id of record ,  value :  The Revision of record. )     Return  Promise  Sample code   Delete record with revision   Source code   let appID = /*{your_app_id}*/;\nlet idsWithRevision = {\n    /*your_record_id: revision_of_record*/\n}\nkintoneRecord.deleteRecordsWithRevision(appID, idsWithRevision)\n    .then((rsp) =  {\n        console.log(rsp);\n    })\n    .catch((err) =  {\n        // This SDK return err with KintoneAPIExeption\n        console.log(err.get());\n    });", 
+            "title": "deleteRecordsWithRevision(appID, idsWithRevision)"
+        }, 
+        {
+            "location": "/reference/record/#updaterecordassigneesappid-recordid-assignees-revision", 
+            "text": "Update assignees of a record.   Parameter     Name  Type  Required  Description      appID  Integer  yes  The kintone app ID    recordID  Integer  yes  The record ID of kintone app    assignees  Array String>  yes  The user code(s) of the assignee(s)    revision  Integer  (option)  The revision number of record     Return  Promise  Sample code   update record Assignees   Source code   let appID = /*{your_app_id}*/;\nlet recordID = /*{your_record_id}*/;\nlet assignees = [/*your_assignee(s)*/];\nlet revision = /*{revision_of_record}*/;\n\nkintoneRecord.updateRecordAssignees(appID, recordID, assignees, revision)\n    .then((rsp) =  {\n        console.log(rsp);\n    })\n    .catch((err) =  {\n        // This SDK return err with KintoneAPIExeption\n        console.log(err.get());\n    });", 
+            "title": "updateRecordAssignees(appID, recordID, assignees, revision)"
+        }, 
+        {
+            "location": "/reference/record/#updaterecordstatusappid-recordid-actionname-assignee-revision", 
+            "text": "Updates the Status of a record of an app.   Parameter     Name  Type  Required  Description      appID  Integer  yes  The kintone app ID.    recordID  Integer  yes  The record ID on kintone app.    actionName  String  yes  The Action name will be run.    assignee  String  (Conditionally required)  The next Assignee. Specify the Assignee's log in name. Required, if the \"Assignee List\" of the current status is set to \"User chooses one assignee from the list to take action\", and a selectable assignee exists.    assignee  Integer  (optional)  The revision of record     Return  Promise  Sample code   Update record status   Source code   let appID = /*{your_app_id}*/;\nlet recordID = /*{your_record_id}*/;\nlet actionName = /*{your_action_name}*/;\nlet assignee = '/*your_assignee(s)*/';\nlet revision = /*{revision_of_record}*/;\n\nkintoneRecord.updateRecordStatus(appID, recordID, actionName, assignee, revision)\n    .then((rsp) =  {\n        console.log(rsp);\n    })\n    .catch((err) =  {\n        // This SDK return err with KintoneAPIExeption\n        console.log(err.get());\n    });", 
+            "title": "updateRecordStatus(appID, recordID, actionName, assignee, revision)"
+        }, 
+        {
+            "location": "/reference/record/#updaterecordsstatusappid-recordsstatusupdate", 
+            "text": "Updates the Status of multiple records of an app.   Parameter     Name  Type  Required  Description      appID  Integer  yes  The kintone app ID    recordsStatusUpdate  Array JSONObject>  yes  The recod status data. See belowsample codee or  reference  at the end of this page to know format.     Return  Promise  Sample code   Update multi record status   Source code   let appID = /*{your_app_id}*/;\nlet recordStatusUpdateItem = {\n    id: /*your_record_id*/,\n    action: '/*your_action_name*/',\n    assignee: '/*your_assignee*/',\n    revision: /*your_record_revision*/\n}\nlet recordsStatusUpdate = [\n    recordStatusUpdateItem,\n    /*another data like recordStatusUpdateItem*/\n];\nkintoneRecord.updateRecordsStatus(appID, recordsStatusUpdate)\n    .then((rsp) =  {\n        console.log(rsp);\n    })\n    .catch((err) =  {\n        // This SDK return err with KintoneAPIExeption\n        console.log(err.get());\n    });", 
+            "title": "updateRecordsStatus(appID, recordsStatusUpdate)"
+        }, 
+        {
+            "location": "/reference/record/#getcommentsappid-recordid-order-offset-limit", 
+            "text": "Parameter     Name  Type  Required  Description      appID  Integer  yes  The kintone app ID    recordID  Integer  yes  The kintone app ID    order  String  (optional)  The sort order of the Comment ID. Please select  asc  or  desc    offset  Integer  (optional)  The number of first comments will be ignored.    limit  Integer  (optional)  The number of records to retrieve.     Return  Promise  Sample code   Get comments   Source code   let appID = /*{your_app_id}*/;\nlet recordID = /*{your_record_id}*/;\nlet order = /*{your_order_type}*/; // asc or desc\nlet offset = /*{your_offset_number}*/;\nlet limit = /*{your_limit number}*/;\nkintoneRecord.getComments(appID, recordID, order, offset, limit)\n    .then((rsp) =  {\n        console.log(rsp);\n    })\n    .catch((err) =  {\n        // This SDK return err with KintoneAPIExeption\n        console.log(err.get());\n    });", 
+            "title": "getComments(appID, recordID, order, offset, limit)"
+        }, 
+        {
+            "location": "/reference/record/#addcommentappid-recordid-commentcontent", 
+            "text": "Parameter     Name  Type  Required  Description      appID  Integer  yes  The kintone app ID    recordID  Integer  yes  The kintone app ID    commentContent  JSONObject  yes  About the format, please look the sample below or  reference  at the end of this page.     Return  Promise  Sample code   Add comment   Source code   let appID = /*{your_app_id}*/;\nlet recordID = /*{your_record_id}*/;\nlet commentContent = {\n    text: '/*your_comment_content*/',\n    mention: [\n        {\n            code: '/*your_member_code*/',\n            type: '/*your_member_type*/' // either `USER` or `GROUP` or `ORGANIZATION`\n        },\n        // another mention here\n    ]\n};\nkintoneRecord.addComment(appID, recordID, commentContent)\n    .then((rsp) =  {\n        console.log(rsp);\n    })\n    .catch((err) =  {\n        // This SDK return err with KintoneAPIExeption\n        console.log(err.get());\n    });", 
+            "title": "addComment(appID, recordID, commentContent)"
+        }, 
+        {
+            "location": "/reference/record/#deletecommentappid-recordid-commentid", 
+            "text": "Parameter     Name  Type  Required  Description      appID  Integer  yes  The kintone app ID    recordID  Integer  yes  The record ID on kintone app    commentID  Integer  yes  The comment ID on kintone record     Return  Promise  Sample code   Delete comment   Source code   let appID = /*{your_app_id}*/;\nlet recordID = /*{your_record_id}*/;\nlet commentID = /*{your_comment_id}*/;\nkintoneRecord.deleteComment(appID, recordID, commentID)\n    .then((rsp) =  {\n        console.log(rsp);\n    })\n    .catch((err) =  {\n        // This SDK return err with KintoneAPIExeption\n        console.log(err.get());\n    });", 
+            "title": "deleteComment(appID, recordID, commentID)"
+        }, 
+        {
+            "location": "/reference/record/#reference", 
+            "text": "Get Record   on developer network  Add Record on developer network  Update Record on developer network  Delete Record on developer network  Get Comments on developer network  Add Comment on developer network  Delete Comment on developer network  Update Record Status on developer network  Update Record Assignees on developer network", 
+            "title": "Reference"
+        }, 
+        {
+            "location": "/reference/bulk-request/", 
+            "text": "Bulk Request\n\n\nThe Bulk Request API allows multiple API requests to run on multiple kintone apps. The below API can be used with the Bulk Request API:\n\n\n\n\nAdd Record\n\n\nAdd Records\n\n\nUpdate Record\n\n\nUpdate Records\n\n\nDelete Records\n\n\nUpdate Status\n\n\nUpdate Statuses\n\n\nUpdate Assignees\n\n\n\n\nConstructor\n\n\nParameter\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nRequired\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nconnection\n\n\nConnection\n\n\nyes\n\n\nThe kintone connection module\n\n\n\n\n\n\n\n\nSample code\n\n\n\n\nInit bulk request module\n\n\n Source code \n\n\n\nconst kintone = 'kintone-nodejs-sdk';\n\nlet kintoneBulkRequest = new kintone.BulkRequest(connection);\n\n\n\n\n\n\nMethods\n\n\n\n\nAll below methods (excluded \nexecute()\n method) will add request to queue, you must execute the \nexecute()\n function to get result of BulkRequest.\n\n\n\n\naddRecord(appID, recordData)\n\n\nParameter\n\n\nSee at \nRecord - addRecord\n\n\nReturn\n\n\nBulkRequest\n\n\naddRecords(appID, recordsData)\n\n\nParameter\n\n\nSee at \nRecord - addRecords\n\n\nReturn\n\n\nBulkRequest\n\n\nupdateRecordById(appID, recordID, recordData, revision)\n\n\nParameter\n\n\nSee at \nRecord - updateRecordById\n\n\nReturn\n\n\nBulkRequest\n\n\nupdateRecordByUpdateKey(appID, updateKey, recordData, revision)\n\n\nParameter\n\n\nSee at \nRecord - updateRecordByUpdateKey\n\n\nReturn\n\n\nBulkRequest\n\n\nupdateRecords(appID, recordsData)\n\n\nParameter\n\n\nSee at \nRecord - updateRecords\n\n\nReturn\n\n\nBulkRequest\n\n\ndeleteRecords(appID, recordIDs)\n\n\nParameter\n\n\nSee at \nRecord - deleteRecords\n\n\nReturn\n\n\nBulkRequest\n\n\ndeleteRecordsWithRevision(appID, idsWithRevision)\n\n\nParameter\n\n\nSee at \nRecord - deleteRecordsWithRevision\n\n\nReturn\n\n\nBulkRequest\n\n\nupdateRecordAssignees(appID, recordID, assignees, revision)\n\n\nParameter\n\n\nSee at \nRecord - updateRecordAssignees\n\n\nReturn\n\n\nBulkRequest\n\n\nupdateRecordStatus(appID, recordID, actionName, assignee, revision)\n\n\nParameter\n\n\nSee at \nRecord - updateRecordStatus\n\n\nReturn\n\n\nBulkRequest\n\n\nupdateRecordsStatus(appID, recordsStatusUpdate)\n\n\nParameter\n\n\nSee at \nRecord - updateRecordsStatus\n\n\nReturn\n\n\nBulkRequest\n\n\nexecute()\n\n\n\n\nExecute the bulk request and get data response\n\n\n\n\nParameter\n\n\n(none)\n\n\nReturn\n\n\n[Promise]\n\n\nSample code\n\n\n\n\nExecute bulk request\n\n\n Source code \n\n\n\nlet responseBulkRequest = kintoneBulkRequest\n    .addRecord(/*[Args]*/)\n    .addRecords(/*[Args]*/)\n    .updateRecords(/*[Args]*/)\n    .deleteRecords()\n    .execute();\nresponseBulkRequest\n    .then((resp) =\n {\n        console.log(resp);\n    })\n    .catch((err) =\n {\n        // write error to console\n        console.log(err.get());\n        // Throw error\n        err.throw()\n    });\n\n\n\n\n\n\nReference\n\n\n\n\nGet Record\n \non developer network", 
+            "title": "Bulk Request"
+        }, 
+        {
+            "location": "/reference/bulk-request/#bulk-request", 
+            "text": "The Bulk Request API allows multiple API requests to run on multiple kintone apps. The below API can be used with the Bulk Request API:   Add Record  Add Records  Update Record  Update Records  Delete Records  Update Status  Update Statuses  Update Assignees", 
+            "title": "Bulk Request"
+        }, 
+        {
+            "location": "/reference/bulk-request/#constructor", 
+            "text": "", 
+            "title": "Constructor"
+        }, 
+        {
+            "location": "/reference/bulk-request/#parameter", 
+            "text": "Name  Type  Required  Description      connection  Connection  yes  The kintone connection module", 
+            "title": "Parameter"
+        }, 
+        {
+            "location": "/reference/bulk-request/#sample-code", 
+            "text": "Init bulk request module   Source code   \nconst kintone = 'kintone-nodejs-sdk';\n\nlet kintoneBulkRequest = new kintone.BulkRequest(connection);", 
+            "title": "Sample code"
+        }, 
+        {
+            "location": "/reference/bulk-request/#methods", 
+            "text": "All below methods (excluded  execute()  method) will add request to queue, you must execute the  execute()  function to get result of BulkRequest.", 
+            "title": "Methods"
+        }, 
+        {
+            "location": "/reference/bulk-request/#addrecordappid-recorddata", 
+            "text": "Parameter  See at  Record - addRecord  Return  BulkRequest", 
+            "title": "addRecord(appID, recordData)"
+        }, 
+        {
+            "location": "/reference/bulk-request/#addrecordsappid-recordsdata", 
+            "text": "Parameter  See at  Record - addRecords  Return  BulkRequest", 
+            "title": "addRecords(appID, recordsData)"
+        }, 
+        {
+            "location": "/reference/bulk-request/#updaterecordbyidappid-recordid-recorddata-revision", 
+            "text": "Parameter  See at  Record - updateRecordById  Return  BulkRequest", 
+            "title": "updateRecordById(appID, recordID, recordData, revision)"
+        }, 
+        {
+            "location": "/reference/bulk-request/#updaterecordbyupdatekeyappid-updatekey-recorddata-revision", 
+            "text": "Parameter  See at  Record - updateRecordByUpdateKey  Return  BulkRequest", 
+            "title": "updateRecordByUpdateKey(appID, updateKey, recordData, revision)"
+        }, 
+        {
+            "location": "/reference/bulk-request/#updaterecordsappid-recordsdata", 
+            "text": "Parameter  See at  Record - updateRecords  Return  BulkRequest", 
+            "title": "updateRecords(appID, recordsData)"
+        }, 
+        {
+            "location": "/reference/bulk-request/#deleterecordsappid-recordids", 
+            "text": "Parameter  See at  Record - deleteRecords  Return  BulkRequest", 
+            "title": "deleteRecords(appID, recordIDs)"
+        }, 
+        {
+            "location": "/reference/bulk-request/#deleterecordswithrevisionappid-idswithrevision", 
+            "text": "Parameter  See at  Record - deleteRecordsWithRevision  Return  BulkRequest", 
+            "title": "deleteRecordsWithRevision(appID, idsWithRevision)"
+        }, 
+        {
+            "location": "/reference/bulk-request/#updaterecordassigneesappid-recordid-assignees-revision", 
+            "text": "Parameter  See at  Record - updateRecordAssignees  Return  BulkRequest", 
+            "title": "updateRecordAssignees(appID, recordID, assignees, revision)"
+        }, 
+        {
+            "location": "/reference/bulk-request/#updaterecordstatusappid-recordid-actionname-assignee-revision", 
+            "text": "Parameter  See at  Record - updateRecordStatus  Return  BulkRequest", 
+            "title": "updateRecordStatus(appID, recordID, actionName, assignee, revision)"
+        }, 
+        {
+            "location": "/reference/bulk-request/#updaterecordsstatusappid-recordsstatusupdate", 
+            "text": "Parameter  See at  Record - updateRecordsStatus  Return  BulkRequest", 
+            "title": "updateRecordsStatus(appID, recordsStatusUpdate)"
+        }, 
+        {
+            "location": "/reference/bulk-request/#execute", 
+            "text": "Execute the bulk request and get data response   Parameter  (none)  Return  [Promise]  Sample code   Execute bulk request   Source code   \nlet responseBulkRequest = kintoneBulkRequest\n    .addRecord(/*[Args]*/)\n    .addRecords(/*[Args]*/)\n    .updateRecords(/*[Args]*/)\n    .deleteRecords()\n    .execute();\nresponseBulkRequest\n    .then((resp) =  {\n        console.log(resp);\n    })\n    .catch((err) =  {\n        // write error to console\n        console.log(err.get());\n        // Throw error\n        err.throw()\n    });", 
+            "title": "execute()"
+        }, 
+        {
+            "location": "/reference/bulk-request/#reference", 
+            "text": "Get Record   on developer network", 
+            "title": "Reference"
+        }, 
+        {
+            "location": "/reference/file/", 
+            "text": "File\n\n\nDownload and upload file via kintone Rest API\n\n\nConstructor\n\n\nParameter\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nRequired\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nconnection\n\n\nConnection\n\n\nyes\n\n\nThe kintone connection module\n\n\n\n\n\n\n\n\nSample code\n\n\n\n\nInit File module\n\n\n Source code \n\n\n\nconst kintone = 'kintone-nodejs-sdk';\n\nlet kintoneFile = new kintone.File(connection);\n\n\n\n\n\n\nMethods\n\n\nupload(filePath)\n\n\n\n\nUpload file to kintone app\n\n\n\n\nParameter\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nRequired\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nfilePath\n\n\nString\n\n\nyes\n\n\nThe full path of file on your enviroment\n\n\n\n\n\n\n\n\nReturn\n\n\nPromise\n\n\nSample code\n\n\n\n\nUpload file\n\n\n Source code \n\n\nlet fullPathFile = '{your/file/with/full/path}';\nkintoneFile.upload(fullPathFile);\n\n\n\n\n Respone \n\n\n{\n    fileKey: \nkintone_file_key\n\n}\n\n\n\n\n\n\ndownload(kintoneFileInfo, outPutFilePath)\n\n\n\n\nDownload file from kintone app to local evironment\n\n\n\n\nParameter\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nRequired\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nfileKey\n\n\nString\n\n\nyes\n\n\nThe fileKey of file on kintone.\n\n\n\n\n\n\noutPutFilePath\n\n\nString\n\n\nyes\n\n\nThe full path of output file on your enviroment\n\n\n\n\n\n\n\n\nReturn\n\n\nPromise\n\n\nSample code\n\n\n\n\nDownload file\n\n\n Source code \n\n\nlet fileKey: 'file_Key_on_kintone';\nlet fullPathFileOuput = '{your/folder/with/full/path}';\nkintoneFile.download(fileKey, fullPathFileOuput);\n\n\n\n\n Respone \n\n\n{binary_data}", 
+            "title": "File"
+        }, 
+        {
+            "location": "/reference/file/#file", 
+            "text": "Download and upload file via kintone Rest API", 
+            "title": "File"
+        }, 
+        {
+            "location": "/reference/file/#constructor", 
+            "text": "Parameter     Name  Type  Required  Description      connection  Connection  yes  The kintone connection module     Sample code   Init File module   Source code   \nconst kintone = 'kintone-nodejs-sdk';\n\nlet kintoneFile = new kintone.File(connection);", 
+            "title": "Constructor"
+        }, 
+        {
+            "location": "/reference/file/#methods", 
+            "text": "", 
+            "title": "Methods"
+        }, 
+        {
+            "location": "/reference/file/#uploadfilepath", 
+            "text": "Upload file to kintone app   Parameter     Name  Type  Required  Description      filePath  String  yes  The full path of file on your enviroment     Return  Promise  Sample code   Upload file   Source code   let fullPathFile = '{your/file/with/full/path}';\nkintoneFile.upload(fullPathFile);   Respone   {\n    fileKey:  kintone_file_key \n}", 
+            "title": "upload(filePath)"
+        }, 
+        {
+            "location": "/reference/file/#downloadkintonefileinfo-outputfilepath", 
+            "text": "Download file from kintone app to local evironment   Parameter     Name  Type  Required  Description      fileKey  String  yes  The fileKey of file on kintone.    outPutFilePath  String  yes  The full path of output file on your enviroment     Return  Promise  Sample code   Download file   Source code   let fileKey: 'file_Key_on_kintone';\nlet fullPathFileOuput = '{your/folder/with/full/path}';\nkintoneFile.download(fileKey, fullPathFileOuput);   Respone   {binary_data}", 
+            "title": "download(kintoneFileInfo, outPutFilePath)"
+        }, 
+        {
+            "location": "/reference/app/", 
+            "text": "App\n\n\nGets general information of an App, including the name, description, related Space, creator and updater information.\n\n\n\n\n\n\nPermissions to view the App is needed.\n\n\nAPI Tokens cannot be used with this API.\n\n\n\n\n\n\nConstructor\n\n\nParameter\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nRequired\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nconnection\n\n\nConnection\n\n\nyes\n\n\nThe kintone connection module\n\n\n\n\n\n\n\n\nSample code\n\n\n\n\nInit app sample\n\n\n Source code \n\n\n\nconst kintone = 'kintone-nodejs-sdk';\n\nlet kintoneApp = new kintone.App(connection);\n\n\n\n\n\n\nMethods\n\n\ngetApp(appID)\n\n\n\n\nGet single app\n\n\n\n\nParameter\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nRequired\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nappID\n\n\nInteger\n\n\nyes\n\n\nThe kintone app ID\n\n\n\n\n\n\n\n\nReturn\n\n\nPromise\n\n\nSample code\n\n\n\n\nGet app sample\n\n\n Source code \n\n\nlet appID = {your_app_id};\nkintoneApp.getApp(appID)\n    .then((rsp) =\n {\n        console.log(rsp);\n    })\n    .catch((err) =\n {\n        // This SDK return err with KintoneAPIExeption\n        console.log(err.get());\n    });\n\n\n\n\n\n\ngetApps(limit, offset)\n\n\n\n\nGet multiple apps\n\n\n\n\nParameter \n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nRequired\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nlimit\n\n\nInteger\n\n\n(optional)\n\n\nThe limit number of result\n\n\n\n\n\n\noffset\n\n\nInteger\n\n\n(optional)\n\n\nThe offset off data result\n\n\n\n\n\n\n\n\nReturn\n\n\nPromise\n\n\nSample code\n\n\n\n\nGet apps sample\n\n\n Source code \n\n\nlet limit = /*{your_limit_number}*/;\nlet offset = /*{your_offset_number}*/;\nkintoneApp.getApps(limit, offset)\n    .then((rsp) =\n {\n        console.log(rsp);\n    })\n    .catch((err) =\n {\n        // This SDK return err with KintoneAPIExeption\n        console.log(err.get());\n    });\n\n\n\n\n\n\ngetAppsByIDs(ids, limit, offset)\n\n\n\n\nGet multiple apps by list of ids\n\n\n\n\nParameter \n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nRequired\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nids\n\n\nArray\nInteger>\n\n\nyes\n\n\nThe array of app ids\n\n\n\n\n\n\nlimit\n\n\nInteger\n\n\n(optional)\n\n\nThe limit number of result\n\n\n\n\n\n\noffset\n\n\nInteger\n\n\n(optional)\n\n\nThe offset off data result\n\n\n\n\n\n\n\n\nReturn\n\n\nPromise\n\n\nSample code\n\n\n\n\nGet apps sample\n\n\n Source code \n\n\nlet appIDs = [{YOUR_APP_ID_1}, {YOUR_APP_ID_2}, {YOUR_APP_ID_n}];\nlet limit = /*{your_limit_number}*/;\nlet offset = /*{your_offset_number}*/;\nkintoneApp.getAppsByIDs(appIDs, limit, offset)\n    .then((rsp) =\n {\n        console.log(rsp);\n    })\n    .catch((err) =\n {\n        // This SDK return err with KintoneAPIExeption\n        console.log(err.get());\n    });\n\n\n\n\n\n\ngetAppsByCodes(codes, limit, offset)\n\n\n\n\nGet multiple apps by a list of codes name\n\n\n\n\nParameter \n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nRequired\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\ncodes\n\n\nArray\nString>\n\n\nyes\n\n\nThe array of app codes\n\n\n\n\n\n\nlimit\n\n\nInteger\n\n\n(optional)\n\n\nThe limit number of result\n\n\n\n\n\n\noffset\n\n\nInteger\n\n\n(optional)\n\n\nThe offset off data result\n\n\n\n\n\n\n\n\nReturn\n\n\nPromise\n\n\nSample code\n\n\n\n\nGet apps sample\n\n\n Source code \n\n\nlet codes = ['YOUR_APP_CODE_1', 'YOUR_APP_CODE_2'];\nlet limit = /*{your_limit_number}*/;\nlet offset = /*{your_offset_number}*/;\nkintoneApp.getAppsByCodes(codes, limit, offset)\n    .then((rsp) =\n {\n        console.log(rsp);\n    })\n    .catch((err) =\n {\n        // This SDK return err with KintoneAPIExeption\n        console.log(err.get());\n    });\n\n\n\n\n\n\ngetAppsByName(name, limit, offset)\n\n\n\n\nGet multiple apps by name\n\n\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nRequired\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nname\n\n\nString\n\n\nyes\n\n\nThe app name\n\n\n\n\n\n\nlimit\n\n\nInteger\n\n\n(optional)\n\n\nThe limit number of result\n\n\n\n\n\n\noffset\n\n\nInteger\n\n\n(optional)\n\n\nThe offset off data result\n\n\n\n\n\n\n\n\nReturn\n\n\nPromise\n\n\nSample code\n\n\n\n\nGet apps sample\n\n\n Source code \n\n\nlet name = 'your app name';\nlet limit = /*{your_limit_number}*/;\nlet offset = /*{your_offset_number}*/;\nkintoneApp.getAppsByName(name, limit, offset)\n    .then((rsp) =\n {\n        console.log(rsp);\n    })\n    .catch((err) =\n {\n        // This SDK return err with KintoneAPIExeption\n        console.log(err.get());\n    });\n\n\n\n\n\n\ngetAppsBySpaceIDs(spaceIDs, limit, offset)\n\n\n\n\nGet multiple apps by list of space's ids\n\n\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nRequired\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nspaceIDs\n\n\nArray\nInteger>\n\n\nyes\n\n\nThe array of space ids\n\n\n\n\n\n\nlimit\n\n\nInteger\n\n\n(optional)\n\n\nThe limit number of result\n\n\n\n\n\n\noffset\n\n\nInteger\n\n\n(optional)\n\n\nThe offset off data result\n\n\n\n\n\n\n\n\nReturn\n\n\nPromise\n\n\nSample code\n\n\n\n\nGet apps sample\n\n\n Source code \n\n\nlet spaceIDs = [];\nlet limit = /*{your_limit_number}*/;\nlet offset = /*{your_offset_number}*/;\nkintoneApp.getAppsBySpaceIDs(spaceIDs, limit, offset)\n    .then((rsp) =\n {\n        console.log(rsp);\n    })\n    .catch((err) =\n {\n        // This SDK return err with KintoneAPIExeption\n        console.log(err.get());\n    });\n\n\n\n\n\n\ngetFormFields(appID, language)\n\n\n\n\nGet field of form in kintone app\n\n\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nRequired\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nappID\n\n\nInteger\n\n\nyes\n\n\nThe app ID\n\n\n\n\n\n\nlanguage\n\n\nString\n\n\n(optional)\n\n\nThe language code. Support: \nDEFAULT: Default language setting of system \nJA: English language setting\nZH: Chinese language setting\nEN: English language setting\n\n\n\n\n\n\noffset\n\n\nInteger\n\n\n(optional)\n\n\nThe offset off data result\n\n\n\n\n\n\n\n\nReturn\n\n\nPromise\n\n\nSample code\n\n\n\n\nGet app form field sample\n\n\n Source code \n\n\nlet appID = {your_app_id};\nlet langCode = {language_code}; // Ex: JA\nkintoneApp.getFormFields(appID, langCode)\n    .then((rsp) =\n {\n        console.log(rsp);\n    })\n    .catch((err) =\n {\n        // This SDK return err with KintoneAPIExeption\n        console.log(err.get());\n    });\n\n\n\n\n\n\ngetFormLayout(appID)\n\n\n\n\nGet layout of form in kintone app\n\n\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nRequired\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nappID\n\n\nInteger\n\n\nyes\n\n\nThe kintone app id\n\n\n\n\n\n\n\n\nReturn\n\n\nPromise\n\n\nSample code\n\n\n\n\nGet form layout sample\n\n\n Source code \n\n\nlet appID = {your_app_id};\nkintoneApp.getFormLayout(appID)\n    .then((rsp) =\n {\n        console.log(rsp);\n    })\n    .catch((err) =\n {\n        // This SDK return err with KintoneAPIExeption\n        console.log(err.get());\n    });\n\n\n\n\n\n\nReference\n\n\n\n\nGet App\non developer network\n\n\nGet Apps\non developer network\n\n\nGet Form fields\non developer network\n\n\nGet Form Layout\non developer network", 
+            "title": "App"
+        }, 
+        {
+            "location": "/reference/app/#app", 
+            "text": "Gets general information of an App, including the name, description, related Space, creator and updater information.    Permissions to view the App is needed.  API Tokens cannot be used with this API.", 
+            "title": "App"
+        }, 
+        {
+            "location": "/reference/app/#constructor", 
+            "text": "Parameter     Name  Type  Required  Description      connection  Connection  yes  The kintone connection module     Sample code   Init app sample   Source code   \nconst kintone = 'kintone-nodejs-sdk';\n\nlet kintoneApp = new kintone.App(connection);", 
+            "title": "Constructor"
+        }, 
+        {
+            "location": "/reference/app/#methods", 
+            "text": "", 
+            "title": "Methods"
+        }, 
+        {
+            "location": "/reference/app/#getappappid", 
+            "text": "Get single app", 
+            "title": "getApp(appID)"
+        }, 
+        {
+            "location": "/reference/app/#parameter", 
+            "text": "Name  Type  Required  Description      appID  Integer  yes  The kintone app ID     Return  Promise  Sample code   Get app sample   Source code   let appID = {your_app_id};\nkintoneApp.getApp(appID)\n    .then((rsp) =  {\n        console.log(rsp);\n    })\n    .catch((err) =  {\n        // This SDK return err with KintoneAPIExeption\n        console.log(err.get());\n    });", 
+            "title": "Parameter"
+        }, 
+        {
+            "location": "/reference/app/#getappslimit-offset", 
+            "text": "Get multiple apps   Parameter      Name  Type  Required  Description      limit  Integer  (optional)  The limit number of result    offset  Integer  (optional)  The offset off data result     Return  Promise  Sample code   Get apps sample   Source code   let limit = /*{your_limit_number}*/;\nlet offset = /*{your_offset_number}*/;\nkintoneApp.getApps(limit, offset)\n    .then((rsp) =  {\n        console.log(rsp);\n    })\n    .catch((err) =  {\n        // This SDK return err with KintoneAPIExeption\n        console.log(err.get());\n    });", 
+            "title": "getApps(limit, offset)"
+        }, 
+        {
+            "location": "/reference/app/#getappsbyidsids-limit-offset", 
+            "text": "Get multiple apps by list of ids   Parameter      Name  Type  Required  Description      ids  Array Integer>  yes  The array of app ids    limit  Integer  (optional)  The limit number of result    offset  Integer  (optional)  The offset off data result     Return  Promise  Sample code   Get apps sample   Source code   let appIDs = [{YOUR_APP_ID_1}, {YOUR_APP_ID_2}, {YOUR_APP_ID_n}];\nlet limit = /*{your_limit_number}*/;\nlet offset = /*{your_offset_number}*/;\nkintoneApp.getAppsByIDs(appIDs, limit, offset)\n    .then((rsp) =  {\n        console.log(rsp);\n    })\n    .catch((err) =  {\n        // This SDK return err with KintoneAPIExeption\n        console.log(err.get());\n    });", 
+            "title": "getAppsByIDs(ids, limit, offset)"
+        }, 
+        {
+            "location": "/reference/app/#getappsbycodescodes-limit-offset", 
+            "text": "Get multiple apps by a list of codes name   Parameter      Name  Type  Required  Description      codes  Array String>  yes  The array of app codes    limit  Integer  (optional)  The limit number of result    offset  Integer  (optional)  The offset off data result     Return  Promise  Sample code   Get apps sample   Source code   let codes = ['YOUR_APP_CODE_1', 'YOUR_APP_CODE_2'];\nlet limit = /*{your_limit_number}*/;\nlet offset = /*{your_offset_number}*/;\nkintoneApp.getAppsByCodes(codes, limit, offset)\n    .then((rsp) =  {\n        console.log(rsp);\n    })\n    .catch((err) =  {\n        // This SDK return err with KintoneAPIExeption\n        console.log(err.get());\n    });", 
+            "title": "getAppsByCodes(codes, limit, offset)"
+        }, 
+        {
+            "location": "/reference/app/#getappsbynamename-limit-offset", 
+            "text": "Get multiple apps by name      Name  Type  Required  Description      name  String  yes  The app name    limit  Integer  (optional)  The limit number of result    offset  Integer  (optional)  The offset off data result     Return  Promise  Sample code   Get apps sample   Source code   let name = 'your app name';\nlet limit = /*{your_limit_number}*/;\nlet offset = /*{your_offset_number}*/;\nkintoneApp.getAppsByName(name, limit, offset)\n    .then((rsp) =  {\n        console.log(rsp);\n    })\n    .catch((err) =  {\n        // This SDK return err with KintoneAPIExeption\n        console.log(err.get());\n    });", 
+            "title": "getAppsByName(name, limit, offset)"
+        }, 
+        {
+            "location": "/reference/app/#getappsbyspaceidsspaceids-limit-offset", 
+            "text": "Get multiple apps by list of space's ids      Name  Type  Required  Description      spaceIDs  Array Integer>  yes  The array of space ids    limit  Integer  (optional)  The limit number of result    offset  Integer  (optional)  The offset off data result     Return  Promise  Sample code   Get apps sample   Source code   let spaceIDs = [];\nlet limit = /*{your_limit_number}*/;\nlet offset = /*{your_offset_number}*/;\nkintoneApp.getAppsBySpaceIDs(spaceIDs, limit, offset)\n    .then((rsp) =  {\n        console.log(rsp);\n    })\n    .catch((err) =  {\n        // This SDK return err with KintoneAPIExeption\n        console.log(err.get());\n    });", 
+            "title": "getAppsBySpaceIDs(spaceIDs, limit, offset)"
+        }, 
+        {
+            "location": "/reference/app/#getformfieldsappid-language", 
+            "text": "Get field of form in kintone app      Name  Type  Required  Description      appID  Integer  yes  The app ID    language  String  (optional)  The language code. Support:  DEFAULT: Default language setting of system  JA: English language setting ZH: Chinese language setting EN: English language setting    offset  Integer  (optional)  The offset off data result     Return  Promise  Sample code   Get app form field sample   Source code   let appID = {your_app_id};\nlet langCode = {language_code}; // Ex: JA\nkintoneApp.getFormFields(appID, langCode)\n    .then((rsp) =  {\n        console.log(rsp);\n    })\n    .catch((err) =  {\n        // This SDK return err with KintoneAPIExeption\n        console.log(err.get());\n    });", 
+            "title": "getFormFields(appID, language)"
+        }, 
+        {
+            "location": "/reference/app/#getformlayoutappid", 
+            "text": "Get layout of form in kintone app      Name  Type  Required  Description      appID  Integer  yes  The kintone app id     Return  Promise  Sample code   Get form layout sample   Source code   let appID = {your_app_id};\nkintoneApp.getFormLayout(appID)\n    .then((rsp) =  {\n        console.log(rsp);\n    })\n    .catch((err) =  {\n        // This SDK return err with KintoneAPIExeption\n        console.log(err.get());\n    });", 
+            "title": "getFormLayout(appID)"
+        }, 
+        {
+            "location": "/reference/app/#reference", 
+            "text": "Get App on developer network  Get Apps on developer network  Get Form fields on developer network  Get Form Layout on developer network", 
+            "title": "Reference"
+        }, 
+        {
+            "location": "/reference/kintone-api-exception/", 
+            "text": "kintoneAPIException\n\n\nHandle error responses from kintone Rest API\n\n\nMethods\n\n\nget()\n\n\nParameter\n\n\n(none)\n\n\nReturn\n\n\nKintone Error Response\n\n\nSample code\n\n\n\n\nGet app with error response\n\n\n Source code \n\n\nlet appID = {your_invalid_app_id};\nkintoneApp.getApp(appID)\n    .catch((err) =\n {\n        // This SDK return err with KintoneAPIExeption\n        console.log(err.get());\n    });\n\n\n\n\n Response \n\n\n{\n    \nmessage\n:\n{kintone_error_message}\n,\n    \nid\n:\nkintone_error_id\n,\n    \ncode\n:\n{kintone_error_code}\n\n}\n// In the some case, the kintone Rest API will response with detail errors\n{\n    \nmessage\n:\n{kintone_error_message}\n,\n    \nid\n:\nkintone_error_id\n,\n    \ncode\n:\n{kintone_error_code}\n,\n    \nerrors\n: [\n        /*errors items here*/\n    ]\n\n}\n\n\n\n\n\n\ngetAll()\n\n\nParameter \n\n\n(none)\n\n\nReturn\n\n\nThe result of Promise.Reject()\n\n\nSample code\n\n\n\n\nGet apps with error response\n\n\n Source code \n\n\nlet appID = {your_invalid_app_id};\nkintoneApp.getApp(appID)\n    .catch((err) =\n {\n        // This SDK return err with KintoneAPIExeption\n        console.log(err.getAll());\n    });\n\n\n\n\n\n\nthow()\n\n\n\n\nThis function will throw result of \nget()\n function\n\n\n\n\nParameter \n\n\n(none)\n\n\nReturn\n\n\n(none)\n\n\nthowAll()\n\n\n\n\nThis function will throw result of \ngetAll()\n function\n\n\n\n\nParameter \n\n\n(none)\n\n\nReturn\n\n\n(none)\n\n\nReference\n\n\n\n\nkintone REST API Overview\non developer network\n\n\nrequest-promise\non npmjs", 
+            "title": "Kintone APIException"
+        }, 
+        {
+            "location": "/reference/kintone-api-exception/#kintoneapiexception", 
+            "text": "Handle error responses from kintone Rest API", 
+            "title": "kintoneAPIException"
+        }, 
+        {
+            "location": "/reference/kintone-api-exception/#methods", 
+            "text": "", 
+            "title": "Methods"
+        }, 
+        {
+            "location": "/reference/kintone-api-exception/#get", 
+            "text": "Parameter  (none)  Return  Kintone Error Response  Sample code   Get app with error response   Source code   let appID = {your_invalid_app_id};\nkintoneApp.getApp(appID)\n    .catch((err) =  {\n        // This SDK return err with KintoneAPIExeption\n        console.log(err.get());\n    });   Response   {\n     message : {kintone_error_message} ,\n     id : kintone_error_id ,\n     code : {kintone_error_code} \n}\n// In the some case, the kintone Rest API will response with detail errors\n{\n     message : {kintone_error_message} ,\n     id : kintone_error_id ,\n     code : {kintone_error_code} ,\n     errors : [\n        /*errors items here*/\n    ]\n\n}", 
+            "title": "get()"
+        }, 
+        {
+            "location": "/reference/kintone-api-exception/#getall", 
+            "text": "Parameter   (none)  Return  The result of Promise.Reject()  Sample code   Get apps with error response   Source code   let appID = {your_invalid_app_id};\nkintoneApp.getApp(appID)\n    .catch((err) =  {\n        // This SDK return err with KintoneAPIExeption\n        console.log(err.getAll());\n    });", 
+            "title": "getAll()"
+        }, 
+        {
+            "location": "/reference/kintone-api-exception/#thow", 
+            "text": "This function will throw result of  get()  function   Parameter   (none)  Return  (none)", 
+            "title": "thow()"
+        }, 
+        {
+            "location": "/reference/kintone-api-exception/#thowall", 
+            "text": "This function will throw result of  getAll()  function   Parameter   (none)  Return  (none)", 
+            "title": "thowAll()"
+        }, 
+        {
+            "location": "/reference/kintone-api-exception/#reference", 
+            "text": "kintone REST API Overview on developer network  request-promise on npmjs", 
+            "title": "Reference"
+        }
+    ]
+}
