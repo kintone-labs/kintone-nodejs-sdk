@@ -1,6 +1,6 @@
 site_name: kintone Node.js SDK
 site_description: The SDK of kintone REST API client on Node.js
-repo_url: https://github.com/kintone/nodejs-sdk
+repo_url: https://github.dev.cybozu.co.jp/SC/kintone-nodejs-sdk/tree/docs
 theme:
   name: 'material'
   palette:
