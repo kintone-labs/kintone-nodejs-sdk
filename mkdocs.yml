@@ -24,6 +24,5 @@ pages:
   - Connection: reference/connection.md
   - Record: reference/record.md
   - Bulk Request: reference/bulk-request.md
-  - File: reference/file.md
   - App: reference/app.md
   - Kintone APIException: reference/kintone-api-exception.md
