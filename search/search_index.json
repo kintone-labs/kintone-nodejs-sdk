@@ -2,7 +2,7 @@
     "docs": [
         {
             "location": "/", 
-            "text": "Home\n\n\n\n\nkintone-node.js-sdk is the SDK of kintone REST API client on Node.js\n\n\n\n\nVersion\n\n\n0.1.0\n\n\nGetting Started\n\n\n\n\nQuickstart\n\n\n\n\nReference\n\n\n\n\nAuthentication\n\n\nConnection\n\n\nRecord\n\n\nBulkRequest\n\n\nApp\n\n\nFile\n\n\nKintoneAPIException\n\n\n\n\nLicense\n\n\nMIT\n\n\nCopyright\n\n\nCopyright(c) Cybozu, Inc.", 
+            "text": "Home\n\n\n\n\nkintone-node.js-sdk is the SDK of kintone REST API client on Node.js\n\n\n\n\nVersion\n\n\n0.1.0\n\n\nGetting Started\n\n\n\n\nQuickstart\n\n\n\n\nReference\n\n\n\n\nAuthentication\n\n\nConnection\n\n\nRecord\n\n\nBulkRequest\n\n\nApp\n\n\nKintoneAPIException\n\n\n\n\nLicense\n\n\nMIT\n\n\nCopyright\n\n\nCopyright(c) Cybozu, Inc.", 
             "title": "Home"
         }, 
         {
@@ -22,7 +22,7 @@
         }, 
         {
             "location": "/#reference", 
-            "text": "Authentication  Connection  Record  BulkRequest  App  File  KintoneAPIException", 
+            "text": "Authentication  Connection  Record  BulkRequest  App  KintoneAPIException", 
             "title": "Reference"
         }, 
         {
@@ -314,36 +314,6 @@
             "location": "/reference/bulk-request/#reference", 
             "text": "Get Record   on developer network", 
             "title": "Reference"
-        }, 
-        {
-            "location": "/reference/file/", 
-            "text": "File\n\n\nDownload and upload file via kintone Rest API\n\n\nConstructor\n\n\nParameter\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nRequired\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nconnection\n\n\nConnection\n\n\nyes\n\n\nThe connection module of this SDK.\n\n\n\n\n\n\n\n\nSample code\n\n\n\n\nInit File module\n\n\n Source code \n\n\n\nconst kintone = 'kintone-nodejs-sdk';\n\nlet kintoneFile = new kintone.File(connection);\n\n\n\n\n\n\nMethods\n\n\nupload(filePath)\n\n\n\n\nUpload file to kintone app\n\n\n\n\nParameter\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nRequired\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nfilePath\n\n\nString\n\n\nyes\n\n\nThe full path of file on your enviroment\n\n\n\n\n\n\n\n\nReturn\n\n\nPromise\n\n\nSample code\n\n\n\n\nUpload file\n\n\n Source code \n\n\nlet fullPathFile = '{your/file/with/full/path}';\nkintoneFile.upload(fullPathFile);\n\n\n\n\n Respone \n\n\n{\n    fileKey: \nkintone_file_key\n\n}\n\n\n\n\n\n\ndownload(fileKey, outPutFilePath)\n\n\n\n\nDownload file from kintone app to local evironment\n\n\n\n\nParameter\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nRequired\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nfileKey\n\n\nString\n\n\nyes\n\n\nThe fileKey of file on kintone.\n\n\n\n\n\n\noutPutFilePath\n\n\nString\n\n\nyes\n\n\nThe full path of output file on your enviroment\n\n\n\n\n\n\n\n\nReturn\n\n\nPromise\n\n\nSample code\n\n\n\n\nDownload file\n\n\n Source code \n\n\nlet fileKey: 'file_Key_on_kintone';\nlet fullPathFileOuput = '{your/folder/with/full/path}';\nkintoneFile.download(fileKey, fullPathFileOuput);\n\n\n\n\n Respone \n\n\n{binary_data}", 
-            "title": "File"
-        }, 
-        {
-            "location": "/reference/file/#file", 
-            "text": "Download and upload file via kintone Rest API", 
-            "title": "File"
-        }, 
-        {
-            "location": "/reference/file/#constructor", 
-            "text": "Parameter     Name  Type  Required  Description      connection  Connection  yes  The connection module of this SDK.     Sample code   Init File module   Source code   \nconst kintone = 'kintone-nodejs-sdk';\n\nlet kintoneFile = new kintone.File(connection);", 
-            "title": "Constructor"
-        }, 
-        {
-            "location": "/reference/file/#methods", 
-            "text": "", 
-            "title": "Methods"
-        }, 
-        {
-            "location": "/reference/file/#uploadfilepath", 
-            "text": "Upload file to kintone app   Parameter     Name  Type  Required  Description      filePath  String  yes  The full path of file on your enviroment     Return  Promise  Sample code   Upload file   Source code   let fullPathFile = '{your/file/with/full/path}';\nkintoneFile.upload(fullPathFile);   Respone   {\n    fileKey:  kintone_file_key \n}", 
-            "title": "upload(filePath)"
-        }, 
-        {
-            "location": "/reference/file/#downloadfilekey-outputfilepath", 
-            "text": "Download file from kintone app to local evironment   Parameter     Name  Type  Required  Description      fileKey  String  yes  The fileKey of file on kintone.    outPutFilePath  String  yes  The full path of output file on your enviroment     Return  Promise  Sample code   Download file   Source code   let fileKey: 'file_Key_on_kintone';\nlet fullPathFileOuput = '{your/folder/with/full/path}';\nkintoneFile.download(fileKey, fullPathFileOuput);   Respone   {binary_data}", 
-            "title": "download(fileKey, outPutFilePath)"
         }, 
         {
             "location": "/reference/app/", 
