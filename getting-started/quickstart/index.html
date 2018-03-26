@@ -522,7 +522,7 @@ npm i --save-dev kintone-nodejs-sdk
 const kintone = 'kintone-nodejs-sdk';
 
 let kintoneAuthWithAPIToken = (new kintone.Auth()).setAPIToken('MY_TOKEN');
-let kintoneConnection = new kintone.Connection('your.FQDN', kintoneAuthWithAPIToken);
+let kintoneConnection = new kintone.Connection('your.FQDN.tld', kintoneAuthWithAPIToken);
 
 let kintoneRecord = new kintone.Record(kintoneConnection);
 

@@ -466,15 +466,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#getformfieldsappid-language" title="getFormFields(appID, language)" class="md-nav__link">
-    getFormFields(appID, language)
+  <a href="#getformfieldsappid-langcode-ispreview" title="getFormFields(appID, langCode, isPreview)" class="md-nav__link">
+    getFormFields(appID, langCode, isPreview)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#getformlayoutappid" title="getFormLayout(appID)" class="md-nav__link">
-    getFormLayout(appID)
+  <a href="#getformlayoutappid-ispreview" title="getFormLayout(appID, isPreview)" class="md-nav__link">
+    getFormLayout(appID, isPreview)
   </a>
   
 </li>
@@ -610,15 +610,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#getformfieldsappid-language" title="getFormFields(appID, language)" class="md-nav__link">
-    getFormFields(appID, language)
+  <a href="#getformfieldsappid-langcode-ispreview" title="getFormFields(appID, langCode, isPreview)" class="md-nav__link">
+    getFormFields(appID, langCode, isPreview)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#getformlayoutappid" title="getFormLayout(appID)" class="md-nav__link">
-    getFormLayout(appID)
+  <a href="#getformlayoutappid-ispreview" title="getFormLayout(appID, isPreview)" class="md-nav__link">
+    getFormLayout(appID, isPreview)
   </a>
   
 </li>
@@ -999,7 +999,7 @@ kintoneApp.getAppsBySpaceIDs(spaceIDs, limit, offset)
 </code></pre>
 
 <p></details></p>
-<h3 id="getformfieldsappid-language">getFormFields(appID, language)</h3>
+<h3 id="getformfieldsappid-langcode-ispreview">getFormFields(appID, langCode, isPreview)</h3>
 <blockquote>
 <p>Get field of form in kintone app</p>
 </blockquote>
@@ -1020,16 +1020,16 @@ kintoneApp.getAppsBySpaceIDs(spaceIDs, limit, offset)
 <td>The app ID</td>
 </tr>
 <tr>
-<td>language</td>
+<td>langCode</td>
 <td>String</td>
 <td>(optional)</td>
 <td>The language code. Support: <ul><li>DEFAULT: Default language setting of system </li><li>JA: English language setting</li><li>ZH: Chinese language setting</li><li>EN: English language setting</li></td>
 </tr>
 <tr>
-<td>offset</td>
-<td>Integer</td>
+<td>isPreview</td>
+<td>Boolean</td>
 <td>(optional)</td>
-<td>The offset off data result</td>
+<td>Get the app form fields with a <a href="https://developer.kintone.io/hc/en-us/articles/115005509288">pre-live settings</a>.</td>
 </tr>
 </tbody>
 </table>
@@ -1049,10 +1049,23 @@ kintoneApp.getFormFields(appID, langCode)
         // This SDK return err with KintoneAPIExeption
         console.log(err.get());
     });
+
+// Get a pre-live (preview) form fields
+let appID = {your_app_id};
+let langCode = {language_code}; // Ex: JA
+let isPreview = true;
+kintoneApp.getFormFields(appID, langCode, isPreview)
+    .then((rsp) =&gt; {
+        console.log(rsp);
+    })
+    .catch((err) =&gt; {
+        // This SDK return err with KintoneAPIExeption
+        console.log(err.get());
+    });
 </code></pre>
 
 <p></details></p>
-<h3 id="getformlayoutappid">getFormLayout(appID)</h3>
+<h3 id="getformlayoutappid-ispreview">getFormLayout(appID, isPreview)</h3>
 <blockquote>
 <p>Get layout of form in kintone app</p>
 </blockquote>
@@ -1072,6 +1085,12 @@ kintoneApp.getFormFields(appID, langCode)
 <td>yes</td>
 <td>The kintone app id</td>
 </tr>
+<tr>
+<td>isPreview</td>
+<td>Boolean</td>
+<td>(optional)</td>
+<td>Get the app form layout with a <a href="https://developer.kintone.io/hc/en-us/articles/115005509288">pre-live settings</a>.</td>
+</tr>
 </tbody>
 </table>
 <p><strong>Return</strong></p>
@@ -1081,7 +1100,19 @@ kintoneApp.getFormFields(appID, langCode)
 <Summary>Get form layout sample</Summary></p>
 <p><strong> Source code </strong></p>
 <pre><code class="javascript">let appID = {your_app_id};
+// Get form layout
 kintoneApp.getFormLayout(appID)
+    .then((rsp) =&gt; {
+        console.log(rsp);
+    })
+    .catch((err) =&gt; {
+        // This SDK return err with KintoneAPIExeption
+        console.log(err.get());
+    });
+
+// Get a preview (pre-live) form layout
+let isPreview = true;
+kintoneApp.getFormLayout(appID, isPreview)
     .then((rsp) =&gt; {
         console.log(rsp);
     })
