@@ -77,7 +77,7 @@ kintoneRecord.getRecord(appID, recordID)
 | appID | Integer | yes | The kintone app ID
 | query | String | (optional) | [The query string](https://developer.kintone.io/hc/en-us/articles/213149287#getrecords) that will specify what records will be responded.
 | fields | Array<String\> | (optional) | List of field codes you want in the response.
-| totalCount | Boolean | (optional) | If "true", the request will retrieve total count of records match with query conditions.
+| isShowTotalCount | Boolean | (optional) | If "true", the request will retrieve total count of records match with query conditions.
 
 **Return**
 

@@ -43,7 +43,7 @@ let kintoneBulkRequest = new kintone.BulkRequest(connection);
 
 **Parameter**
 
-See at [Record - addRecord](./record)
+See at [Record - addRecord](./record#addrecordappid-recorddata)
 
 **Return**
 
@@ -53,7 +53,7 @@ See at [Record - addRecord](./record)
 
 **Parameter**
 
-See at [Record - addRecords](./record)
+See at [Record - addRecords](./record#addrecordsappid-recordsdata)
 
 **Return**
 
@@ -63,7 +63,7 @@ See at [Record - addRecords](./record)
 
 **Parameter**
 
-See at [Record - updateRecordById](./record)
+See at [Record - updateRecordById](./record#updaterecordbyidappid-recordid-recorddata-revision)
 
 **Return**
 
@@ -73,7 +73,7 @@ See at [Record - updateRecordById](./record)
 
 **Parameter**
 
-See at [Record - updateRecordByUpdateKey](./record)
+See at [Record - updateRecordByUpdateKey](./record#updaterecordbyupdatekeyappid-updatekey-recorddata-revision)
 
 **Return**
 
@@ -83,7 +83,7 @@ See at [Record - updateRecordByUpdateKey](./record)
 
 **Parameter**
 
-See at [Record - updateRecords](./record)
+See at [Record - updateRecords](./record#updaterecordsappid-recordsdata)
 
 **Return**
 
@@ -93,7 +93,7 @@ See at [Record - updateRecords](./record)
 
 **Parameter**
 
-See at [Record - deleteRecords](./record)
+See at [Record - deleteRecords](./record#deleterecordsappid-recordids)
 
 **Return**
 
@@ -103,7 +103,7 @@ See at [Record - deleteRecords](./record)
 
 **Parameter**
 
-See at [Record - deleteRecordsWithRevision](./record)
+See at [Record - deleteRecordsWithRevision](./record#deleterecordswithrevisionappid-idswithrevision)
 
 **Return**
 
@@ -113,7 +113,7 @@ See at [Record - deleteRecordsWithRevision](./record)
 
 **Parameter**
 
-See at [Record - updateRecordAssignees](./record)
+See at [Record - updateRecordAssignees](./record#updaterecordassigneesappid-recordid-assignees-revision)
 
 **Return**
 
@@ -123,7 +123,7 @@ See at [Record - updateRecordAssignees](./record)
 
 **Parameter**
 
-See at [Record - updateRecordStatus](./record)
+See at [Record - updateRecordStatus](./record#updaterecordstatusappid-recordid-actionname-assignee-revision)
 
 **Return**
 
@@ -133,7 +133,7 @@ See at [Record - updateRecordStatus](./record)
 
 **Parameter**
 
-See at [Record - updateRecordsStatus](./record)
+See at [Record - updateRecordsStatus](./record#updaterecordsstatusappid-recordsstatusupdate)
 
 **Return**
 

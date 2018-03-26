@@ -256,15 +256,15 @@ kintoneApp.getAppsBySpaceIDs(spaceIDs, limit, offset)
 
 </details>
 
-### getFormFields(appID, language)
+### getFormFields(appID, langCode, isPreview)
 
 > Get field of form in kintone app
 
 | Name| Type| Required| Description |
 | --- | --- | --- | --- |
 | appID | Integer | yes | The app ID
-| language | String | (optional) | The language code. Support: <ul><li>DEFAULT: Default language setting of system </li><li>JA: English language setting</li><li>ZH: Chinese language setting</li><li>EN: English language setting</li> |
-| offset | Integer | (optional) | The offset off data result
+| langCode | String | (optional) | The language code. Support: <ul><li>DEFAULT: Default language setting of system </li><li>JA: English language setting</li><li>ZH: Chinese language setting</li><li>EN: English language setting</li> |
+| isPreview | Boolean | (optional) | Get the app form fields with a [pre-live settings](https://developer.kintone.io/hc/en-us/articles/115005509288).
 
 **Return**
 
@@ -288,17 +288,31 @@ kintoneApp.getFormFields(appID, langCode)
         // This SDK return err with KintoneAPIExeption
         console.log(err.get());
     });
+
+// Get a pre-live (preview) form fields
+let appID = {your_app_id};
+let langCode = {language_code}; // Ex: JA
+let isPreview = true;
+kintoneApp.getFormFields(appID, langCode, isPreview)
+    .then((rsp) => {
+        console.log(rsp);
+    })
+    .catch((err) => {
+        // This SDK return err with KintoneAPIExeption
+        console.log(err.get());
+    });
 ```
 
 </details>
 
-### getFormLayout(appID)
+### getFormLayout(appID, isPreview)
 
 > Get layout of form in kintone app
 
 | Name| Type| Required| Description |
 | --- | --- | --- | --- |
 | appID | Integer | yes | The kintone app id
+| isPreview | Boolean | (optional) | Get the app form layout with a [pre-live settings](https://developer.kintone.io/hc/en-us/articles/115005509288).
 
 **Return**
 
@@ -313,7 +327,19 @@ Promise
 
 ```javascript
 let appID = {your_app_id};
+// Get form layout
 kintoneApp.getFormLayout(appID)
+    .then((rsp) => {
+        console.log(rsp);
+    })
+    .catch((err) => {
+        // This SDK return err with KintoneAPIExeption
+        console.log(err.get());
+    });
+
+// Get a preview (pre-live) form layout
+let isPreview = true;
+kintoneApp.getFormLayout(appID, isPreview)
     .then((rsp) => {
         console.log(rsp);
     })
