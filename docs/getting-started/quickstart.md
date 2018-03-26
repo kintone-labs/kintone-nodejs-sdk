@@ -3,7 +3,7 @@
 ## Requirement
 
 * [Node.js](https://nodejs.org/en/) (Version 9.6.1 or later)
-* [kintone-basejs-sdk](/comming)
+* [kintone-basejs-sdk](https://github.dev.cybozu.co.jp/SC/kintone-basejs-sdk)
 
 ## How to use
 
