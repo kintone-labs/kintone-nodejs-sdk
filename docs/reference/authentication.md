@@ -22,7 +22,7 @@ This module allow we authenticate with kintone app by password authenticator or 
 
 ```javascript
 
-const kintone = 'kintone-nodejs-sdk';
+const kintone = require('kintone-nodejs-sdk');
 
 let kintoneAuth = new kintone.Auth();
 ```

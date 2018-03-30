@@ -19,7 +19,7 @@ Provide manipulate functions on records: get, update, delete, update the record 
 
 ```javascript
 
-const kintone = 'kintone-nodejs-sdk';
+const kintone = require('kintone-nodejs-sdk');
 
 let kintoneRecord = new kintone.Record(connection);
 ```

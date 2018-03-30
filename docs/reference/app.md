@@ -23,7 +23,7 @@ Gets general information of an App, including the name, description, related Spa
 
 ```javascript
 
-const kintone = 'kintone-nodejs-sdk';
+const kintone = require('kintone-nodejs-sdk');
 
 let kintoneApp = new kintone.App(connection);
 ```

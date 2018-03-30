@@ -23,7 +23,7 @@
 
 ```javascript
 
-const kintone = 'kintone-nodejs-sdk';
+const kintone = require('kintone-nodejs-sdk');
 
 // Define Authentication object
 let kintoneAuth = new kintone.Auth();

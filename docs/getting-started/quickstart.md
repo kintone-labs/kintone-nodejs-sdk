@@ -22,7 +22,7 @@ npm i --save-dev kintone-nodejs-sdk
 
 ```javascript
 
-const kintone = 'kintone-nodejs-sdk';
+const kintone = require('kintone-nodejs-sdk');
 
 let kintoneAuthWithAPIToken = (new kintone.Auth()).setAPIToken('MY_TOKEN');
 let kintoneConnection = new kintone.Connection('your.FQDN.tld', kintoneAuthWithAPIToken);
@@ -71,7 +71,7 @@ kintoneRecord.getRecord(appID, recordID)
 
 ```javascript
 
-const kintone = 'kintone-nodejs-sdk';
+const kintone = require('kintone-nodejs-sdk');
 
 let kintoneAuthWithAPIToken = (new kintone.Auth()).setAPIToken('MY_TOKEN');
 let kintoneConnection = new kintone.Connection('your.FQDN', kintoneAuthWithAPIToken);
