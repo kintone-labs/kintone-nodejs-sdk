@@ -67,7 +67,7 @@ kintoneApp.getApp(appID)
 
 </details>
 
-### getApps(limit, offset)
+### getApps(offset, limit)
 
 > Get multiple apps
 
@@ -75,8 +75,8 @@ kintoneApp.getApp(appID)
 
 | Name| Type| Required| Description |
 | --- | --- | --- | --- |
-| limit | Integer | (optional) | The limit number of result
 | offset | Integer | (optional) | The offset off data result
+| limit | Integer | (optional) | The limit number of result
 
 **Return**
 
@@ -92,7 +92,7 @@ Promise
 ```javascript
 let limit = /*{your_limit_number}*/;
 let offset = /*{your_offset_number}*/;
-kintoneApp.getApps(limit, offset)
+kintoneApp.getApps(offset, limit)
     .then((rsp) => {
         console.log(rsp);
     })
@@ -104,7 +104,7 @@ kintoneApp.getApps(limit, offset)
 
 </details>
 
-### getAppsByIDs(ids, limit, offset)
+### getAppsByIDs(ids, offset, limit)
 
 > Get multiple apps by list of ids
 
@@ -113,8 +113,8 @@ kintoneApp.getApps(limit, offset)
 | Name| Type| Required| Description |
 | --- | --- | --- | --- |
 | ids | Array<Integer\> | yes | The array of app ids
-| limit | Integer | (optional) | The limit number of result
 | offset | Integer | (optional) | The offset off data result
+| limit | Integer | (optional) | The limit number of result
 
 **Return**
 
@@ -131,7 +131,7 @@ Promise
 let appIDs = [{YOUR_APP_ID_1}, {YOUR_APP_ID_2}, {YOUR_APP_ID_n}];
 let limit = /*{your_limit_number}*/;
 let offset = /*{your_offset_number}*/;
-kintoneApp.getAppsByIDs(appIDs, limit, offset)
+kintoneApp.getAppsByIDs(appIDs, offset, limit)
     .then((rsp) => {
         console.log(rsp);
     })
@@ -143,7 +143,7 @@ kintoneApp.getAppsByIDs(appIDs, limit, offset)
 
 </details>
 
-### getAppsByCodes(codes, limit, offset)
+### getAppsByCodes(codes, offset, limit)
 
 > Get multiple apps by a list of codes name
 
@@ -152,8 +152,8 @@ kintoneApp.getAppsByIDs(appIDs, limit, offset)
 | Name| Type| Required| Description |
 | --- | --- | --- | --- |
 | codes | Array<String\> | yes | The array of app codes
-| limit | Integer | (optional) | The limit number of result
 | offset | Integer | (optional) | The offset off data result
+| limit | Integer | (optional) | The limit number of result
 
 **Return**
 
@@ -170,7 +170,7 @@ Promise
 let codes = ['YOUR_APP_CODE_1', 'YOUR_APP_CODE_2'];
 let limit = /*{your_limit_number}*/;
 let offset = /*{your_offset_number}*/;
-kintoneApp.getAppsByCodes(codes, limit, offset)
+kintoneApp.getAppsByCodes(codes, offset, limit)
     .then((rsp) => {
         console.log(rsp);
     })
@@ -182,15 +182,15 @@ kintoneApp.getAppsByCodes(codes, limit, offset)
 
 </details>
 
-### getAppsByName(name, limit, offset)
+### getAppsByName(name, offset, limit)
 
 > Get multiple apps by name
 
 | Name| Type| Required| Description |
 | --- | --- | --- | --- |
 | name | String | yes | The app name
-| limit | Integer | (optional) | The limit number of result
 | offset | Integer | (optional) | The offset off data result
+| limit | Integer | (optional) | The limit number of result
 
 **Return**
 
@@ -207,7 +207,7 @@ Promise
 let name = 'your app name';
 let limit = /*{your_limit_number}*/;
 let offset = /*{your_offset_number}*/;
-kintoneApp.getAppsByName(name, limit, offset)
+kintoneApp.getAppsByName(name, offset, limit)
     .then((rsp) => {
         console.log(rsp);
     })
@@ -219,15 +219,15 @@ kintoneApp.getAppsByName(name, limit, offset)
 
 </details>
 
-### getAppsBySpaceIDs(spaceIDs, limit, offset)
+### getAppsBySpaceIDs(spaceIDs, offset, limit)
 
 > Get multiple apps by list of space's ids
 
 | Name| Type| Required| Description |
 | --- | --- | --- | --- |
 | spaceIDs | Array<Integer\> | yes | The array of space ids
-| limit | Integer | (optional) | The limit number of result
 | offset | Integer | (optional) | The offset off data result
+| limit | Integer | (optional) | The limit number of result
 
 **Return**
 
@@ -244,7 +244,7 @@ Promise
 let spaceIDs = [];
 let limit = /*{your_limit_number}*/;
 let offset = /*{your_offset_number}*/;
-kintoneApp.getAppsBySpaceIDs(spaceIDs, limit, offset)
+kintoneApp.getAppsBySpaceIDs(spaceIDs, offset, limit)
     .then((rsp) => {
         console.log(rsp);
     })
