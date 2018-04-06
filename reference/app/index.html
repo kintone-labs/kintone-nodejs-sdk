@@ -419,36 +419,36 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#getappslimit-offset" title="getApps(limit, offset)" class="md-nav__link">
-    getApps(limit, offset)
+  <a href="#getappsoffset-limit" title="getApps(offset, limit)" class="md-nav__link">
+    getApps(offset, limit)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#getappsbyidsids-limit-offset" title="getAppsByIDs(ids, limit, offset)" class="md-nav__link">
-    getAppsByIDs(ids, limit, offset)
+  <a href="#getappsbyidsids-offset-limit" title="getAppsByIDs(ids, offset, limit)" class="md-nav__link">
+    getAppsByIDs(ids, offset, limit)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#getappsbycodescodes-limit-offset" title="getAppsByCodes(codes, limit, offset)" class="md-nav__link">
-    getAppsByCodes(codes, limit, offset)
+  <a href="#getappsbycodescodes-offset-limit" title="getAppsByCodes(codes, offset, limit)" class="md-nav__link">
+    getAppsByCodes(codes, offset, limit)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#getappsbynamename-limit-offset" title="getAppsByName(name, limit, offset)" class="md-nav__link">
-    getAppsByName(name, limit, offset)
+  <a href="#getappsbynamename-offset-limit" title="getAppsByName(name, offset, limit)" class="md-nav__link">
+    getAppsByName(name, offset, limit)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#getappsbyspaceidsspaceids-limit-offset" title="getAppsBySpaceIDs(spaceIDs, limit, offset)" class="md-nav__link">
-    getAppsBySpaceIDs(spaceIDs, limit, offset)
+  <a href="#getappsbyspaceidsspaceids-offset-limit" title="getAppsBySpaceIDs(spaceIDs, offset, limit)" class="md-nav__link">
+    getAppsBySpaceIDs(spaceIDs, offset, limit)
   </a>
   
 </li>
@@ -563,36 +563,36 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#getappslimit-offset" title="getApps(limit, offset)" class="md-nav__link">
-    getApps(limit, offset)
+  <a href="#getappsoffset-limit" title="getApps(offset, limit)" class="md-nav__link">
+    getApps(offset, limit)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#getappsbyidsids-limit-offset" title="getAppsByIDs(ids, limit, offset)" class="md-nav__link">
-    getAppsByIDs(ids, limit, offset)
+  <a href="#getappsbyidsids-offset-limit" title="getAppsByIDs(ids, offset, limit)" class="md-nav__link">
+    getAppsByIDs(ids, offset, limit)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#getappsbycodescodes-limit-offset" title="getAppsByCodes(codes, limit, offset)" class="md-nav__link">
-    getAppsByCodes(codes, limit, offset)
+  <a href="#getappsbycodescodes-offset-limit" title="getAppsByCodes(codes, offset, limit)" class="md-nav__link">
+    getAppsByCodes(codes, offset, limit)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#getappsbynamename-limit-offset" title="getAppsByName(name, limit, offset)" class="md-nav__link">
-    getAppsByName(name, limit, offset)
+  <a href="#getappsbynamename-offset-limit" title="getAppsByName(name, offset, limit)" class="md-nav__link">
+    getAppsByName(name, offset, limit)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#getappsbyspaceidsspaceids-limit-offset" title="getAppsBySpaceIDs(spaceIDs, limit, offset)" class="md-nav__link">
-    getAppsBySpaceIDs(spaceIDs, limit, offset)
+  <a href="#getappsbyspaceidsspaceids-offset-limit" title="getAppsBySpaceIDs(spaceIDs, offset, limit)" class="md-nav__link">
+    getAppsBySpaceIDs(spaceIDs, offset, limit)
   </a>
   
 </li>
@@ -721,7 +721,7 @@ kintoneApp.getApp(appID)
 </code></pre>
 
 <p></details></p>
-<h3 id="getappslimit-offset">getApps(limit, offset)</h3>
+<h3 id="getappsoffset-limit">getApps(offset, limit)</h3>
 <blockquote>
 <p>Get multiple apps</p>
 </blockquote>
@@ -737,16 +737,16 @@ kintoneApp.getApp(appID)
 </thead>
 <tbody>
 <tr>
-<td>limit</td>
-<td>Integer</td>
-<td>(optional)</td>
-<td>The limit number of result</td>
-</tr>
-<tr>
 <td>offset</td>
 <td>Integer</td>
 <td>(optional)</td>
 <td>The offset off data result</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>Integer</td>
+<td>(optional)</td>
+<td>The limit number of result</td>
 </tr>
 </tbody>
 </table>
@@ -758,7 +758,7 @@ kintoneApp.getApp(appID)
 <p><strong> Source code </strong></p>
 <pre><code class="javascript">let limit = /*{your_limit_number}*/;
 let offset = /*{your_offset_number}*/;
-kintoneApp.getApps(limit, offset)
+kintoneApp.getApps(offset, limit)
     .then((rsp) =&gt; {
         console.log(rsp);
     })
@@ -769,7 +769,7 @@ kintoneApp.getApps(limit, offset)
 </code></pre>
 
 <p></details></p>
-<h3 id="getappsbyidsids-limit-offset">getAppsByIDs(ids, limit, offset)</h3>
+<h3 id="getappsbyidsids-offset-limit">getAppsByIDs(ids, offset, limit)</h3>
 <blockquote>
 <p>Get multiple apps by list of ids</p>
 </blockquote>
@@ -791,16 +791,16 @@ kintoneApp.getApps(limit, offset)
 <td>The array of app ids</td>
 </tr>
 <tr>
-<td>limit</td>
-<td>Integer</td>
-<td>(optional)</td>
-<td>The limit number of result</td>
-</tr>
-<tr>
 <td>offset</td>
 <td>Integer</td>
 <td>(optional)</td>
 <td>The offset off data result</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>Integer</td>
+<td>(optional)</td>
+<td>The limit number of result</td>
 </tr>
 </tbody>
 </table>
@@ -813,7 +813,7 @@ kintoneApp.getApps(limit, offset)
 <pre><code class="javascript">let appIDs = [{YOUR_APP_ID_1}, {YOUR_APP_ID_2}, {YOUR_APP_ID_n}];
 let limit = /*{your_limit_number}*/;
 let offset = /*{your_offset_number}*/;
-kintoneApp.getAppsByIDs(appIDs, limit, offset)
+kintoneApp.getAppsByIDs(appIDs, offset, limit)
     .then((rsp) =&gt; {
         console.log(rsp);
     })
@@ -824,7 +824,7 @@ kintoneApp.getAppsByIDs(appIDs, limit, offset)
 </code></pre>
 
 <p></details></p>
-<h3 id="getappsbycodescodes-limit-offset">getAppsByCodes(codes, limit, offset)</h3>
+<h3 id="getappsbycodescodes-offset-limit">getAppsByCodes(codes, offset, limit)</h3>
 <blockquote>
 <p>Get multiple apps by a list of codes name</p>
 </blockquote>
@@ -846,16 +846,16 @@ kintoneApp.getAppsByIDs(appIDs, limit, offset)
 <td>The array of app codes</td>
 </tr>
 <tr>
-<td>limit</td>
-<td>Integer</td>
-<td>(optional)</td>
-<td>The limit number of result</td>
-</tr>
-<tr>
 <td>offset</td>
 <td>Integer</td>
 <td>(optional)</td>
 <td>The offset off data result</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>Integer</td>
+<td>(optional)</td>
+<td>The limit number of result</td>
 </tr>
 </tbody>
 </table>
@@ -868,7 +868,7 @@ kintoneApp.getAppsByIDs(appIDs, limit, offset)
 <pre><code class="javascript">let codes = ['YOUR_APP_CODE_1', 'YOUR_APP_CODE_2'];
 let limit = /*{your_limit_number}*/;
 let offset = /*{your_offset_number}*/;
-kintoneApp.getAppsByCodes(codes, limit, offset)
+kintoneApp.getAppsByCodes(codes, offset, limit)
     .then((rsp) =&gt; {
         console.log(rsp);
     })
@@ -879,7 +879,7 @@ kintoneApp.getAppsByCodes(codes, limit, offset)
 </code></pre>
 
 <p></details></p>
-<h3 id="getappsbynamename-limit-offset">getAppsByName(name, limit, offset)</h3>
+<h3 id="getappsbynamename-offset-limit">getAppsByName(name, offset, limit)</h3>
 <blockquote>
 <p>Get multiple apps by name</p>
 </blockquote>
@@ -900,16 +900,16 @@ kintoneApp.getAppsByCodes(codes, limit, offset)
 <td>The app name</td>
 </tr>
 <tr>
-<td>limit</td>
-<td>Integer</td>
-<td>(optional)</td>
-<td>The limit number of result</td>
-</tr>
-<tr>
 <td>offset</td>
 <td>Integer</td>
 <td>(optional)</td>
 <td>The offset off data result</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>Integer</td>
+<td>(optional)</td>
+<td>The limit number of result</td>
 </tr>
 </tbody>
 </table>
@@ -922,7 +922,7 @@ kintoneApp.getAppsByCodes(codes, limit, offset)
 <pre><code class="javascript">let name = 'your app name';
 let limit = /*{your_limit_number}*/;
 let offset = /*{your_offset_number}*/;
-kintoneApp.getAppsByName(name, limit, offset)
+kintoneApp.getAppsByName(name, offset, limit)
     .then((rsp) =&gt; {
         console.log(rsp);
     })
@@ -933,7 +933,7 @@ kintoneApp.getAppsByName(name, limit, offset)
 </code></pre>
 
 <p></details></p>
-<h3 id="getappsbyspaceidsspaceids-limit-offset">getAppsBySpaceIDs(spaceIDs, limit, offset)</h3>
+<h3 id="getappsbyspaceidsspaceids-offset-limit">getAppsBySpaceIDs(spaceIDs, offset, limit)</h3>
 <blockquote>
 <p>Get multiple apps by list of space's ids</p>
 </blockquote>
@@ -954,16 +954,16 @@ kintoneApp.getAppsByName(name, limit, offset)
 <td>The array of space ids</td>
 </tr>
 <tr>
-<td>limit</td>
-<td>Integer</td>
-<td>(optional)</td>
-<td>The limit number of result</td>
-</tr>
-<tr>
 <td>offset</td>
 <td>Integer</td>
 <td>(optional)</td>
 <td>The offset off data result</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>Integer</td>
+<td>(optional)</td>
+<td>The limit number of result</td>
 </tr>
 </tbody>
 </table>
@@ -976,7 +976,7 @@ kintoneApp.getAppsByName(name, limit, offset)
 <pre><code class="javascript">let spaceIDs = [];
 let limit = /*{your_limit_number}*/;
 let offset = /*{your_offset_number}*/;
-kintoneApp.getAppsBySpaceIDs(spaceIDs, limit, offset)
+kintoneApp.getAppsBySpaceIDs(spaceIDs, offset, limit)
     .then((rsp) =&gt; {
         console.log(rsp);
     })
