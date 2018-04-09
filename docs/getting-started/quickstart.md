@@ -24,7 +24,7 @@ npm i --save-dev kintone-nodejs-sdk
 
 const kintone = require('kintone-nodejs-sdk');
 
-let kintoneAuthWithAPIToken = (new kintone.Auth()).setAPIToken('MY_TOKEN');
+let kintoneAuthWithAPIToken = (new kintone.Auth()).setApiToken('MY_TOKEN');
 let kintoneConnection = new kintone.Connection('your.FQDN.tld', kintoneAuthWithAPIToken);
 
 let kintoneRecord = new kintone.Record(kintoneConnection);
@@ -73,7 +73,7 @@ kintoneRecord.getRecord(appID, recordID)
 
 const kintone = require('kintone-nodejs-sdk');
 
-let kintoneAuthWithAPIToken = (new kintone.Auth()).setAPIToken('MY_TOKEN');
+let kintoneAuthWithAPIToken = (new kintone.Auth()).setApiToken('MY_TOKEN');
 let kintoneConnection = new kintone.Connection('your.FQDN', kintoneAuthWithAPIToken);
 
 let kintoneRecord = new kintone.Record(kintoneConnection);
