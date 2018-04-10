@@ -624,7 +624,7 @@ let appID = /*{your_app_id}*/;
 let recordID = /*{your_record_id}*/;
 let commentContent = {
     text: '/*your_comment_content*/',
-    mention: [
+    mentions: [
         {
             code: '/*your_member_code*/',
             type: '/*your_member_type*/' // either `USER` or `GROUP` or `ORGANIZATION`
