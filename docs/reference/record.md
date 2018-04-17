@@ -119,7 +119,7 @@ kintoneRecord.getRecords(appID, query, fieldsCode, isShowTotalCount)
 | Name| Type| Required| Description |
 | --- | --- | --- | --- |
 | appID | Integer | yes | The kintone app ID
-| recordData | JSONObject | yes | The record data to be add to kintone app. About the format, please look the sample below or [reference](#reference) at the end of this page
+| recordData | JSONObject | (optional) | The record data to be add to kintone app. About the format, please look the sample below or [reference](#reference) at the end of this page
 
 **Return**
 
