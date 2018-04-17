@@ -1005,7 +1005,7 @@ kintoneRecord.addRecords(appID, recordsData)
 <tr>
 <td>revision</td>
 <td>Integer</td>
-<td>yes</td>
+<td>(optional)</td>
 <td>The revision number of record</td>
 </tr>
 </tbody>
@@ -1070,7 +1070,7 @@ kintoneRecord.updateRecordById(appID, recordID, recordData, revision)
 <tr>
 <td>revision</td>
 <td>Integer</td>
-<td>yes</td>
+<td>(optional)</td>
 <td>The revision number of record</td>
 </tr>
 </tbody>
@@ -1566,7 +1566,7 @@ kintoneRecord.getComments(appID, recordID, order, offset, limit)
 let recordID = /*{your_record_id}*/;
 let commentContent = {
     text: '/*your_comment_content*/',
-    mention: [
+    mentions: [
         {
             code: '/*your_member_code*/',
             type: '/*your_member_type*/' // either `USER` or `GROUP` or `ORGANIZATION`
