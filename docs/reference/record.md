@@ -112,7 +112,7 @@ kintoneRecord.getRecords(appID, query, fieldsCode, isShowTotalCount)
 
 ### addRecord(appID, recordData)
 
->Adds 1 record to an app.
+>Add one record to an app.
 
 **Parameter**
 
@@ -154,7 +154,7 @@ kintoneRecord.addRecord(appID, recordData)
 
 ### addRecords(appID, recordsData)
 
->Adds multiple records to an app.
+>Add multiple records to an app.
 
 **Parameter**
 
