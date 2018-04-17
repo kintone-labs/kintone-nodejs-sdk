@@ -80,7 +80,7 @@ kintoneApp.getApp(appID)
 
 </details>
 
-### thow()
+### throw()
 
 > This function will throw result of [get()](#get) function
 
@@ -92,7 +92,7 @@ kintoneApp.getApp(appID)
 
 (none)
 
-### thowAll()
+### throwAll()
 
 > This function will throw result of [getAll()](#getall) function
 

@@ -209,8 +209,7 @@ kintoneRecord.addRecords(appID, recordsData)
 | appID | Integer | yes | The kintone app ID
 | recordID | Integer | yes | The record ID on kintone app
 | recordData | JSONObject | yes | The record data to be update in  kintone app. About the format, please look the sample below or [reference](#reference) at the end of this page.
-| revision | Integer | yes | The revision number of record
-
+| revision | Integer | (optional) | The revision number of record
 
 **Return**
 
@@ -256,7 +255,7 @@ Updates details of 1 record in an app by unique key.
 | appID | Integer | yes | The kintone app ID
 | updateKey | JSONObject | yes | The unique key of the record to be updated. About the format, please look the sample below or [reference](#reference) at the end of this page.
 | recordData | JSONObject | yes | The record data will be added to kintone app. About the format, please look the sample below or [reference](#reference) at the end of this page.
-| revision | Integer | yes | The revision number of record
+| revision | Integer | (optional) | The revision number of record
 
 **Return**
 
