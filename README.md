@@ -1,7 +1,5 @@
 # kintone-nodejs-sdk
 
-> kintone-node.js-sdk is the SDK of kintone REST API client on Node.js
-
 ## Install
 
 ### On NPM
