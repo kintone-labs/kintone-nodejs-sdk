@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "description": "The SDK of kintone REST API client on Node.js",
   "main": "src/kintone-nodejs-sdk.js",
+  "license": "MIT License",
+  "author": "Cybozu, Inc.",
   "devDependencies": {
     "kintone-basejs-sdk": "*"
   },
@@ -26,7 +28,5 @@
     "cybozu",
     "cybozu.com",
     "kintone.com"
-  ],
-  "author": "Cybozu, Inc.",
-  "license": "MIT"
+  ]
 }
