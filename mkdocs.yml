@@ -1,8 +1,11 @@
 site_name: kintone Node.js SDK
 site_description: The SDK of kintone REST API client on Node.js
+site_favicon: favicon.ico
+
 repo_url: https://github.com/kintone/kintone-nodejs-sdk
 theme:
   name: 'material'
+  favicon: favicon.ico
   palette:
     primary: 'Light Blue'
     accent: 'Light Blue'
