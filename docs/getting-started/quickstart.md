@@ -2,7 +2,8 @@
 
 ## Requirement
 
-* [Node.js](https://nodejs.org/en/) (Version 9.6.1 or later)
+* [Node.js](https://nodejs.org/en/) (Version 8.9.3 or later)
+* [npm](https://www.npmjs.com/package/extract-text-webpack-plugin):  5.5.1 or later
 * [kintone-basejs-sdk](https://github.com/kintone/kintone-basejs-sdk)
 
 ## How to use
