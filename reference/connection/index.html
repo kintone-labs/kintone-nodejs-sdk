@@ -574,7 +574,7 @@ let kintoneConnection = new kintone.Connection(myDomainName, kintoneAuth);
 // Define connection that included guest space
 let guestSpaceID = /*{guestSpaceID}*/;
 let kintoneConnectionWithGuestSpaceDemo =
-    kintone.Connection(myDomainName, kintoneAuth, guestSpaceID);
+    new kintone.Connection(myDomainName, kintoneAuth, guestSpaceID);
 
 </code></pre>
 
