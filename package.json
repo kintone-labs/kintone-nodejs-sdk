@@ -1,9 +1,9 @@
 {
   "name": "kintone-nodejs-sdk",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "The SDK of kintone REST API client on Node.js",
   "main": "src/kintone-nodejs-sdk.js",
-  "license": "MIT License",
+  "license": "MIT",
   "author": "Cybozu, Inc.",
   "devDependencies": {
     "kintone-basejs-sdk": "*"
@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git"
+    "url": "https://github.com/kintone/kintone-nodejs-sdk"
   },
   "directories": {
     "doc": "docs"
