@@ -11,7 +11,7 @@
 ```shell
 cd your-project
 npm init
-npm i --save-dev kintone-nodejs-sdk
+npm install --save kintone-nodejs-sdk
 ```
 
 ## Code example
