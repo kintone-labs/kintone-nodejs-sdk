@@ -6,7 +6,7 @@
 
 ```bash
 $ cd your-project
-$ npm install -g kintone-nodejs-sdk
+$ npm install --save kintone-nodejs-sdk
 ```
 
 ### On local
