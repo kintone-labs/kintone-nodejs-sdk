@@ -2,18 +2,13 @@
     "docs": [
         {
             "location": "/", 
-            "text": "Home\n\n\n\n\nkintone-node.js-sdk is the SDK of kintone REST API client on Node.js\n\n\n\n\nVersion\n\n\n0.1.0\n\n\nGetting Started\n\n\n\n\nQuickstart\n\n\n\n\nReference\n\n\n\n\nAuthentication\n\n\nConnection\n\n\nRecord\n\n\nBulkRequest\n\n\nApp\n\n\nKintoneAPIException\n\n\n\n\nLicense\n\n\nMIT\n\n\nCopyright\n\n\nCopyright(c) Cybozu, Inc.", 
+            "text": "Home\n\n\n\n\nkintone-node.js-sdk is the SDK of kintone REST API client on Node.js\n\n\n\n\nGetting Started\n\n\n\n\nQuickstart\n\n\n\n\nReference\n\n\n\n\nAuthentication\n\n\nConnection\n\n\nRecord\n\n\nBulkRequest\n\n\nApp\n\n\nKintoneAPIException\n\n\n\n\nLicense\n\n\nMIT\n\n\nCopyright\n\n\nCopyright(c) Cybozu, Inc.", 
             "title": "Home"
         }, 
         {
             "location": "/#home", 
             "text": "kintone-node.js-sdk is the SDK of kintone REST API client on Node.js", 
             "title": "Home"
-        }, 
-        {
-            "location": "/#version", 
-            "text": "0.1.0", 
-            "title": "Version"
         }, 
         {
             "location": "/#getting-started", 
@@ -37,7 +32,7 @@
         }, 
         {
             "location": "/getting-started/quickstart/", 
-            "text": "Quickstart\n\n\nRequirement\n\n\n\n\nNode.js\n (Version 8.9.3 or later)\n\n\nnpm\n (Version 5.5.1 or later)\n\n\nkintone-basejs-sdk\n\n\n\n\nHow to use\n\n\ncd your-project\nnpm init\nnpm i --save-dev kintone-nodejs-sdk\n\n\n\n\nCode example\n\n\n\n\nGet record sample\n\n\n Source code \n\n\n\nconst kintone = require('kintone-nodejs-sdk');\n\nlet kintoneAuthWithAPIToken = (new kintone.Auth()).setApiToken('MY_TOKEN');\nlet kintoneConnection = new kintone.Connection('your.FQDN.tld', kintoneAuthWithAPIToken);\n\nlet kintoneRecord = new kintone.Record(kintoneConnection);\n\nlet appID = {your_app_id};\nlet recordID = {record_id_that_will_be_retrived};\nkintoneRecord.getRecord(appID, recordID)\n    .then((rsp) =\n {\n        console.log(rsp);\n    })\n    .catch((err) =\n {\n        // The promise function always reject with KintoneAPIExeption\n        console.log(err.get());\n    });\n\n\n\n\n Response success\n\n\n{\n    \nrecord\n:{\n        // record data should be here\n    }\n}\n\n\n\n\n Response error\n\n\n{\n    id: '{ID}',\n    code: '{CODE}',\n    message: '{Message string}',\n    errors: '{JSON String}'\n}\n\n\n\n\n\n\n\n\nGet record sample with Async\n\n\n Source code \n\n\n\nconst kintone = require('kintone-nodejs-sdk');\n\nlet kintoneAuthWithAPIToken = (new kintone.Auth()).setApiToken('MY_TOKEN');\nlet kintoneConnection = new kintone.Connection('your.FQDN', kintoneAuthWithAPIToken);\n\nlet kintoneRecord = new kintone.Record(kintoneConnection);\n\nlet appID = {your_app_id};\nlet recordID = {record_id_that_will_be_retrived};\nlet getRecord = async () =\n {\n     try {\n        let recordResult = await kintoneRecord.getRecord(appID, recordID);\n        console.log(recordResult);\n    } catch (error) {\n        // The promise function always reject with KintoneAPIExeption\n        console.log(error.get());\n    }\n}\ngetRecord();\n\n\n\n\n Response success\n\n\n{\n    \nrecord\n:{\n        // record data should be here\n    }\n}\n\n\n\n\n Response error\n\n\n{ \n    id: '{ID}',\n    code: '{CODE}',\n    message: '{Message string}',\n    errors: '{JSON String}'\n}", 
+            "text": "Quickstart\n\n\nRequirement\n\n\n\n\nNode.js\n (Version 8.9.3 or later)\n\n\nnpm\n (Version 5.5.1 or later)\n\n\nkintone-basejs-sdk\n\n\n\n\nHow to use\n\n\ncd your-project\nnpm init\nnpm install --save kintone-nodejs-sdk\n\n\n\n\nCode example\n\n\n\n\nGet record sample\n\n\n Source code \n\n\n\nconst kintone = require('kintone-nodejs-sdk');\n\nlet kintoneAuthWithAPIToken = (new kintone.Auth()).setApiToken('MY_TOKEN');\nlet kintoneConnection = new kintone.Connection('your.FQDN.tld', kintoneAuthWithAPIToken);\n\nlet kintoneRecord = new kintone.Record(kintoneConnection);\n\nlet appID = {your_app_id};\nlet recordID = {record_id_that_will_be_retrived};\nkintoneRecord.getRecord(appID, recordID)\n    .then((rsp) =\n {\n        console.log(rsp);\n    })\n    .catch((err) =\n {\n        // The promise function always reject with KintoneAPIExeption\n        console.log(err.get());\n    });\n\n\n\n\n Response success\n\n\n{\n    \nrecord\n:{\n        // record data should be here\n    }\n}\n\n\n\n\n Response error\n\n\n{\n    id: '{ID}',\n    code: '{CODE}',\n    message: '{Message string}',\n    errors: '{JSON String}'\n}\n\n\n\n\n\n\n\n\nGet record sample with Async\n\n\n Source code \n\n\n\nconst kintone = require('kintone-nodejs-sdk');\n\nlet kintoneAuthWithAPIToken = (new kintone.Auth()).setApiToken('MY_TOKEN');\nlet kintoneConnection = new kintone.Connection('your.FQDN', kintoneAuthWithAPIToken);\n\nlet kintoneRecord = new kintone.Record(kintoneConnection);\n\nlet appID = {your_app_id};\nlet recordID = {record_id_that_will_be_retrived};\nlet getRecord = async () =\n {\n     try {\n        let recordResult = await kintoneRecord.getRecord(appID, recordID);\n        console.log(recordResult);\n    } catch (error) {\n        // The promise function always reject with KintoneAPIExeption\n        console.log(error.get());\n    }\n}\ngetRecord();\n\n\n\n\n Response success\n\n\n{\n    \nrecord\n:{\n        // record data should be here\n    }\n}\n\n\n\n\n Response error\n\n\n{ \n    id: '{ID}',\n    code: '{CODE}',\n    message: '{Message string}',\n    errors: '{JSON String}'\n}", 
             "title": "Quickstart"
         }, 
         {
@@ -52,7 +47,7 @@
         }, 
         {
             "location": "/getting-started/quickstart/#how-to-use", 
-            "text": "cd your-project\nnpm init\nnpm i --save-dev kintone-nodejs-sdk", 
+            "text": "cd your-project\nnpm init\nnpm install --save kintone-nodejs-sdk", 
             "title": "How to use"
         }, 
         {
