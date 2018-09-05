@@ -104,3 +104,33 @@ kintoneConnection.addRequestOption(key, value);
 ```
 
 </details>
+
+### setProxy(proxyHost, proxyPort)
+
+> Set the proxy for the [request-promise](https://www.npmjs.com/package/request-promise) option
+
+**Parameter**
+
+| Name| Type| Required| Description |
+| --- | --- | --- | --- |
+| proxyHost | String | yes | The proxy host name
+| proxyPort | String | yes | The proxy port number
+
+**Return**
+
+[Connection](./connection)
+
+**Sample code**
+
+<details class="tab-container" open>
+<Summary>Set proxy for the Connection</Summary>
+
+** Source code **
+
+```javascript
+const proxyHost = '{your_proxy_host}';
+const proxyPort = '{your_proxy_post}';
+kintoneConnection.setProxy(proxyHost, proxyPort);
+```
+
+</details>
