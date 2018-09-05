@@ -38,7 +38,7 @@
     
     
       
-        <title>Authentication - kintone Node.js SDK</title>
+        <title>File - kintone Node.js SDK</title>
       
     
     
@@ -97,7 +97,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
     <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
     
-      <a href="#authentication" tabindex="1" class="md-skip">
+      <a href="#file" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -123,7 +123,7 @@
                 kintone Node.js SDK
               </span>
               <span class="md-header-nav__topic">
-                Authentication
+                File
               </span>
             
           
@@ -307,83 +307,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="toc">
-        Authentication
-      </label>
-    
-    <a href="./" title="Authentication" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../authentication/" title="Authentication" class="md-nav__link">
       Authentication
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#constructor" title="Constructor" class="md-nav__link">
-    Constructor
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#methods" title="Methods" class="md-nav__link">
-    Methods
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#setpasswordauthusername-password" title="setPasswordAuth(username, password)" class="md-nav__link">
-    setPasswordAuth(username, password)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#setapitokenapitoken" title="setApiToken(apiToken)" class="md-nav__link">
-    setApiToken(apiToken)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#setbasicauthusername-password" title="setBasicAuth(username, password)" class="md-nav__link">
-    setBasicAuth(username, password)
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -451,11 +379,83 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../file/" title="File" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        File
+      </label>
+    
+    <a href="./" title="File" class="md-nav__link md-nav__link--active">
       File
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#constructor" title="Constructor" class="md-nav__link">
+    Constructor
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#methods" title="Methods" class="md-nav__link">
+    Methods
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#uploadfilepath" title="upload(filePath)" class="md-nav__link">
+    upload(filePath)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#downloadfilekey-outputfilepath" title="download(fileKey, outPutFilePath)" class="md-nav__link">
+    download(fileKey, outPutFilePath)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reference" title="Reference" class="md-nav__link">
+    Reference
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -500,28 +500,28 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#setpasswordauthusername-password" title="setPasswordAuth(username, password)" class="md-nav__link">
-    setPasswordAuth(username, password)
+  <a href="#uploadfilepath" title="upload(filePath)" class="md-nav__link">
+    upload(filePath)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#setapitokenapitoken" title="setApiToken(apiToken)" class="md-nav__link">
-    setApiToken(apiToken)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#setbasicauthusername-password" title="setBasicAuth(username, password)" class="md-nav__link">
-    setBasicAuth(username, password)
+  <a href="#downloadfilekey-outputfilepath" title="download(fileKey, outPutFilePath)" class="md-nav__link">
+    download(fileKey, outPutFilePath)
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reference" title="Reference" class="md-nav__link">
+    Reference
+  </a>
   
 </li>
       
@@ -541,36 +541,46 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/kintone/kintone-nodejs-sdk/edit/master/docs/reference/authentication.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/kintone/kintone-nodejs-sdk/edit/master/docs/reference/file.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="authentication">Authentication</h1>
-<p>Authentication module will be used by <a href="../connection">Connection</a>.
-This module allow we authenticate with kintone app by password authenticator or API token authenticator. This module is also support basic authenticator.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<ul>
-<li>If both the Token and Password Authentication are specified, the Token Authentication will be ignored and the Password authentication will be used.</li>
-</ul>
-</div>
+                <h1 id="file">File</h1>
+<p>Download and upload file via kintone Rest API.</p>
 <h2 id="constructor">Constructor</h2>
 <p><strong>Parameter</strong></p>
-<p>(none)</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>connection</td>
+<td><a href="../connection">Connection</a></td>
+<td>yes</td>
+<td>The connection module of this SDK.</td>
+</tr>
+</tbody>
+</table>
 <p><strong>Sample code</strong></p>
 <p><details class="tab-container" open>
-<Summary>Init authentication module</Summary></p>
+<Summary>Init app sample</Summary></p>
 <p><strong> Source code </strong></p>
 <pre><code class="javascript">
 const kintone = require('kintone-nodejs-sdk');
 
-let kintoneAuth = new kintone.Auth();
+let kintoneFile = new kintone.File(connection);
 </code></pre>
 
 <p></details></p>
 <h2 id="methods">Methods</h2>
-<h3 id="setpasswordauthusername-password">setPasswordAuth(username, password)</h3>
+<h3 id="uploadfilepath">upload(filePath)</h3>
 <blockquote>
-<p>Set password authentication for Authentication module.</p>
+<p>Upload file into kintone</p>
 </blockquote>
 <p><strong>Parameter</strong></p>
 <table>
@@ -584,36 +594,36 @@ let kintoneAuth = new kintone.Auth();
 </thead>
 <tbody>
 <tr>
-<td>username</td>
+<td>filePath</td>
 <td>String</td>
 <td>yes</td>
-<td>The username that is able to authenticate on kintone app</td>
-</tr>
-<tr>
-<td>password</td>
-<td>String</td>
-<td>yes</td>
-<td>The password that is able to authenticate on kintone app</td>
+<td>The full path of file on your environment</td>
 </tr>
 </tbody>
 </table>
 <p><strong>Return</strong></p>
-<p><a href="../authentication">Auth</a></p>
+<p>Promise</p>
 <p><strong>Sample code</strong></p>
 <p><details class="tab-container" open>
-<Summary>Set password authentication</Summary></p>
+<Summary>Upload file sample</Summary></p>
 <p><strong> Source code </strong></p>
-<pre><code class="javascript">let username = '{your_user_name}';
-let password = '{your_password}';
-kintoneAuth.setPasswordAuth(username, password);
+<pre><code class="javascript">let filePath = './test.png';
+kintoneFile.upload(filePath)
+    .then((rsp) =&gt; {
+        console.log(rsp);
+    })
+    .catch((err) =&gt; {
+        // This SDK return err with KintoneAPIExeption
+        console.log(err.get());
+    });
 </code></pre>
 
 <p></details></p>
-<h3 id="setapitokenapitoken">setApiToken(apiToken)</h3>
+<h3 id="downloadfilekey-outputfilepath">download(fileKey, outPutFilePath)</h3>
 <blockquote>
-<p>Set Api Token for Authentication module.</p>
+<p>Download file from kintone</p>
 </blockquote>
-<p><strong>Parameter</strong></p>
+<p><strong>Parameter </strong></p>
 <table>
 <thead>
 <tr>
@@ -625,64 +635,40 @@ kintoneAuth.setPasswordAuth(username, password);
 </thead>
 <tbody>
 <tr>
-<td>apiToken</td>
+<td>fileKey</td>
 <td>String</td>
 <td>yes</td>
-<td>The apiToken that is able to authenticate on kintone app</td>
+<td>The file key of the uploaded file on kintone.</td>
+</tr>
+<tr>
+<td>outPutFilePath</td>
+<td>String</td>
+<td>yes</td>
+<td>The full path of output file on your environment</td>
 </tr>
 </tbody>
 </table>
 <p><strong>Return</strong></p>
-<p><a href="../authentication">Auth</a></p>
-<p><details class="tab-container" open>
-<Summary>Set APIToken authentication</Summary></p>
-<p><strong> Source code </strong></p>
-<pre><code class="javascript">let apiToken = '{your_token}';
-kintoneAuth.setApiToken(apiToken);
-</code></pre>
-
-<p></details></p>
-<h3 id="setbasicauthusername-password">setBasicAuth(username, password)</h3>
-<blockquote>
-<p>Set Basic authentication for Authentication module.</p>
-</blockquote>
-<p><strong>Parameter</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>username</td>
-<td>String</td>
-<td>yes</td>
-<td>The username that is able to authenticate on kintone app</td>
-</tr>
-<tr>
-<td>password</td>
-<td>String</td>
-<td>yes</td>
-<td>The password that is able to authenticate on kintone app</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Return</strong></p>
-<p><a href="../authentication">Auth</a></p>
+<p>Promise</p>
 <p><strong>Sample code</strong></p>
 <p><details class="tab-container" open>
-<Summary>Set basic authentication</Summary></p>
+<Summary>Get apps sample</Summary></p>
 <p><strong> Source code </strong></p>
-<pre><code class="javascript">let username = '{your_user_name}';
-let password = '{your_password}';
-kintoneAuth.setBasicAuth(username, password);
+<pre><code class="javascript">let outPutFilePath = './test.png';
+let fileKey = /*{your_file_Key}*/;
+kintoneFile.download(fileKey, outPutFilePath)
+    .catch((err) =&gt; {
+        // This SDK return err with KintoneAPIExeption
+        console.log(err.get());
+    });
 </code></pre>
 
 <p></details></p>
+<h2 id="reference">Reference</h2>
+<ul>
+<li><a href="https://developer.kintone.io/hc/en-us/articles/212494448-Upload-File">Upload File</a><code>on developer network</code></li>
+<li><a href="https://developer.kintone.io/hc/en-us/articles/212494468-Download-File">Download File</a><code>on developer network</code></li>
+</ul>
                 
                   
                 
@@ -701,7 +687,7 @@ kintoneAuth.setBasicAuth(username, password);
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../../getting-started/quickstart/" title="Quickstart" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../kintone-api-exception/" title="Kintone APIException" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -710,25 +696,11 @@ kintoneAuth.setBasicAuth(username, password);
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Quickstart
+                Kintone APIException
               </span>
             </div>
           </a>
         
-        
-          <a href="../connection/" title="Connection" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
-                <span class="md-footer-nav__direction">
-                  Next
-                </span>
-                Connection
-              </span>
-            </div>
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
-            </div>
-          </a>
         
       </nav>
     </div>

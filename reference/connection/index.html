@@ -376,6 +376,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#setproxyproxyhost-proxyport" title="setProxy(proxyHost, proxyPort)" class="md-nav__link">
+    setProxy(proxyHost, proxyPort)
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -440,6 +447,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../file/" title="File" class="md-nav__link">
+      File
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -490,6 +509,13 @@
           <li class="md-nav__item">
   <a href="#addrequestoptionkey-value" title="addRequestOption(key, value)" class="md-nav__link">
     addRequestOption(key, value)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setproxyproxyhost-proxyport" title="setProxy(proxyHost, proxyPort)" class="md-nav__link">
+    setProxy(proxyHost, proxyPort)
   </a>
   
 </li>
@@ -659,6 +685,47 @@ kintoneConnection.setHeader(key, value);
 <pre><code class="javascript">let key = '{your_option_key}';
 let value = '{your_option_value}';
 kintoneConnection.addRequestOption(key, value);
+</code></pre>
+
+<p></details></p>
+<h3 id="setproxyproxyhost-proxyport">setProxy(proxyHost, proxyPort)</h3>
+<blockquote>
+<p>Set the proxy for the <a href="https://www.npmjs.com/package/request-promise">request-promise</a> option</p>
+</blockquote>
+<p><strong>Parameter</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>proxyHost</td>
+<td>String</td>
+<td>yes</td>
+<td>The proxy host name</td>
+</tr>
+<tr>
+<td>proxyPort</td>
+<td>String</td>
+<td>yes</td>
+<td>The proxy port number</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Return</strong></p>
+<p><a href="../connection">Connection</a></p>
+<p><strong>Sample code</strong></p>
+<p><details class="tab-container" open>
+<Summary>Set proxy for the Connection</Summary></p>
+<p><strong> Source code </strong></p>
+<pre><code class="javascript">const proxyHost = '{your_proxy_host}';
+const proxyPort = '{your_proxy_post}';
+kintoneConnection.setProxy(proxyHost, proxyPort);
 </code></pre>
 
 <p></details></p>
