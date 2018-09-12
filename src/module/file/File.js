@@ -7,15 +7,35 @@
 
 const fs = require('fs');
 const path = require('path');
+const FormData = require('form-data');
 
-const KintoneExeption = require('kintone-basejs-sdk').KintoneException;
+const {KintoneAPIException, Connection} = require('kintone-basejs-sdk');
+
 const FileModule = require('kintone-basejs-sdk').File;
 
-
+const USER_AGENT = 'User-Agent';
+const USER_AGENT_BASE_VALUE = '{name}/{version}';
 /**
  * File module for NodeJS
  */
 class File extends FileModule {
+  /**
+     * The constructor for this module
+     * @param {Connection} connection
+     */
+  constructor(connection) {
+    if (!(connection instanceof Connection)) {
+      throw new Error(`${connection}` +
+                  `not an instance of kintoneConnection`);
+    }
+    // set default user-agent
+    connection.setHeader(USER_AGENT,
+      USER_AGENT_BASE_VALUE
+        .replace('{name}', process.env.npm_package_name || 'kintone-nodejs-sdk')
+        .replace('{version}', process.env.npm_package_version || '(none)')
+    );
+    super(connection);
+  }
   /**
      * Download file from kintone
      * @param {String} fileKey
@@ -30,7 +50,7 @@ class File extends FileModule {
           };
           fs.writeFileSync(outPutFilePath, fileContent, options);
         } catch (err) {
-          throw new KintoneExeption(err);
+          throw new KintoneAPIException(err);
         }
       });
     return downloadFile;
@@ -41,14 +61,8 @@ class File extends FileModule {
      * @return {Promise}
      */
   upload(filePath) {
-    const formData = {
-      file: {
-        value: fs.createReadStream(filePath),
-        options: {
-          filename: path.basename(filePath),
-        }
-      }
-    };
+    const formData = new FormData();
+    formData.append('file', fs.createReadStream(filePath), path.basename(filePath));
     return super.upload(formData);
   }
 }
