@@ -5,11 +5,9 @@
 
 'use-strict';
 
-const fs = require('fs');
-const path = require('path');
 const FormData = require('form-data');
 
-const {KintoneAPIException, Connection} = require('kintone-basejs-sdk');
+const {Connection} = require('kintone-basejs-sdk');
 
 const FileModule = require('kintone-basejs-sdk').File;
 
@@ -37,32 +35,13 @@ class File extends FileModule {
     super(connection);
   }
   /**
-     * Download file from kintone
-     * @param {String} fileKey
-     * @return {Promise}
-     */
-  download(fileKey, outPutFilePath) {
-    const downloadFile = super.download(fileKey)
-      .then((fileContent) => {
-        try {
-          const options = {
-            encoding: 'utf16le'
-          };
-          fs.writeFileSync(outPutFilePath, fileContent, options);
-        } catch (err) {
-          throw new KintoneAPIException(err);
-        }
-      });
-    return downloadFile;
-  }
-  /**
      * Upload file from local to kintone environment
      * @param {String} filePath
      * @return {Promise}
      */
-  upload(filePath) {
+  upload(fileName, fileContent) {
     const formData = new FormData();
-    formData.append('file', fs.createReadStream(filePath), path.basename(filePath));
+    formData.append('file', fileContent, fileName);
     return super.upload(formData);
   }
 }
