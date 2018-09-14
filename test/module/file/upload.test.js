@@ -7,6 +7,7 @@
 const nock = require('nock');
 const common = require('../../common');
 
+const fs = require('fs');
 const path = require('path');
 
 const main = require('../../../src/main');
@@ -22,14 +23,15 @@ const conn = new KintoneConnection(common.DOMAIN, auth);
 
 const fileModule = new KintoneFile(conn);
 
-describe('dowload function', () => {
+describe('upload function', () => {
   describe('common function', () => {
     it('should return promise', () => {
       nock('https://' + common.DOMAIN)
         .post('/k/v1/file.json')
         .reply(200, undefined);
-
-      const fileupload = fileModule.upload('test');
+      const file = fs.createReadStream('./test/module/file/mock/test.png');
+      const fileName = path.basename('./test/module/file/mock/test.png');
+      const fileupload = fileModule.upload(fileName, file);
       expect(fileupload).toHaveProperty('then');
       expect(fileupload).toHaveProperty('catch');
     });
@@ -39,16 +41,9 @@ describe('dowload function', () => {
     describe('valid params are specificed', () => {
 
       it('should upload successfully file', () => {
-        const filePath = './test/module/file/mock/upload/test.png';
         const expectResult = {fileKey: 'dddde73js'};
         nock('https://' + common.DOMAIN)
-          .post('/k/v1/file.json', body => {
-            expect(body).toEqual(expect.stringContaining('filename="test.png"'));
-            expect(body).toEqual(expect.stringContaining('Content-Disposition: form-data;'));
-            expect(body).toEqual(expect.stringContaining('name="file"'));
-            expect(body).toEqual(expect.stringContaining('Content-Type: image/png'));
-            return true;
-          })
+          .post('/k/v1/file.json')
           .matchHeader('Content-Type', (type) => {
             expect(type).toEqual(expect.stringContaining('multipart/form-data; boundary='));
             return true;
@@ -58,10 +53,11 @@ describe('dowload function', () => {
             return true;
           })
           .reply(200, expectResult);
-
-        return fileModule.upload(filePath)
+        const file = fs.createReadStream('./test/module/file/mock/test.png');
+        const fileName = path.basename('./test/module/file/mock/test.png');
+        return fileModule.upload(fileName, file)
           .then((rsp) => {
-            expect(JSON.parse(rsp)).toMatchObject(expectResult);
+            expect(rsp).toMatchObject(expectResult);
           });
       });
     });
@@ -69,13 +65,15 @@ describe('dowload function', () => {
   });
 
   describe('error case', () => {
-    describe('invalid file path', () => {
-      const expectErr =
-      {id: 0,
-        code: null,
-        message: 'Error: form-data: ENOENT: no such file or directory, open \'test.png\''};
+    describe('Required filename and file content', () => {
+      const expectErr = {
+        id: '4GtcxHkSRJjU18KAHCk7',
+        code: 'GAIA_IC01',
+        message: 'Content-Typeを指定してください。',
+        errors: '{}'
+      };
 
-      it('should return an error', () => {
+      it('should throw an error when ', () => {
         nock('https://' + common.DOMAIN)
           .post('/k/v1/file.json')
           .matchHeader(common.PASSWORD_AUTH, (authHeader) => {
@@ -83,11 +81,9 @@ describe('dowload function', () => {
             return true;
           })
           .reply(500, expectErr);
-        const filePath = 'test.png';
-        return fileModule.upload(filePath)
-          .catch(err => {
-            expect(err.get()).toBeDefined();
-          });
+        return expect(() => {
+          fileModule.upload();
+        }).toThrow();
       });
     });
   });

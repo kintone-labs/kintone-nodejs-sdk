@@ -1,4 +1,3 @@
-
 /**
  * kintone api - nodejs client
  * test record module
@@ -10,57 +9,41 @@ const common = require('../../common');
 const fs = require('fs');
 const path = require('path');
 
-const main = require('../../../src/main');
-const KintoneConnection = main.Connection;
-const KintoneAuth = main.Auth;
-const KintoneFile = main.File;
+const {Auth, File, Connection} = require('../../../src/main');
 
-const auth = new KintoneAuth();
+const auth = new Auth();
 auth.setPasswordAuth(common.USERNAME, common.PASSWORD);
 
-const conn = new KintoneConnection(common.DOMAIN, auth);
+const conn = new Connection(common.DOMAIN, auth);
 
-const fileModule = new KintoneFile(conn);
+const fileModule = new File(conn);
 
 describe('dowload function', () => {
-  describe('common function', () => {
-    it('should return promise', () => {
-      nock('https://' + common.DOMAIN)
-        .get('/k/v1/file.json')
-        .reply(200, undefined);
+  // describe('common function', () => {
+  //   it('should return promise', () => {
+  //     nock('https://' + common.DOMAIN)
+  //       .get('/k/v1/file.json')
+  //       .reply(200, undefined);
 
-      const fileDownload = fileModule.download();
-      expect(fileDownload).toHaveProperty('then');
-      expect(fileDownload).toHaveProperty('catch');
-    });
-  });
+  //     const fileDownload = fileModule.download();
+  //     expect(fileDownload).toHaveProperty('then');
+  //     expect(fileDownload).toHaveProperty('catch');
+  //   });
+  // });
 
   describe('success case', () => {
     describe('valid params are specificed', () => {
 
       it('should download successfully file', () => {
-        nock('https://' + common.DOMAIN)
-          .get('/k/v1/file.json', rqBody => {
-            expect(rqBody.fileKey).toEqual('201809040332204A3B5797BC804153AFF1BBB78C86CAE9207');
-            return true;
-          })
-          .matchHeader(common.PASSWORD_AUTH, (authHeader) => {
-            expect(authHeader).toBe(Buffer.from(common.USERNAME + ':' + common.PASSWORD).toString('base64'));
-            return true;
-          })
-          .reply(200, undefined);
         const fileKey = '201809040332204A3B5797BC804153AFF1BBB78C86CAE9207';
         const filePath = './test/module/file/mock/download/test.png';
-        return fileModule.download(fileKey, filePath)
-          .then((rsp) => {
-            expect(rsp).toBe(undefined);
+        nock('https://' + common.DOMAIN)
+          .get(`/k/v1/file.json?fileKey=${fileKey}`)
+          .reply(200, undefined);
 
-            fs.readdir('./test/module/file/mock/download/', (err, list) => {
-              const existFile = list.every(file => path.basename(file) === 'test.png');
-              expect(existFile).toBe(true);
-            });
-            // remove file
-            fs.unlinkSync(filePath);
+        return fileModule.download(fileKey, filePath)
+          .then((fileContent) => {
+            expect(Buffer.isBuffer(fileContent)).toBe(true);
           });
       });
     });
@@ -75,18 +58,12 @@ describe('dowload function', () => {
         errors: '{}'};
 
       it('should return an error', () => {
+        const fileKey = '201809040332204A3B5797BC804153AFF1BBB78C86CAE9207';
+        const filePath = './test/module/file/mock/download/test.png';
         nock('https://' + common.DOMAIN)
-          .get('/k/v1/file.json', rqBody => {
-            expect(rqBody.fileKey).toEqual('key');
-            return true;
-          })
-          .matchHeader(common.PASSWORD_AUTH, (authHeader) => {
-            expect(authHeader).toBe(Buffer.from(common.USERNAME + ':' + common.PASSWORD).toString('base64'));
-            return true;
-          })
+          .get(`/k/v1/file.json?fileKey=${fileKey}`)
           .reply(404, expectErr);
-        const fileKey = 'key';
-        const filePath = './test.png';
+
         return fileModule.download(fileKey, filePath)
           .catch(err => {
             expect(err.get()).toMatchObject(expectErr);

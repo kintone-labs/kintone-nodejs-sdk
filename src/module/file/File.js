@@ -41,6 +41,9 @@ class File extends FileModule {
      * @return {Promise}
      */
   upload(fileName, fileContent) {
+    if (!fileName || !fileContent) {
+      throw new Error(`The content and name of file are requied`);
+    }
     const formData = new FormData();
     formData.append('file', fileContent, fileName);
 
