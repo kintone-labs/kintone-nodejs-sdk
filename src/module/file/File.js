@@ -13,6 +13,7 @@ const FileModule = require('kintone-basejs-sdk').File;
 
 const USER_AGENT = 'User-Agent';
 const USER_AGENT_BASE_VALUE = '{name}/{version}';
+const CONTENT_TYPE_KEY = 'Content-Type';
 /**
  * File module for NodeJS
  */
@@ -42,6 +43,8 @@ class File extends FileModule {
   upload(fileName, fileContent) {
     const formData = new FormData();
     formData.append('file', fileContent, fileName);
+
+    this.connection.setHeader(CONTENT_TYPE_KEY, formData.getHeaders()['content-type']);
     return super.upload(formData);
   }
 }
