@@ -28,7 +28,7 @@ let kintoneFile = new kintone.File(connection);
 
 ## Methods
 
-### upload(filePath)
+### upload(fileName, fileContent)
 
 > Upload file into kintone
 
@@ -36,7 +36,8 @@ let kintoneFile = new kintone.File(connection);
 
 | Name| Type| Required| Description |
 | --- | --- | --- | --- |
-| filePath | String | yes | The full path of file on your environment
+| fileName | String | yes | The name of file
+| fileContent | Stream | yes | The content of file
 
 **Return**
 
@@ -50,8 +51,9 @@ Promise
 ** Source code **
 
 ```javascript
-let filePath = './test.png';
-kintoneFile.upload(filePath)
+const fileContent = fs.createReadStream('./cd.png');
+const fileName = path.basename('./cd.png');
+kintoneFile.upload(fileName, fileContent)
     .then((rsp) => {
         console.log(rsp);
     })
@@ -63,7 +65,7 @@ kintoneFile.upload(filePath)
 
 </details>
 
-### download(fileKey, outPutFilePath)
+### download(fileKey)
 
 > Download file from kintone
 
@@ -72,7 +74,6 @@ kintoneFile.upload(filePath)
 | Name| Type| Required| Description |
 | --- | --- | --- | --- |
 | fileKey | String | yes | The file key of the uploaded file on kintone.
-| outPutFilePath | String | yes | The full path of output file on your environment
 
 **Return**
 
@@ -86,9 +87,11 @@ Promise
 ** Source code **
 
 ```javascript
-let outPutFilePath = './test.png';
 let fileKey = /*{your_file_Key}*/;
-kintoneFile.download(fileKey, outPutFilePath)
+kintoneFile.download(fileKey)
+    .then((rsp) => {
+        console.log(rsp);
+    })
     .catch((err) => {
         // This SDK return err with KintoneAPIExeption
         console.log(err.get());
