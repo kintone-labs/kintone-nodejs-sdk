@@ -19,17 +19,17 @@ const conn = new Connection(common.DOMAIN, auth);
 const fileModule = new File(conn);
 
 describe('dowload function', () => {
-  // describe('common function', () => {
-  //   it('should return promise', () => {
-  //     nock('https://' + common.DOMAIN)
-  //       .get('/k/v1/file.json')
-  //       .reply(200, undefined);
+  describe('common function', () => {
+    it('should return promise', () => {
+      nock('https://' + common.DOMAIN)
+        .get('/k/v1/file.json')
+        .reply(200, undefined);
 
-  //     const fileDownload = fileModule.download();
-  //     expect(fileDownload).toHaveProperty('then');
-  //     expect(fileDownload).toHaveProperty('catch');
-  //   });
-  // });
+      const fileDownload = fileModule.download();
+      expect(fileDownload).toHaveProperty('then');
+      expect(fileDownload).toHaveProperty('catch');
+    });
+  });
 
   describe('success case', () => {
     describe('valid params are specificed', () => {
@@ -42,8 +42,13 @@ describe('dowload function', () => {
           .reply(200, undefined);
 
         return fileModule.download(fileKey, filePath)
-          .then((fileContent) => {
-            expect(Buffer.isBuffer(fileContent)).toBe(true);
+          .then(() => {
+            fs.readdir('./test/module/file/mock/download/', (err, list) => {
+              const existFile = list.every(file => path.basename(file) === 'test.png');
+              expect(existFile).toBe(true);
+            });
+            // remove file
+            fs.unlinkSync(filePath);
           });
       });
     });
@@ -64,7 +69,7 @@ describe('dowload function', () => {
           .get(`/k/v1/file.json?fileKey=${fileKey}`)
           .reply(404, expectErr);
 
-        return fileModule.download(fileKey, filePath)
+        fileModule.download(fileKey, filePath)
           .catch(err => {
             expect(err.get()).toMatchObject(expectErr);
           });

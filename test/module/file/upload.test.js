@@ -22,6 +22,7 @@ auth.setPasswordAuth(common.USERNAME, common.PASSWORD);
 const conn = new KintoneConnection(common.DOMAIN, auth);
 
 const fileModule = new KintoneFile(conn);
+const filePath = './test/module/file/mock/test.png';
 
 describe('upload function', () => {
   describe('common function', () => {
@@ -29,9 +30,7 @@ describe('upload function', () => {
       nock('https://' + common.DOMAIN)
         .post('/k/v1/file.json')
         .reply(200, undefined);
-      const file = fs.createReadStream('./test/module/file/mock/test.png');
-      const fileName = path.basename('./test/module/file/mock/test.png');
-      const fileupload = fileModule.upload(fileName, file);
+      const fileupload = fileModule.upload(filePath);
       expect(fileupload).toHaveProperty('then');
       expect(fileupload).toHaveProperty('catch');
     });
@@ -39,7 +38,6 @@ describe('upload function', () => {
 
   describe('success case', () => {
     describe('valid params are specificed', () => {
-
       it('should upload successfully file', () => {
         const expectResult = {fileKey: 'dddde73js'};
         nock('https://' + common.DOMAIN)
@@ -53,9 +51,7 @@ describe('upload function', () => {
             return true;
           })
           .reply(200, expectResult);
-        const file = fs.createReadStream('./test/module/file/mock/test.png');
-        const fileName = path.basename('./test/module/file/mock/test.png');
-        return fileModule.upload(fileName, file)
+        return fileModule.upload(filePath)
           .then((rsp) => {
             expect(rsp).toMatchObject(expectResult);
           });
@@ -65,22 +61,16 @@ describe('upload function', () => {
   });
 
   describe('error case', () => {
-    describe('Required filename and file content', () => {
-      const expectErr = {
-        id: '4GtcxHkSRJjU18KAHCk7',
-        code: 'GAIA_IC01',
-        message: 'Content-Typeを指定してください。',
-        errors: '{}'
-      };
+    describe('Required filepath', () => {
 
-      it('should throw an error when ', () => {
+      it('should throw an error when file path is invalid', () => {
         nock('https://' + common.DOMAIN)
           .post('/k/v1/file.json')
           .matchHeader(common.PASSWORD_AUTH, (authHeader) => {
             expect(authHeader).toBe(Buffer.from(common.USERNAME + ':' + common.PASSWORD).toString('base64'));
             return true;
           })
-          .reply(500, expectErr);
+          .reply(500, undefined);
         return expect(() => {
           fileModule.upload();
         }).toThrow();

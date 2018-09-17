@@ -5,15 +5,15 @@
 
 'use-strict';
 
-const FormData = require('form-data');
+const fs = require('fs');
+const path = require('path');
 
-const {Connection} = require('kintone-basejs-sdk');
+const {Connection, KintoneAPIException} = require('kintone-basejs-sdk');
 
 const FileModule = require('kintone-basejs-sdk').File;
 
 const USER_AGENT = 'User-Agent';
 const USER_AGENT_BASE_VALUE = '{name}/{version}';
-const CONTENT_TYPE_KEY = 'Content-Type';
 /**
  * File module for NodeJS
  */
@@ -36,19 +36,36 @@ class File extends FileModule {
     super(connection);
   }
   /**
+     * Download file from kintone
+     * @param {String} fileKey
+     * @return {Promise}
+     */
+  download(fileKey, outPutFilePath) {
+    return super.download(fileKey).then((fileContent) => {
+      try {
+        const options = {
+          encoding: 'utf16le'
+        };
+        fs.writeFileSync(outPutFilePath, fileContent, options);
+      } catch (err) {
+        throw new KintoneAPIException(err);
+      }
+    });
+  }
+  /**
      * Upload file from local to kintone environment
      * @param {String} filePath
      * @return {Promise}
      */
-  upload(fileName, fileContent) {
-    if (!fileName || !fileContent) {
-      throw new Error(`The content and name of file are requied`);
-    }
-    const formData = new FormData();
-    formData.append('file', fileContent, fileName);
+  upload(filePath) {
+    try {
+      const fileContent = fs.createReadStream(filePath);
+      const fileName = path.basename(filePath);
 
-    this.connection.setHeader(CONTENT_TYPE_KEY, formData.getHeaders()['content-type']);
-    return super.upload(formData);
+    return super.upload(fileName, fileContent);
+    } catch (err) {
+      throw new Error(`File path is not valid`);
+    }
   }
 }
 module.exports = File;
