@@ -9,7 +9,7 @@ const common = require('../../common');
 const fs = require('fs');
 const path = require('path');
 
-const {Auth, File, Connection} = require('../../../src/main');
+const {Auth, File, Connection, KintoneAPIException} = require(common.MAIN_PATH);
 
 const auth = new Auth();
 auth.setPasswordAuth(common.USERNAME, common.PASSWORD);
@@ -24,7 +24,6 @@ describe('dowload function', () => {
       nock('https://' + common.DOMAIN)
         .get('/k/v1/file.json')
         .reply(200, undefined);
-
       const fileDownload = fileModule.download();
       expect(fileDownload).toHaveProperty('then');
       expect(fileDownload).toHaveProperty('catch');
@@ -33,7 +32,6 @@ describe('dowload function', () => {
 
   describe('success case', () => {
     describe('valid params are specificed', () => {
-
       it('should download successfully file', () => {
         const fileKey = '201809040332204A3B5797BC804153AFF1BBB78C86CAE9207';
         const filePath = './test/module/file/mock/download/test.png';
@@ -44,7 +42,7 @@ describe('dowload function', () => {
         return fileModule.download(fileKey, filePath)
           .then(() => {
             fs.readdir('./test/module/file/mock/download/', (err, list) => {
-              const existFile = list.every(file => path.basename(file) === 'test.png');
+              const existFile = list.includes('test.png');
               expect(existFile).toBe(true);
             });
             // remove file
@@ -52,7 +50,6 @@ describe('dowload function', () => {
           });
       });
     });
-    // todo
   });
 
   describe('error case', () => {
@@ -75,6 +72,18 @@ describe('dowload function', () => {
           });
       });
     });
-    // todo
+    describe('invalid file path', () => {
+      it('should return error', () => {
+        const fileKey = '201809040332204A3B5797BC804153AFF1BBB78C86CAE9207';
+        const filePath = './test/module/file/mock/testInvalidFilePath/test.png';
+        nock('https://' + common.DOMAIN)
+          .get(`/k/v1/file.json?fileKey=${fileKey}`)
+          .reply(403, undefined);
+        const downloadFile = fileModule.download(fileKey, filePath);
+        return downloadFile.catch((err)=>{
+          expect(err).toBeInstanceOf(KintoneAPIException);
+        });
+      });
+    });
   });
 });

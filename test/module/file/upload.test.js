@@ -10,18 +10,13 @@ const common = require('../../common');
 const fs = require('fs');
 const path = require('path');
 
-const main = require('../../../src/main');
-const KintoneConnection = main.Connection;
-const KintoneAuth = main.Auth;
-const KintoneFile = main.File;
+const {Auth, File, Connection} = require(common.MAIN_PATH);
 
-
-const auth = new KintoneAuth();
+const auth = new Auth();
 auth.setPasswordAuth(common.USERNAME, common.PASSWORD);
+const conn = new Connection(common.DOMAIN, auth);
 
-const conn = new KintoneConnection(common.DOMAIN, auth);
-
-const fileModule = new KintoneFile(conn);
+const fileModule = new File(conn);
 const filePath = './test/module/file/mock/test.png';
 
 describe('upload function', () => {
@@ -57,13 +52,13 @@ describe('upload function', () => {
           });
       });
     });
-    // todo
   });
 
   describe('error case', () => {
     describe('Required filepath', () => {
 
       it('should throw an error when file path is invalid', () => {
+        const errors = `File path is not valid`;
         nock('https://' + common.DOMAIN)
           .post('/k/v1/file.json')
           .matchHeader(common.PASSWORD_AUTH, (authHeader) => {
@@ -71,11 +66,11 @@ describe('upload function', () => {
             return true;
           })
           .reply(500, undefined);
-        return expect(() => {
+        const uploadFile = () => {
           fileModule.upload();
-        }).toThrow();
+        };
+        return expect(uploadFile).toThrow(errors);
       });
     });
   });
-  // todo
 });
