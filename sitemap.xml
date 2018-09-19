@@ -4,7 +4,7 @@
     
     <url>
      <loc>/</loc>
-     <lastmod>2018-09-05</lastmod>
+     <lastmod>2018-09-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -13,7 +13,7 @@
         
     <url>
      <loc>/getting-started/quickstart/</loc>
-     <lastmod>2018-09-05</lastmod>
+     <lastmod>2018-09-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -23,43 +23,37 @@
         
     <url>
      <loc>/reference/authentication/</loc>
-     <lastmod>2018-09-05</lastmod>
+     <lastmod>2018-09-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/reference/connection/</loc>
-     <lastmod>2018-09-05</lastmod>
+     <lastmod>2018-09-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/reference/record/</loc>
-     <lastmod>2018-09-05</lastmod>
+     <lastmod>2018-09-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/reference/bulk-request/</loc>
-     <lastmod>2018-09-05</lastmod>
+     <lastmod>2018-09-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/reference/app/</loc>
-     <lastmod>2018-09-05</lastmod>
+     <lastmod>2018-09-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/reference/kintone-api-exception/</loc>
-     <lastmod>2018-09-05</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/reference/file/</loc>
-     <lastmod>2018-09-05</lastmod>
+     <lastmod>2018-09-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
