@@ -21,7 +21,7 @@
   "dependencies": {
     "kintone-basejs-sdk": "*",
     "@cybozu/eslint-config": "^2.0.0",
-    "eslint": "^4.19.1",
+    "eslint": "^5.0.0",
     "nock": "^9.6.0",
     "jest": "^23.4.1"
   },
