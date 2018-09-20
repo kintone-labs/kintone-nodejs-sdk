@@ -159,23 +159,21 @@ See at [Record - updateRecordsStatus](./record#updaterecordsstatusapp-records)
 ** Source code **
 
 ```javascript
+const responseBulkRequest = kintoneBulkRequest
+  .addRecord(/* [Args]*/)
+  .addRecords(/* [Args]*/)
+  .updateRecords(/* [Args]*/)
+  .deleteRecords()
+  .execute();
 
-let responseBulkRequest = kintoneBulkRequest
-    .addRecord(/*[Args]*/)
-    .addRecords(/*[Args]*/)
-    .updateRecords(/*[Args]*/)
-    .deleteRecords()
-    .execute();
-responseBulkRequest
-    .then((resp) => {
-        console.log(resp);
-    })
-    .catch((err) => {
-        // write error to console
-        console.log(err.get());
-        // Throw error
-        err.throw()
-    });
+responseBulkRequest.then((resp) => {
+  console.log(resp);
+}).catch((err) => {
+  // write error to console
+  console.log(err.get());
+  // Throw error
+  err.throw();
+});
 ```
 
 </details>

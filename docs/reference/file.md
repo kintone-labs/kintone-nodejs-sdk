@@ -53,14 +53,12 @@ Promise
 ```javascript
 const fileContent = fs.createReadStream('./cd.png');
 const fileName = path.basename('./cd.png');
-kintoneFile.upload(fileName, fileContent)
-    .then((rsp) => {
-        console.log(rsp);
-    })
-    .catch((err) => {
-        // This SDK return err with KintoneAPIExeption
-        console.log(err.get());
-    });
+kintoneFile.upload(fileName, fileContent).then((rsp) => {
+  console.log(rsp);
+}).catch((err) => {
+  // This SDK return err with KintoneAPIExeption
+  console.log(err.get());
+});
 ```
 
 </details>
@@ -88,14 +86,12 @@ Promise
 
 ```javascript
 let fileKey = /*{your_file_Key}*/;
-kintoneFile.download(fileKey)
-    .then((rsp) => {
-        console.log(rsp);
-    })
-    .catch((err) => {
-        // This SDK return err with KintoneAPIExeption
-        console.log(err.get());
-    });
+kintoneFile.download(fileKey).then((rsp) => {
+  console.log(rsp);
+}).catch((err) => {
+  // This SDK return err with KintoneAPIExeption
+  console.log(err.get());
+});
 ```
 
 </details>

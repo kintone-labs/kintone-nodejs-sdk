@@ -21,7 +21,7 @@ Provide manipulate functions on records: get, update, delete, update the record 
 
 const kintone = require('kintone-nodejs-sdk');
 
-let kintoneRecord = new kintone.Record(connection);
+const kintoneRecord = new kintone.Record(connection);
 ```
 
 </details>
@@ -52,16 +52,14 @@ Promise
 ** Source code **
 
 ```javascript
-let app = /*{your_app_id}*/;
-let id = {your_record_id};
-kintoneRecord.getRecord(app, id)
-    .then((rsp) => {
-        console.log(rsp);
-    })
-    .catch((err) => {
-        // This SDK return err with KintoneAPIExeption
-        console.log(err.get());
-    });
+const app = /*{your_app_id}*/;
+const id = {your_record_id};
+kintoneRecord.getRecord(app, id).then((rsp) => {
+  console.log(rsp);
+}).catch((err) => {
+  // This SDK return err with KintoneAPIExeption
+  console.log(err.get());
+});
 ```
 
 </details>
@@ -91,21 +89,19 @@ Promise
 ** Source code **
 
 ```javascript
-let app = /*{your_app_id}*/;
-let query = '{your_query_string}';
-let fields = [
+const app = /*{your_app_id}*/;
+const query = '{your_query_string}';
+const fields = [
     '{your_field_code}',
     // another fieldCode
 ]
-let totalCount = /*{your_decide_true_or_false}*/;
-kintoneRecord.getRecords(app, query, fields, totalCount)
-    .then((rsp) => {
-        console.log(rsp);
-    })
-    .catch((err) => {
-        // This SDK return err with KintoneAPIExeption
-        console.log(err.get());
-    });
+const totalCount = /*{your_decide_true_or_false}*/;
+kintoneRecord.getRecords(app, query, fields, totalCount).then((rsp) => {
+  console.log(rsp);
+}).catch((err) => {
+  // This SDK return err with KintoneAPIExeption
+  console.log(err.get());
+});
 ```
 
 </details>
@@ -133,21 +129,19 @@ Promise
 ** Source code **
 
 ```javascript
-let app = /*{your_app_id}*/;
-let record = {
+const app = /*{your_app_id}*/;
+const record = {
     YourFieldCode: {
         value: 'Value Of YourFieldCode'
     },
     // Another fieldcode here
 };
-kintoneRecord.addRecord(app, record)
-    .then((rsp) => {
-        console.log(rsp);
-    })
-    .catch((err) => {
-        // This SDK return err with KintoneAPIExeption
-        console.log(err.get());
-    });
+kintoneRecord.addRecord(app, record).then((rsp) => {
+  console.log(rsp);
+}).catch((err) => {
+  // This SDK return err with KintoneAPIExeption
+  console.log(err.get());
+});
 ```
 
 </details>
@@ -175,25 +169,23 @@ Promise
 ** Source code **
 
 ```javascript
-let app = /*{your_app_id}*/;
-let record = {
-    YourFieldCode: {
-        value: 'Value Of YourFieldCode'
-    },
-    // Another fieldcode here
+const app = /*{your_app_id}*/;
+const record = {
+  YourFieldCode: {
+    value: 'Value Of YourFieldCode'
+  },
+  // Another fieldcode here
 };
-let records = [
-    record,
-    // another record
+const records = [
+  record
+  // another record
 ];
-kintoneRecord.addRecords(app, records)
-    .then((rsp) => {
-        console.log(rsp);
-    })
-    .catch((err) => {
-        // This SDK return err with KintoneAPIExeption
-        console.log(err.get());
-    });
+kintoneRecord.addRecords(app, records).then((rsp) => {
+  console.log(rsp);
+}).catch((err) => {
+  // This SDK return err with KintoneAPIExeption
+  console.log(err.get());
+});
 ```
 
 </details>
@@ -223,23 +215,21 @@ Promise
 ** Source code **
 
 ```javascript
-let app = /*{your_app_id}*/;
-let id = /*{your_record_id}*/;
-let record = {
-    YourFieldCode: {
-        value: 'Value Of YourFieldCode'
-    },
-    // Another fieldcode here
+const app = /*{your_app_id}*/;
+const id = /*{your_record_id}*/;
+const record = {
+  YourFieldCode: {
+    value: 'Value Of YourFieldCode'
+  },
+  // Another fieldcode here
 };
-let revision = /*{revision_of_record}*/;
-kintoneRecord.updateRecordById(app, id, record, revision)
-    .then((rsp) => {
-        console.log(rsp);
-    })
-    .catch((err) => {
-        // This SDK return err with KintoneAPIExeption
-        console.log(err.get());
-    });
+const revision = /*{revision_of_record}*/;
+kintoneRecord.updateRecordById(app, id, record, revision).then((rsp) => {
+  console.log(rsp);
+}).catch((err) => {
+  // This SDK return err with KintoneAPIExeption
+  console.log(err.get());
+});
 ```
 
 </details>
@@ -269,26 +259,24 @@ Promise
 ** Source code **
 
 ```javascript
-let app = /*{your_app_id}*/;
-let updateKey = {
-    field: '{your_fieldcode}',
-    value: '{your_fieldcode_value}'
+const app = /*{your_app_id}*/;
+const updateKey = {
+  field: '{your_fieldcode}',
+  value: '{your_fieldcode_value}'
 };
-let record = {
-    YourFieldCode: {
-        value: 'Value Of YourFieldCode'
-    },
-    // Another fieldcode here
+const record = {
+  YourFieldCode: {
+    value: 'Value Of YourFieldCode'
+  },
+  // Another fieldcode here
 };
-let revision = /*{revision_of_record}*/;
-kintoneRecord.updateRecordByUpdateKey(app, updateKey, record, revision)
-    .then((rsp) => {
-        console.log(rsp);
-    })
-    .catch((err) => {
-        // This SDK return err with KintoneAPIExeption
-        console.log(err.get());
-    });
+const revision = /*{revision_of_record}*/;
+kintoneRecord.updateRecordByUpdateKey(app, updateKey, record, revision).then((rsp) => {
+  console.log(rsp);
+}).catch((err) => {
+  // This SDK return err with KintoneAPIExeption
+  console.log(err.get());
+});
 ```
 
 </details>
@@ -316,14 +304,14 @@ Promise
 ** Source code **
 
 ```javascript
-let app = /*{your_app_id}*/;
-let record = {
+const app = /*{your_app_id}*/;
+const record = {
     YourFieldCode: {
         value: 'Value Of YourFieldCode'
     },
     // Another fieldcode here
 };
-let recordUpdate = {
+const recordUpdate = {
     id: /*{your_record_id}*/, // Optional. Required, if updateKey will not be specified.
     updateKey: { // Optional. Required, if id will not be specified.
         field: '{your_field_code}',
@@ -332,18 +320,16 @@ let recordUpdate = {
     record: record,
     revision: /*{record_revision_number}*/ // Optional
 };
-let recordsUpdate = [
+const recordsUpdate = [
     recordUpdate,
     // Another recordUpdate
 ]
-kintoneRecord.updateRecords(app, recordsUpdate)
-    .then((rsp) => {
-        console.log(rsp);
-    })
-    .catch((err) => {
-        // This SDK return err with KintoneAPIExeption
-        console.log(err.get());
-    });
+kintoneRecord.updateRecords(app, recordsUpdate).then((rsp) => {
+  console.log(rsp);
+}).catch((err) => {
+  // This SDK return err with KintoneAPIExeption
+  console.log(err.get());
+});
 ```
 
 </details>
@@ -371,16 +357,14 @@ Promise
 ** Source code **
 
 ```javascript
-let app = /*{your_app_id}*/;
-let ids = [/*your_record_id*/]
-kintoneRecord.deleteRecords(app, ids)
-    .then((rsp) => {
-        console.log(rsp);
-    })
-    .catch((err) => {
-        // This SDK return err with KintoneAPIExeption
-        console.log(err.get());
-    });
+const app = /*{your_app_id}*/;
+const ids = [/*your_record_id*/]
+kintoneRecord.deleteRecords(app, ids).then((rsp) => {
+  console.log(rsp);
+}).catch((err) => {
+  // This SDK return err with KintoneAPIExeption
+  console.log(err.get());
+});
 ```
 
 </details>
@@ -408,18 +392,16 @@ Promise
 ** Source code **
 
 ```javascript
-let app = /*{your_app_id}*/;
-let idsWithRevision = {
+const app = /*{your_app_id}*/;
+const idsWithRevision = {
     /*your_record_id: revision_of_record*/
 }
-kintoneRecord.deleteRecordsWithRevision(app, idsWithRevision)
-    .then((rsp) => {
-        console.log(rsp);
-    })
-    .catch((err) => {
-        // This SDK return err with KintoneAPIExeption
-        console.log(err.get());
-    });
+kintoneRecord.deleteRecordsWithRevision(app, idsWithRevision).then((rsp) => {
+  console.log(rsp);
+}).catch((err) => {
+  // This SDK return err with KintoneAPIExeption
+  console.log(err.get());
+});
 ```
 
 </details>
@@ -449,19 +431,17 @@ Promise
 ** Source code **
 
 ```javascript
-let app = /*{your_app_id}*/;
-let id = /*{your_record_id}*/;
-let assignees = [/*your_assignee(s)*/];
-let revision = /*{revision_of_record}*/;
+const app = /*{your_app_id}*/;
+const id = /*{your_record_id}*/;
+const assignees = [/*your_assignee(s)*/];
+const revision = /*{revision_of_record}*/;
 
-kintoneRecord.updateRecordAssignees(app, id, assignees, revision)
-    .then((rsp) => {
-        console.log(rsp);
-    })
-    .catch((err) => {
-        // This SDK return err with KintoneAPIExeption
-        console.log(err.get());
-    });
+kintoneRecord.updateRecordAssignees(app, id, assignees, revision).then((rsp) => {
+  console.log(rsp);
+}).catch((err) => {
+  // This SDK return err with KintoneAPIExeption
+  console.log(err.get());
+});
 ```
 
 </details>
@@ -492,20 +472,18 @@ Promise
 ** Source code **
 
 ```javascript
-let app = /*{your_app_id}*/;
-let id = /*{your_record_id}*/;
-let action = /*{your_action_name}*/;
-let assignee = '/*your_assignee(s)*/';
-let revision = /*{revision_of_record}*/;
+const app = /*{your_app_id}*/;
+const id = /*{your_record_id}*/;
+const action = /*{your_action_name}*/;
+const assignee = '/*your_assignee(s)*/';
+const revision = /*{revision_of_record}*/;
 
-kintoneRecord.updateRecordStatus(app, id, action, assignee, revision)
-    .then((rsp) => {
-        console.log(rsp);
-    })
-    .catch((err) => {
-        // This SDK return err with KintoneAPIExeption
-        console.log(err.get());
-    });
+kintoneRecord.updateRecordStatus(app, id, action, assignee, revision).then((rsp) => {
+  console.log(rsp);
+}).catch((err) => {
+  // This SDK return err with KintoneAPIExeption
+  console.log(err.get());
+});
 ```
 
 </details>
@@ -533,25 +511,23 @@ Promise
 ** Source code **
 
 ```javascript
-let app = /*{your_app_id}*/;
-let recordStatusUpdateItem = {
+const app = /*{your_app_id}*/;
+const recordStatusUpdateItem = {
     id: /*your_record_id*/,
     action: '/*your_action_name*/',
     assignee: '/*your_assignee*/',
     revision: /*your_record_revision*/
 }
-let records = [
+const records = [
     recordStatusUpdateItem,
     /*another data like recordStatusUpdateItem*/
 ];
-kintoneRecord.updateRecordsStatus(app, records)
-    .then((rsp) => {
-        console.log(rsp);
-    })
-    .catch((err) => {
-        // This SDK return err with KintoneAPIExeption
-        console.log(err.get());
-    });
+kintoneRecord.updateRecordsStatus(app, records).then((rsp) => {
+  console.log(rsp);
+}).catch((err) => {
+  // This SDK return err with KintoneAPIExeption
+  console.log(err.get());
+});
 ```
 
 </details>
@@ -580,19 +556,17 @@ Promise
 ** Source code **
 
 ```javascript
-let app = /*{your_app_id}*/;
-let id = /*{your_record_id}*/;
-let order = /*{your_order_type}*/; // asc or desc
-let offset = /*{your_offset_number}*/;
-let limit = /*{your_limit number}*/;
-kintoneRecord.getComments(app, id, order, offset, limit)
-    .then((rsp) => {
-        console.log(rsp);
-    })
-    .catch((err) => {
-        // This SDK return err with KintoneAPIExeption
-        console.log(err.get());
-    });
+const app = /*{your_app_id}*/;
+const id = /*{your_record_id}*/;
+const order = /*{your_order_type}*/; // asc or desc
+const offset = /*{your_offset_number}*/;
+const limit = /*{your_limit number}*/;
+kintoneRecord.getComments(app, id, order, offset, limit).then((rsp) => {
+  console.log(rsp);
+}).catch((err) => {
+  // This SDK return err with KintoneAPIExeption
+  console.log(err.get());
+});
 ```
 
 </details>
@@ -619,26 +593,26 @@ Promise
 ** Source code **
 
 ```javascript
-let app = /*{your_app_id}*/;
-let record = /*{your_record_id}*/;
-let comment = {
-    text: '/*your_comment_content*/',
-    mentions: [
-        {
-            code: '/*your_member_code*/',
-            type: '/*your_member_type*/' // either `USER` or `GROUP` or `ORGANIZATION`
-        },
-        // another mention here
-    ]
+const app = /*{your_app_id}*/;
+const record = /*{your_record_id}*/;
+const comment = {
+  text: '/*your_comment_content*/',
+  mentions: [
+    {
+      code: '/*your_member_code*/',
+      type: '/*your_member_type*/' // either `USER` or `GROUP` or `ORGANIZATION`
+    },
+    // another mention here
+  ]
 };
 kintoneRecord.addComment(app, record, comment)
-    .then((rsp) => {
-        console.log(rsp);
-    })
-    .catch((err) => {
-        // This SDK return err with KintoneAPIExeption
-        console.log(err.get());
-    });
+  .then((rsp) => {
+    console.log(rsp);
+  })
+  .catch((err) => {
+    // This SDK return err with KintoneAPIExeption
+    console.log(err.get());
+  });
 ```
 
 </details>
@@ -665,17 +639,17 @@ Promise
 ** Source code **
 
 ```javascript
-let app = /*{your_app_id}*/;
-let record = /*{your_record_id}*/;
-let comment = /*{your_comment_id}*/;
+const app = /*{your_app_id}*/;
+const record = /*{your_record_id}*/;
+const comment = /*{your_comment_id}*/;
 kintoneRecord.deleteComment(app, record, comment)
-    .then((rsp) => {
-        console.log(rsp);
-    })
-    .catch((err) => {
-        // This SDK return err with KintoneAPIExeption
-        console.log(err.get());
-    });
+  .then((rsp) => {
+    console.log(rsp);
+  })
+  .catch((err) => {
+    // This SDK return err with KintoneAPIExeption
+    console.log(err.get());
+  });
 ```
 
 </details>
