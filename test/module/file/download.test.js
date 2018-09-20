@@ -7,7 +7,6 @@ const nock = require('nock');
 const common = require('../../common');
 
 const fs = require('fs');
-const path = require('path');
 
 const {Auth, File, Connection, KintoneAPIException} = require(common.MAIN_PATH);
 
@@ -80,7 +79,7 @@ describe('dowload function', () => {
           .get(`/k/v1/file.json?fileKey=${fileKey}`)
           .reply(403, undefined);
         const downloadFile = fileModule.download(fileKey, filePath);
-        return downloadFile.catch((err)=>{
+        downloadFile.catch((err)=>{
           expect(err).toBeInstanceOf(KintoneAPIException);
         });
       });

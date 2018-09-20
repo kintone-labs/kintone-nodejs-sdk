@@ -7,9 +7,6 @@
 const nock = require('nock');
 const common = require('../../common');
 
-const fs = require('fs');
-const path = require('path');
-
 const {Auth, File, Connection} = require(common.MAIN_PATH);
 
 const auth = new Auth();
