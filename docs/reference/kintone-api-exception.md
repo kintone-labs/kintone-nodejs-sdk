@@ -23,11 +23,10 @@ Handle error responses from kintone Rest API
 
 ```javascript
 let appID = {your_invalid_app_id};
-kintoneApp.getApp(appID)
-    .catch((err) => {
-        // This SDK return err with KintoneAPIExeption
-        console.log(err.get());
-    });
+kintoneApp.getApp(appID).catch((err) => {
+  // This SDK return err with KintoneAPIExeption
+  console.log(err.get());
+});
 ```
 
 ** Response **

@@ -61,7 +61,7 @@ kintoneAuth.setPasswordAuth(username, password);
 
 </details>
 
-### setApiToken(apiTokenString)
+### setApiToken(apiToken)
 
 > Set Api Token for Authentication module.
 
@@ -69,7 +69,7 @@ kintoneAuth.setPasswordAuth(username, password);
 
 | Name| Type| Required| Description |
 | --- | --- | --- | --- |
-| apiTokenString | String | yes | The apiToken that is able to authenticate on kintone app
+| apiToken | String | yes | The apiToken that is able to authenticate on kintone app
 
 **Return**
 
@@ -82,8 +82,8 @@ kintoneAuth.setPasswordAuth(username, password);
 ** Source code **
 
 ```javascript
-let apiTokenString = '{your_token}';
-kintoneAuth.setApiToken(apiTokenString);
+let apiToken = '{your_token}';
+kintoneAuth.setApiToken(apiToken);
 ```
 
 </details>

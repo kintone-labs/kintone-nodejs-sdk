@@ -39,101 +39,101 @@ let kintoneBulkRequest = new kintone.BulkRequest(connection);
 
 > All below methods (excluded `execute()` method) will add request to queue, you must execute the `execute()` function to get result of BulkRequest.
 
-### addRecord(appID, recordData)
+### addRecord(app, record)
 
 **Parameter**
 
-See at [Record - addRecord](./record#addrecordappid-recorddata)
+See at [Record - addRecord](./record#addrecordapp-record)
 
 **Return**
 
 [BulkRequest](#bulkrequest)
 
-### addRecords(appID, recordsData)
+### addRecords(app, records)
 
 **Parameter**
 
-See at [Record - addRecords](./record#addrecordsappid-recordsdata)
+See at [Record - addRecords](./record#addrecordsapp-records)
 
 **Return**
 
 [BulkRequest](#bulkrequest)
 
-### updateRecordById(appID, recordID, recordData, revision)
+### updateRecordByID(app, id, record, revision)
 
 **Parameter**
 
-See at [Record - updateRecordById](./record#updaterecordbyidappid-recordid-recorddata-revision)
+See at [Record - updateRecordByID](./record#updaterecordbyidapp-id-record-revision)
 
 **Return**
 
 [BulkRequest](#bulkrequest)
 
-### updateRecordByUpdateKey(appID, updateKey, recordData, revision)
+### updateRecordByUpdateKey(app, updateKey, record, revision)
 
 **Parameter**
 
-See at [Record - updateRecordByUpdateKey](./record#updaterecordbyupdatekeyappid-updatekey-recorddata-revision)
+See at [Record - updateRecordByUpdateKey](./record#updaterecordbyupdatekeyapp-updatekey-record-revision)
 
 **Return**
 
 [BulkRequest](#bulkrequest)
 
-### updateRecords(appID, recordsData)
+### updateRecords(app, records)
 
 **Parameter**
 
-See at [Record - updateRecords](./record#updaterecordsappid-recordsdata)
+See at [Record - updateRecords](./record#updaterecordsapp-records)
 
 **Return**
 
 [BulkRequest](#bulkrequest)
 
-### deleteRecords(appID, recordIDs)
+### deleteRecords(app, ids)
 
 **Parameter**
 
-See at [Record - deleteRecords](./record#deleterecordsappid-recordids)
+See at [Record - deleteRecords](./record#deleterecordsapp-ids)
 
 **Return**
 
 [BulkRequest](#bulkrequest)
 
-### deleteRecordsWithRevision(appID, idsWithRevision)
+### deleteRecordsWithRevision(app, idsWithRevision)
 
 **Parameter**
 
-See at [Record - deleteRecordsWithRevision](./record#deleterecordswithrevisionappid-idswithrevision)
+See at [Record - deleteRecordsWithRevision](./record#deleterecordswithrevisionapp-idswithrevision)
 
 **Return**
 
 [BulkRequest](#bulkrequest)
 
-### updateRecordAssignees(appID, recordID, assignees, revision)
+### updateRecordAssignees(app, record, assignees, revision)
 
 **Parameter**
 
-See at [Record - updateRecordAssignees](./record#updaterecordassigneesappid-recordid-assignees-revision)
+See at [Record - updateRecordAssignees](./record#updaterecordassigneesapp-id-assignees-revision)
 
 **Return**
 
 [BulkRequest](#bulkrequest)
 
-### updateRecordStatus(appID, recordID, actionName, assignee, revision)
+### updateRecordStatus(app, id, action, assignee, revision)
 
 **Parameter**
 
-See at [Record - updateRecordStatus](./record#updaterecordstatusappid-recordid-actionname-assignee-revision)
+See at [Record - updateRecordStatus](./record#updaterecordstatusapp-id-action-assignee-revision)
 
 **Return**
 
 [BulkRequest](#bulkrequest)
 
-### updateRecordsStatus(appID, recordsStatusUpdate)
+### updateRecordsStatus(app, records)
 
 **Parameter**
 
-See at [Record - updateRecordsStatus](./record#updaterecordsstatusappid-recordsstatusupdate)
+See at [Record - updateRecordsStatus](./record#updaterecordsstatusapp-records)
 
 **Return**
 
@@ -159,23 +159,21 @@ See at [Record - updateRecordsStatus](./record#updaterecordsstatusappid-recordss
 ** Source code **
 
 ```javascript
+const responseBulkRequest = kintoneBulkRequest
+  .addRecord(/* [Args]*/)
+  .addRecords(/* [Args]*/)
+  .updateRecords(/* [Args]*/)
+  .deleteRecords()
+  .execute();
 
-let responseBulkRequest = kintoneBulkRequest
-    .addRecord(/*[Args]*/)
-    .addRecords(/*[Args]*/)
-    .updateRecords(/*[Args]*/)
-    .deleteRecords()
-    .execute();
-responseBulkRequest
-    .then((resp) => {
-        console.log(resp);
-    })
-    .catch((err) => {
-        // write error to console
-        console.log(err.get());
-        // Throw error
-        err.throw()
-    });
+responseBulkRequest.then((resp) => {
+  console.log(resp);
+}).catch((err) => {
+  // write error to console
+  console.log(err.get());
+  // Throw error
+  err.throw();
+});
 ```
 
 </details>

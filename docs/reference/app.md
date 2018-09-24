@@ -25,22 +25,22 @@ Gets general information of an App, including the name, description, related Spa
 
 const kintone = require('kintone-nodejs-sdk');
 
-let kintoneApp = new kintone.App(connection);
+const kintoneApp = new kintone.App(connection);
 ```
 
 </details>
 
 ## Methods
 
-### getApp(appID)
+### getApp(appId)
 
 > Get single app
 
-#### **Parameter**
+**Parameter**
 
 | Name| Type| Required| Description |
 | --- | --- | --- | --- |
-| appID | Integer | yes | The kintone app ID
+| appId | Integer | yes | The kintone app ID
 
 **Return**
 
@@ -54,15 +54,13 @@ Promise
 ** Source code **
 
 ```javascript
-let appID = {your_app_id};
-kintoneApp.getApp(appID)
-    .then((rsp) => {
-        console.log(rsp);
-    })
-    .catch((err) => {
-        // This SDK return err with KintoneAPIExeption
-        console.log(err.get());
-    });
+const appId = 'your_app_id';
+kintoneApp.getApp(appId).then((rsp) => {
+  console.log(rsp);
+}).catch((err) => {
+  // This SDK return err with KintoneAPIExeption
+  console.log(err.get());
+});
 ```
 
 </details>
@@ -90,16 +88,14 @@ Promise
 ** Source code **
 
 ```javascript
-let limit = /*{your_limit_number}*/;
-let offset = /*{your_offset_number}*/;
-kintoneApp.getApps(offset, limit)
-    .then((rsp) => {
-        console.log(rsp);
-    })
-    .catch((err) => {
-        // This SDK return err with KintoneAPIExeption
-        console.log(err.get());
-    });
+const limit = 'your_limit_number';
+const offset = 'your_offset_number';
+kintoneApp.getApps(offset, limit).then((rsp) => {
+  console.log(rsp);
+}).catch((err) => {
+  // This SDK return err with KintoneAPIExeption
+  console.log(err.get());
+});
 ```
 
 </details>
@@ -128,17 +124,15 @@ Promise
 ** Source code **
 
 ```javascript
-let appIDs = [{YOUR_APP_ID_1}, {YOUR_APP_ID_2}, {YOUR_APP_ID_n}];
-let limit = /*{your_limit_number}*/;
-let offset = /*{your_offset_number}*/;
-kintoneApp.getAppsByIDs(appIDs, offset, limit)
-    .then((rsp) => {
-        console.log(rsp);
-    })
-    .catch((err) => {
-        // This SDK return err with KintoneAPIExeption
-        console.log(err.get());
-    });
+const appIDs = ['YOUR_APP_ID_1', 'YOUR_APP_ID_2', 'YOUR_APP_ID_n'];
+const limit = 'your_limit_number';
+const offset = 'your_offset_number';
+kintoneApp.getAppsByIDs(appIDs, offset, limit).then((rsp) => {
+  console.log(rsp);
+}).catch((err) => {
+  // This SDK return err with KintoneAPIExeption
+  console.log(err.get());
+});
 ```
 
 </details>
@@ -167,17 +161,15 @@ Promise
 ** Source code **
 
 ```javascript
-let codes = ['YOUR_APP_CODE_1', 'YOUR_APP_CODE_2'];
-let limit = /*{your_limit_number}*/;
-let offset = /*{your_offset_number}*/;
-kintoneApp.getAppsByCodes(codes, offset, limit)
-    .then((rsp) => {
-        console.log(rsp);
-    })
-    .catch((err) => {
-        // This SDK return err with KintoneAPIExeption
-        console.log(err.get());
-    });
+const codes = ['YOUR_APP_CODE_1', 'YOUR_APP_CODE_2'];
+const limit = 'your_limit_number';
+const offset = 'your_offset_number';
+kintoneApp.getAppsByCodes(codes, offset, limit).then((rsp) => {
+  console.log(rsp);
+}).catch((err) => {
+  // This SDK return err with KintoneAPIExeption
+  console.log(err.get());
+});
 ```
 
 </details>
@@ -185,6 +177,8 @@ kintoneApp.getAppsByCodes(codes, offset, limit)
 ### getAppsByName(name, offset, limit)
 
 > Get multiple apps by name
+
+**Parameter **
 
 | Name| Type| Required| Description |
 | --- | --- | --- | --- |
@@ -204,28 +198,28 @@ Promise
 ** Source code **
 
 ```javascript
-let name = 'your app name';
-let limit = /*{your_limit_number}*/;
-let offset = /*{your_offset_number}*/;
-kintoneApp.getAppsByName(name, offset, limit)
-    .then((rsp) => {
-        console.log(rsp);
-    })
-    .catch((err) => {
-        // This SDK return err with KintoneAPIExeption
-        console.log(err.get());
-    });
+const name = 'your app name';
+const limit = /*{your_limit_number}*/;
+const offset = /*{your_offset_number}*/;
+kintoneApp.getAppsByName(name, offset, limit).then((rsp) => {
+  console.log(rsp);
+}).catch((err) => {
+  // This SDK return err with KintoneAPIExeption
+  console.log(err.get());
+});
 ```
 
 </details>
 
-### getAppsBySpaceIDs(spaceIDs, offset, limit)
+### getAppsBySpaceIDs(spaceIds, offset, limit)
 
 > Get multiple apps by list of space's ids
 
+**Parameter **
+
 | Name| Type| Required| Description |
 | --- | --- | --- | --- |
-| spaceIDs | Array<Integer\> | yes | The array of space ids
+| spaceIds | Array<Integer\> | yes | The array of space ids
 | offset | Integer | (optional) | The offset off data result
 | limit | Integer | (optional) | The limit number of result
 
@@ -241,29 +235,343 @@ Promise
 ** Source code **
 
 ```javascript
-let spaceIDs = [];
-let limit = /*{your_limit_number}*/;
-let offset = /*{your_offset_number}*/;
-kintoneApp.getAppsBySpaceIDs(spaceIDs, offset, limit)
-    .then((rsp) => {
-        console.log(rsp);
-    })
-    .catch((err) => {
-        // This SDK return err with KintoneAPIExeption
-        console.log(err.get());
-    });
+const spaceIds = [];
+const limit = /*{your_limit_number}*/;
+const offset = /*{your_offset_number}*/;
+kintoneApp.getAppsBySpaceIDs(spaceIds, offset, limit).then((rsp) => {
+  console.log(rsp);
+}).catch((err) => {
+  // This SDK return err with KintoneAPIExeption
+  console.log(err.get());
+});
 ```
 
 </details>
 
-### getFormFields(appID, langCode, isPreview)
+### addPreviewApp(name, space, thread)
 
-> Get field of form in kintone app
+> Creates a preview App.
+
+!!! warning
+
+    - After using this method, use the [deployAppSettings](#deployappsettingsapps-revert) to deploy the settings to the live App.
+
+**Parameter **
 
 | Name| Type| Required| Description |
 | --- | --- | --- | --- |
-| appID | Integer | yes | The app ID
-| langCode | String | (optional) | The language code. Support: <ul><li>DEFAULT: Default language setting of system </li><li>JA: English language setting</li><li>ZH: Chinese language setting</li><li>EN: English language setting</li> |
+| name | String | yes | The App name. The maximum length is 64 characters.
+| space | 	Integer | (optional) | The Space ID of where the App will be created.  |
+| thread | Integer | (optional) | The Thread ID of the thread in the Space where the App will be created. It is recommended to ignore this parameter so that Apps are created in the default thread. There is currently no helpful reason to create Apps in threads other than the default thread, as there are no visual representations in kintone of Apps being related to threads. There are only visual representations of Apps being related to Spaces.
+
+**Return**
+
+Promise
+
+**Sample code**
+
+<details class="tab-container" open>
+<Summary>Add preview App sample</Summary>
+
+** Source code **
+
+```javascript
+const name = {your_app_name};
+const space = {space_of_app};
+const thread = {thread_id_in_space};
+kintoneApp.addPreviewApp(name, space, thread).then((rsp) => {
+  console.log(rsp);
+}).catch((err) => {
+  // This SDK return err with KintoneAPIExeption
+  console.log(err.get());
+});
+```
+
+</details>
+
+### deployAppSettings(apps, revert)
+
+> Updates the settings of a pre-live App to the live App.
+
+**Parameter **
+
+| Name| Type| Required| Description |
+| --- | --- | --- | --- |
+| apps | Array<JSONObject\> | yes | The list of preview apps.
+| revert | 	Boolean | (optional) | Specify "true" to cancel all changes made to the pre-live settings. The pre-live settings will be reverted back to the current settings of the live app.
+
+**Return**
+
+Promise
+
+**Sample code**
+
+<details class="tab-container" open>
+<Summary>Deploy app settings sample</Summary>
+
+** Source code **
+
+```javascript
+const appPreview = {
+        app: 'your_app_id',
+        revision: 'revision_of_app'
+    };
+const apps = [
+    appPreview
+    // Another app preview here
+];
+const revert = false;
+kintoneApp.deployAppSettings(apps, revert).then((rsp) => {
+  console.log(rsp);
+}).catch((err) => {
+  // This SDK return err with KintoneAPIExeption
+  console.log(err.get());
+});
+```
+
+</details>
+
+### getAppDeployStatus(apps)
+
+> Gets the deployment status of the App settings for multiple Apps.
+
+**Parameter **
+
+| Name| Type| Required| Description |
+| --- | --- | --- | --- |
+| apps | Array<Integer\> | yes | The list of Apps to check the deploy statuses of. The Maximum limit is 300. If Apps in Guest Spaces are specified, all Apps specified in the request must belong to that Guest Space.
+
+**Return**
+
+Promise
+
+**Sample code**
+
+<details class="tab-container" open>
+<Summary>Get app deploy status sample</Summary>
+
+** Source code **
+
+```javascript
+const appPreview = {
+        app: 'your_app_id',
+        revision: 'revision_of_app'
+    };
+const apps = [
+    'your_app_id'
+    // Another app id here
+];
+kintoneApp.getAppDeployStatus(apps).then((rsp) => {
+  console.log(rsp);
+}).catch((err) => {
+  // This SDK return err with KintoneAPIExeption
+  console.log(err.get());
+});
+```
+
+</details>
+
+### getViews(app, lang, isPreview)
+
+> Gets the View settings of a an App.
+
+**Parameter **
+
+| Name| Type| Required| Description |
+| --- | --- | --- | --- |
+| app | Integer | yes | The app ID
+| lang | String | (optional) | The language code. Support: <ul><li>DEFAULT: Default language setting of system </li><li>JA: English language setting</li><li>ZH: Chinese language setting</li><li>EN: English language setting</li> |
+| isPreview | Boolean | (optional) | Get the views with a [pre-live settings](https://developer.kintone.io/hc/en-us/articles/115004401787).
+
+**Return**
+
+Promise
+
+**Sample code**
+
+<details class="tab-container" open>
+<Summary>Get views sample</Summary>
+
+** Source code **
+
+```javascript
+const app = {your_app_id};
+const lang = {language_code}; // Ex: JA
+kintoneApp.getViews(app, lang).then((rsp) => {
+  console.log(rsp);
+}).catch((err) => {
+  // This SDK return err with KintoneAPIExeption
+  console.log(err.get());
+});
+
+// Get a pre-live (preview) views
+const app = {your_app_id};
+const lang = {language_code}; // Ex: JA
+const isPreview = true;
+kintoneApp.getViews(app, lang, isPreview).then((rsp) => {
+  console.log(rsp);
+}).catch((err) => {
+  // This SDK return err with KintoneAPIExeption
+  console.log(err.get());
+});
+```
+
+</details>
+
+### updateViews(app, views, revision)
+
+> Get field of form in kintone app
+
+**Parameter **
+
+| Name| Type| Required| Description |
+| --- | --- | --- | --- |
+| app | Integer | yes | The app ID
+| views | JSONObject | yes | An object of data of Views. About the format, please look the sample below or [reference](#reference) at the end of this page|
+| revision | Integer | (optional) | Specify the revision number of the settings that will be deployed.
+
+**Return**
+
+Promise
+
+**Sample code**
+
+<details class="tab-container" open>
+<Summary>Update views sample</Summary>
+
+** Source code **
+
+```javascript
+const app = {your_app_id};
+const views = {
+    "Your_view_name": {
+      "index": 0,
+      "type": "your_view_type", // Default: 'LIST', 'CALENDAR', 'CUSTOM'
+      "name": "Your_view_name",
+      "fields": [
+        "your_field_code"
+        // Another field code here
+      ],
+      "filterCond": "your_query",
+      "sort": "your_sort"      
+    }
+    // Another view here
+}; 
+const revision: 'settings_revision';
+
+kintoneApp.updateViews(app, views, revision).then((rsp) => {
+  console.log(rsp);
+}).catch((err) => {
+  // This SDK return err with KintoneAPIExeption
+  console.log(err.get());
+});
+```
+
+</details>
+
+### getGeneralSettings(app, lang, isPreview)
+
+> Gets the description, name, icon, revision and color theme of an App.
+
+**Parameter **
+
+| Name| Type| Required| Description |
+| --- | --- | --- | --- |
+| app | Integer | yes | The app ID
+| lang | String | (optional) | The language code. Support: <ul><li>DEFAULT: Default language setting of system </li><li>JA: English language setting</li><li>ZH: Chinese language setting</li><li>EN: English language setting</li> |
+| isPreview | Boolean | (optional) | Get the general with a [pre-live settings](https://developer.kintone.io/hc/en-us/articles/115004811668).
+
+**Return**
+
+Promise
+
+**Sample code**
+
+<details class="tab-container" open>
+<Summary>Get general settings sample</Summary>
+
+** Source code **
+
+```javascript
+const app = {your_app_id};
+const lang = {language_code}; // Ex: JA
+kintoneApp.getGeneralSettings(app, lang).then((rsp) => {
+  console.log(rsp);
+}).catch((err) => {
+  // This SDK return err with KintoneAPIExeption
+  console.log(err.get());
+});
+
+// Get a pre-live (preview) general settings
+const app = {your_app_id};
+const lang = {language_code}; // Ex: JA
+const isPreview = true;
+kintoneApp.getGeneralSettings(app, lang, isPreview).then((rsp) => {
+  console.log(rsp);
+}).catch((err) => {
+  // This SDK return err with KintoneAPIExeption
+  console.log(err.get());
+});
+```
+
+</details>
+
+### updateGeneralSettings(app, generalSettings, revision)
+
+> Update the description, name, icon, revision and color theme of an App.
+
+**Parameter **
+
+| Name| Type| Required| Description |
+| --- | --- | --- | --- |
+| app | Integer | yes | The app ID
+| generalSettings | JSONObject | (Conditional) | the description, name, icon, revision and color theme of an App.
+| revision | Integer | (optional) | Specify the revision number of the settings that will be deployed.
+
+**Return**
+
+Promise
+
+**Sample code**
+
+<details class="tab-container" open>
+<Summary>Update general settings sample</Summary>
+
+** Source code **
+
+```javascript
+const app = {your_app_id};
+const generalSettings = {
+  'name': 'APP_NAME',
+  'description': 'Here is app description.',
+  'icon': {
+    'type': 'icon_type', // specified: FILE, PRESET
+    'key': 'icon_key'
+  },
+  'theme': 'your_theme' // specified: WHITE, RED, BLUE, GREEN, YELLOW, BLACK
+};
+const revision = 'settings_revision';
+
+kintoneApp.updateGeneralSettings(app, generalSettings, revision).then((rsp) => {
+  console.log(rsp);
+}).catch((err) => {
+  // This SDK return err with KintoneAPIExeption
+  console.log(err.get());
+});
+```
+
+</details>
+
+### getFormFields(app, lang, isPreview)
+
+> Get field of form in kintone app
+
+**Parameter **
+
+| Name| Type| Required| Description |
+| --- | --- | --- | --- |
+| app | Integer | yes | The app ID
+| lang | String | (optional) | The language code. Support: <ul><li>DEFAULT: Default language setting of system </li><li>JA: English language setting</li><li>ZH: Chinese language setting</li><li>EN: English language setting</li> |
 | isPreview | Boolean | (optional) | Get the app form fields with a [pre-live settings](https://developer.kintone.io/hc/en-us/articles/115005509288).
 
 **Return**
@@ -278,40 +586,184 @@ Promise
 ** Source code **
 
 ```javascript
-let appID = {your_app_id};
-let langCode = {language_code}; // Ex: JA
-kintoneApp.getFormFields(appID, langCode)
-    .then((rsp) => {
-        console.log(rsp);
-    })
-    .catch((err) => {
-        // This SDK return err with KintoneAPIExeption
-        console.log(err.get());
-    });
+const app = {your_app_id};
+const lang = {language_code}; // Ex: JA
+kintoneApp.getFormFields(app, lang).then((rsp) => {
+  console.log(rsp);
+}).catch((err) => {
+  // This SDK return err with KintoneAPIExeption
+  console.log(err.get());
+});
 
 // Get a pre-live (preview) form fields
-let appID = {your_app_id};
-let langCode = {language_code}; // Ex: JA
-let isPreview = true;
-kintoneApp.getFormFields(appID, langCode, isPreview)
-    .then((rsp) => {
-        console.log(rsp);
-    })
-    .catch((err) => {
-        // This SDK return err with KintoneAPIExeption
-        console.log(err.get());
-    });
+const app = {your_app_id};
+const lang = {language_code}; // Ex: JA
+const isPreview = true;
+kintoneApp.getFormFields(app, lang, isPreview).then((rsp) => {
+  console.log(rsp);
+}).catch((err) => {
+  // This SDK return err with KintoneAPIExeption
+  console.log(err.get());
+});
 ```
 
 </details>
 
-### getFormLayout(appID, isPreview)
+### addFormFields(app, fields, revision)
 
-> Get layout of form in kintone app
+> Adds fields to a form of an App.
+
+!!! warning
+
+    - After using this method, use the [deployAppSettings](#deployappsettingsapps-revert) to deploy the settings to the live App.
+
+**Parameter **
 
 | Name| Type| Required| Description |
 | --- | --- | --- | --- |
-| appID | Integer | yes | The kintone app id
+| app | Integer | yes | The app ID
+| fields | 	JSONObject | yes | The formFields which will add to form of kintone app. About the format, please look the sample below or [reference](#reference) at the end of this  |
+| revision | Integer | (optional) | Specify the revision number of the settings that will be deployed.
+
+**Return**
+
+Promise
+
+**Sample code**
+
+<details class="tab-container" open>
+<Summary>Add app form field sample</Summary>
+
+** Source code **
+
+```javascript
+const app = {your_app_id};
+const fields = {
+  YourFieldCode: {
+    'type': 'SINGLE_LINE_TEXT',
+    'code': 'YourFieldCode',
+    'label': 'Text (single-line)',
+    'noLabel': false,
+    'required': true,
+    'unique': true
+  }
+  // Another field here
+};
+const revision = 'the_revision_of_the_settings ';
+kintoneApp.addFormFields(app, fields, revision).then((rsp) => {
+  console.log(rsp);
+}).catch((err) => {
+  // This SDK return err with KintoneAPIExeption
+  console.log(err.get());
+});
+```
+
+</details>
+
+### updateFormFields(app, fields, revision)
+
+> Updates the field settings of fields in a form of an App.
+
+!!! warning
+
+    - After using this method, use the [deployAppSettings](#deployappsettingsapps-revert) to deploy the settings to the live App.
+
+**Parameter **
+
+| Name| Type| Required| Description |
+| --- | --- | --- | --- |
+| app | Integer | yes | The app ID
+| fields | 	JSONObject | yes | The formFields which will add to form of kintone app. About the format, please look the sample below or [reference](#reference) at the end of this  |
+| revision | Integer | (optional) | Specify the revision number of the settings that will be deployed.
+
+**Return**
+
+Promise
+
+**Sample code**
+
+<details class="tab-container" open>
+<Summary>Update app form field sample</Summary>
+
+** Source code **
+
+```javascript
+const app = {your_app_id};
+const fields = {
+  YourFieldCode: {
+    'type': 'SINGLE_LINE_TEXT',
+    'code': 'YourFieldCode',
+    'label': 'Text (single-line)',
+    'noLabel': false,
+    'required': true,
+    'unique': true
+  }
+  // Another field here
+};
+const revision = 'the_revision_of_the_settings ';
+kintoneApp.updateFormFields(app, fields, revision).then((rsp) => {
+  console.log(rsp);
+}).catch((err) => {
+  // This SDK return err with KintoneAPIExeption
+  console.log(err.get());
+});
+```
+
+</details>
+
+### deleteFormFields(app, fields, revision)
+
+> Updates the field settings of fields in a form of an App.
+
+!!! warning
+
+    - After using this method, use the [deployAppSettings](#deployappsettingsapps-revert) to deploy the settings to the live App.
+
+**Parameter **
+
+| Name| Type| Required| Description |
+| --- | --- | --- | --- |
+| app | Integer | yes | The app ID
+| fields | 	Array<String\> | yes | The list of field codes of the fields to delete. Up to 100 field codes can be specified.|
+| revision | Integer | (optional) | Specify the revision number of the settings that will be deployed.
+
+**Return**
+
+Promise
+
+**Sample code**
+
+<details class="tab-container" open>
+<Summary>Delete app form field sample</Summary>
+
+** Source code **
+
+```javascript
+const app = {your_app_id};
+const fields = [
+  'your_field_cde'
+  // Another field code here
+];
+const revision = 'revision_of_the_Settings ';
+kintoneApp.deleteFormFields(app, fields, revision).then((rsp) => {
+  console.log(rsp);
+}).catch((err) => {
+  // This SDK return err with KintoneAPIExeption
+  console.log(err.get());
+});
+```
+
+</details>
+
+### getFormLayout(app, isPreview)
+
+> Get layout of form in kintone app
+
+**Parameter **
+
+| Name| Type| Required| Description |
+| --- | --- | --- | --- |
+| app | Integer | yes | The kintone app id
 | isPreview | Boolean | (optional) | Get the app form layout with a [pre-live settings](https://developer.kintone.io/hc/en-us/articles/115005509288).
 
 **Return**
@@ -326,27 +778,81 @@ Promise
 ** Source code **
 
 ```javascript
-let appID = {your_app_id};
+const app = {your_app_id};
 // Get form layout
-kintoneApp.getFormLayout(appID)
-    .then((rsp) => {
-        console.log(rsp);
-    })
-    .catch((err) => {
-        // This SDK return err with KintoneAPIExeption
-        console.log(err.get());
-    });
+kintoneApp.getFormLayout(app).then((rsp) => {
+  console.log(rsp);
+}).catch((err) => {
+  // This SDK return err with KintoneAPIExeption
+  console.log(err.get());
+});
 
 // Get a preview (pre-live) form layout
-let isPreview = true;
-kintoneApp.getFormLayout(appID, isPreview)
-    .then((rsp) => {
-        console.log(rsp);
-    })
-    .catch((err) => {
-        // This SDK return err with KintoneAPIExeption
-        console.log(err.get());
-    });
+const isPreview = true;
+kintoneApp.getFormLayout(app, isPreview).then((rsp) => {
+  console.log(rsp);
+}).catch((err) => {
+  // This SDK return err with KintoneAPIExeption
+  console.log(err.get());
+});
+```
+
+</details>
+
+### updateFormLayout(app, layout, revision)
+
+> Updates the field layout info of a form in an App.
+
+!!! warning
+
+    - After using this method, use the [deployAppSettings](#deployappsettingsapps-revert) to deploy the settings to the live App.
+
+**Parameter **
+
+| Name| Type| Required| Description |
+| --- | --- | --- | --- |
+| app | Integer | yes | The kintone app id
+| layout | Array<JSONObject\> | yes | A list of field layouts for each row. About the format, please look the sample below or [reference](#reference) at the end of this page.
+| revision | Integer | (optional) | Specify the revision number of the settings that will be deployed. The request will fail if the revision number is not the latest revision.
+
+**Return**
+
+Promise
+
+**Sample code**
+
+<details class="tab-container" open>
+<Summary>Update form layout sample</Summary>
+
+** Source code **
+
+```javascript
+const app = {your_app_id};
+const fisrtRowLayout = {
+  'type': 'kintone_layout_type',
+  'fields': [
+    {
+      'type': 'kintone_field_type',
+      'code': 'your_field_code',
+      'size': {
+        'width': 'your_field_width'
+      }
+    }
+  ]
+};
+const layout = [
+  fisrtRowLayout
+// Another row layout here
+];
+const revision = 'settings_revision';
+
+// Update form layout
+kintoneApp.updateFormLayout(app, layout, revision).then((rsp) => {
+  console.log(rsp);
+}).catch((err) => {
+// This SDK return err with KintoneAPIExeption
+  console.log(err.get());
+});
 ```
 
 </details>

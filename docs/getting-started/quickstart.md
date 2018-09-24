@@ -22,7 +22,6 @@ npm install --save kintone-nodejs-sdk
 ** Source code **
 
 ```javascript
-
 const kintone = require('kintone-nodejs-sdk');
 
 let kintoneAuthWithAPIToken = (new kintone.Auth()).setApiToken('MY_TOKEN');
@@ -30,16 +29,14 @@ let kintoneConnection = new kintone.Connection('your.FQDN.tld', kintoneAuthWithA
 
 let kintoneRecord = new kintone.Record(kintoneConnection);
 
-let appID = {your_app_id};
-let recordID = {record_id_that_will_be_retrived};
-kintoneRecord.getRecord(appID, recordID)
-    .then((rsp) => {
-        console.log(rsp);
-    })
-    .catch((err) => {
-        // The promise function always reject with KintoneAPIExeption
-        console.log(err.get());
-    });
+let appID = 'your_app_id';
+let recordID = 'record_id_that_will_be_retrived';
+kintoneRecord.getRecord(appID, recordID).then((rsp) => {
+  console.log(rsp);
+}).catch((err) => {
+  // The promise function always reject with KintoneAPIExeption
+  console.log(err.get());
+});
 ```
 
 ** Response success**
@@ -71,25 +68,24 @@ kintoneRecord.getRecord(appID, recordID)
 ** Source code **
 
 ```javascript
-
 const kintone = require('kintone-nodejs-sdk');
 
-let kintoneAuthWithAPIToken = (new kintone.Auth()).setApiToken('MY_TOKEN');
-let kintoneConnection = new kintone.Connection('your.FQDN', kintoneAuthWithAPIToken);
+const kintoneAuthWithAPIToken = (new kintone.Auth()).setApiToken('MY_TOKEN');
+const kintoneConnection = new kintone.Connection('your.FQDN', kintoneAuthWithAPIToken);
 
-let kintoneRecord = new kintone.Record(kintoneConnection);
+const kintoneRecord = new kintone.Record(kintoneConnection);
 
-let appID = {your_app_id};
-let recordID = {record_id_that_will_be_retrived};
-let getRecord = async () => {
-     try {
-        let recordResult = await kintoneRecord.getRecord(appID, recordID);
-        console.log(recordResult);
-    } catch (error) {
-        // The promise function always reject with KintoneAPIExeption
-        console.log(error.get());
-    }
-}
+const appID = {your_app_id};
+const recordID = {record_id_that_will_be_retrived};
+const getRecord = async () => {
+  try {
+    const recordResult = await kintoneRecord.getRecord(appID, recordID);
+    console.log(recordResult);
+  } catch (error) {
+    // The promise function always reject with KintoneAPIExeption
+    console.log(error.get());
+  }
+};
 getRecord();
 ```
 

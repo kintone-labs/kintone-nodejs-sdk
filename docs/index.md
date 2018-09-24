@@ -14,6 +14,7 @@
 - [BulkRequest](./reference/bulk-request)
 - [App](./reference/app)
 - [KintoneAPIException](./reference/kintone-api-exception)
+- [File](./reference/file)
 
 ## License
 
