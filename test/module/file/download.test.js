@@ -31,7 +31,7 @@ describe('dowload function', () => {
 
   describe('success case', () => {
     describe('valid params are specificed', () => {
-      it('should download successfully file', () => {
+      it('[File-5]should download successfully file', () => {
         const fileKey = '201809040332204A3B5797BC804153AFF1BBB78C86CAE9207';
         const filePath = './test/module/file/mock/download/test.png';
         nock('https://' + common.DOMAIN)
@@ -58,7 +58,7 @@ describe('dowload function', () => {
         message: 'The specified file (id: 201809040332204B5797BC804153AFF1BBB78C86CAE9207) not found.',
         errors: '{}'};
 
-      it('should return an error', () => {
+      it('[File-6]should return an error', () => {
         const fileKey = '201809040332204A3B5797BC804153AFF1BBB78C86CAE9207';
         const filePath = './test/module/file/mock/download/test.png';
         nock('https://' + common.DOMAIN)
@@ -72,7 +72,7 @@ describe('dowload function', () => {
       });
     });
     describe('invalid file path', () => {
-      it('should return error', () => {
+      it('[File-7]should return error', () => {
         const fileKey = '201809040332204A3B5797BC804153AFF1BBB78C86CAE9207';
         const filePath = './test/module/file/mock/testInvalidFilePath/test.png';
         nock('https://' + common.DOMAIN)
