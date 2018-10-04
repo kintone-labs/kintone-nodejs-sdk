@@ -30,7 +30,7 @@ describe('upload function', () => {
 
   describe('success case', () => {
     describe('valid params are specificed', () => {
-      it('should upload successfully file', () => {
+      it('[File-1] should upload successfully file', () => {
         const expectResult = {fileKey: 'dddde73js'};
         nock('https://' + common.DOMAIN)
           .post('/k/v1/file.json')
@@ -54,7 +54,7 @@ describe('upload function', () => {
   describe('error case', () => {
     describe('Required filepath', () => {
 
-      it('should throw an error when file path is invalid', () => {
+      it('[File-4] should throw an error when file path is invalid', () => {
         const errors = `File path is not valid`;
         nock('https://' + common.DOMAIN)
           .post('/k/v1/file.json')
