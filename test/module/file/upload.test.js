@@ -38,6 +38,10 @@ describe('upload function', () => {
             expect(type).toEqual(expect.stringContaining('multipart/form-data; boundary='));
             return true;
           })
+          .matchHeader('User-Agent', (agent) => {
+            expect(agent).toEqual(common.USER_AGENT);
+            return true;
+          })
           .matchHeader(common.PASSWORD_AUTH, (authHeader) => {
             expect(authHeader).toBe(Buffer.from(common.USERNAME + ':' + common.PASSWORD).toString('base64'));
             return true;

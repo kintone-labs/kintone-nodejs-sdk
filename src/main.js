@@ -3,11 +3,11 @@
  * kintone-nodeks-SDK
  */
 
-const {Connection, Auth, App, Record, BulkRequest, KintoneAPIException} = require('kintone-basejs-sdk');
+const {Auth, App, Record, BulkRequest, KintoneAPIException} = require('kintone-basejs-sdk');
 
 module.exports = {
   Auth,
-  Connection,
+  Connection: require('./connection/Connection'),
   App,
   Record,
   BulkRequest,

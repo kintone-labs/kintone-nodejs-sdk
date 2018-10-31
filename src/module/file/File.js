@@ -11,9 +11,6 @@ const path = require('path');
 const {Connection, KintoneAPIException} = require('kintone-basejs-sdk');
 
 const FileModule = require('kintone-basejs-sdk').File;
-
-const USER_AGENT = 'User-Agent';
-const USER_AGENT_BASE_VALUE = '{name}/{version}';
 /**
  * File module for NodeJS
  */
@@ -27,12 +24,6 @@ class File extends FileModule {
       throw new Error(`${connection}` +
                   `not an instance of kintoneConnection`);
     }
-    // set default user-agent
-    connection.setHeader(USER_AGENT,
-      USER_AGENT_BASE_VALUE
-        .replace('{name}', process.env.npm_package_name || 'kintone-nodejs-sdk')
-        .replace('{version}', process.env.npm_package_version || '(none)')
-    );
     super(connection);
   }
   /**
@@ -62,7 +53,7 @@ class File extends FileModule {
       const fileContent = fs.createReadStream(filePath);
       const fileName = path.basename(filePath);
 
-    return super.upload(fileName, fileContent);
+      return super.upload(fileName, fileContent);
     } catch (err) {
       throw new Error(`File path is not valid`);
     }
