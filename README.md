@@ -1,4 +1,6 @@
-# kintone-nodejs-sdk
+# kintone-nodejs-sdk (Deprecated)
+
+## This sdk has been deprecated. Please use [@kintone/kintone-js-sdk](https://www.npmjs.com/package/@kintone/kintone-js-sdk)
 
 ## Install
 
