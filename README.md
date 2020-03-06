@@ -1,6 +1,6 @@
-# kintone-nodejs-sdk (Deprecated)
+# ⚠️This package has been deprecated.Please use [@kintone/js-sdk/rest-api-client](https://github.com/kintone/js-sdk/tree/master/packages/rest-api-client) instead.
 
-## This sdk has been deprecated. Please use [@kintone/kintone-js-sdk](https://www.npmjs.com/package/@kintone/kintone-js-sdk)
+# kintone-nodejs-sdk (Deprecated)
 
 ## Install
 
