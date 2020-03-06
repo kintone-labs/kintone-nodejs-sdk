@@ -1,4 +1,4 @@
-# ⚠️This package has been deprecated.Please use [@kintone/js-sdk/rest-api-client](https://github.com/kintone/js-sdk/tree/master/packages/rest-api-client) instead.
+# ⚠️This package has been deprecated.Please use [@kintone/rest-api-client](https://github.com/kintone/js-sdk/tree/master/packages/rest-api-client) instead.
 
 # kintone-nodejs-sdk (Deprecated)
 
