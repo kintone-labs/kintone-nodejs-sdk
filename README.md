@@ -43,7 +43,7 @@ $ node run-your-file.js
 
 ## Documents
 
-[kintone-nodejs-sdk](https://kintone.github.io/kintone-nodejs-sdk/)
+[kintone-nodejs-sdk](https://kintone-labs.github.io/kintone-nodejs-sdk/)
 
 ## License
 
