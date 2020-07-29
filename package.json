@@ -2,14 +2,17 @@
   "name": "kintone-nodejs-sdk",
   "version": "0.1.2",
   "description": "The SDK of kintone REST API client on Node.js",
-  "main": "src/kintone-nodejs-sdk.js",
+  "main": "src/main.js",
   "license": "MIT",
   "author": "Cybozu, Inc.",
   "devDependencies": {
-    "kintone-basejs-sdk": "*"
+    "@cybozu/eslint-config": "^2.0.2",
+    "eslint": "^5.0.0",
+    "jest": "^23.4.1",
+    "nock": "^9.6.0"
   },
   "scripts": {
-    "test": "mocha $(find test -name 'test.*.js')"
+    "test": "jest ./test"
   },
   "repository": {
     "type": "git",
